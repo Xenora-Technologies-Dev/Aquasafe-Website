@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Aquasafe Trading - Your Trusted Partner for Premium Piping Solutions. PP-R & PP-RCT piping systems for water supply, cooling systems, and compressed air applications in UAE.">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Aquasafe Trading | Premium Piping Solutions in UAE</title>
     
     <!-- Bootstrap 5 CSS -->
@@ -23,11 +24,14 @@
     <!-- Critical CSS for preventing white flash - must be before body -->
     <style>
         html, body { background: #0a1628 !important; }
-        body.loading { background: linear-gradient(135deg, #0a1628 0%, #1a4d7c 100%) !important; }
+        body.loading { 
+            background: linear-gradient(135deg, #0a1628 0%, #1a4d7c 100%) !important; 
+            overflow: hidden !important;
+        }
         body.loading > *:not(#page-loader) { opacity: 0 !important; visibility: hidden !important; }
     </style>
 </head>
-<body class="loading" style="background: linear-gradient(135deg, #0a1628 0%, #1a4d7c 100%);">
+<body class="loading">
 
     <!-- ==================== PAGE LOADER ==================== -->
     <div id="page-loader">
@@ -98,7 +102,7 @@
                         <a class="nav-link" href="services.html">Services</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="products.html" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="products.html" id="productsDropdown" role="button" aria-expanded="false">
                             Products
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="productsDropdown">

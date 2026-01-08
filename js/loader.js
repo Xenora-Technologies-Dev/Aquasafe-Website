@@ -47,6 +47,17 @@
         hideLoader();
     });
     
+    // Also hide on DOMContentLoaded as backup
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM Content Loaded');
+        // Only hide if page is still loading after 1 second
+        setTimeout(() => {
+            if (document.body.classList.contains('loading')) {
+                hideLoader();
+            }
+        }, 1000);
+    });
+    
     // Fallback: hide loader after max time
     setTimeout(() => {
         if (loader && !loader.classList.contains('hidden')) {
@@ -75,9 +86,25 @@
             if (loader) {
                 // Use display:none which cannot be overridden
                 loader.style.display = 'none';
+                loader.classList.add('hidden');
+                
+                // Remove loading class and force content to show
                 document.body.classList.remove('loading');
-                // Reset body background to white for page content
                 document.body.style.background = '';
+                
+                // Force show all main content elements
+                const mainElements = [
+                    '.top-bar', '.navbar', '.hero-section', '.services-section', 
+                    '.counter-section', '.footer', 'main', 'section'
+                ];
+                
+                mainElements.forEach(selector => {
+                    const elements = document.querySelectorAll(selector);
+                    elements.forEach(el => {
+                        el.style.opacity = '1';
+                        el.style.visibility = 'visible';
+                    });
+                });
                 
                 // Force reflow
                 void document.body.offsetHeight;
@@ -99,7 +126,28 @@
             mainContent.style.opacity = '1';
             mainContent.style.transform = 'translateY(0)';
         }
+        
+        // Ensure all content is visible
+        document.body.style.opacity = '1';
+        document.body.style.visibility = 'visible';
     }
+    
+    // Emergency fallback to show content if anything goes wrong
+    setTimeout(() => {
+        if (document.body.classList.contains('loading')) {
+            console.warn('Emergency fallback: forcing content to show');
+            document.body.classList.remove('loading');
+            if (loader) {
+                loader.style.display = 'none';
+            }
+            // Force show all content
+            const allElements = document.querySelectorAll('*:not(#page-loader):not(.loader-content):not(.loader-spinner):not(.gear)');
+            allElements.forEach(el => {
+                el.style.opacity = '1';
+                el.style.visibility = 'visible';
+            });
+        }
+    }, 7000); // 7 second emergency fallback
     
     // Page transition for internal links
     document.addEventListener('DOMContentLoaded', function() {
