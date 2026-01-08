@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aquasafe Trading Projects - Our completed piping and MEP projects across UAE.">
+    <title>Our Projects | Aquasafe Trading</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Critical CSS for preventing flash - must be before body -->
+    <style>
+        html, body { background: #0a1628 !important; }
+        body.loading { background: linear-gradient(135deg, #0a1628 0%, #1a4d7c 100%) !important; }
+        body.loading > *:not(#page-loader) { opacity: 0 !important; visibility: hidden !important; }
+    </style>
+</head>
+<body class="loading" style="background: linear-gradient(135deg, #0a1628 0%, #1a4d7c 100%);">
+
+    <!-- ==================== PAGE LOADER ==================== -->
+    <div id="page-loader">
+        <div class="loader-content">
+            <div class="loader-spinner">
+                <div class="gear gear-1"><i class="fas fa-cog"></i></div>
+                <div class="gear gear-2"><i class="fas fa-cog"></i></div>
+            </div>
+            <div class="loader-text">LOADING</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TOP INFO BAR ==================== -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <ul class="top-bar-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:aquasafe@gmail.com">aquasafe@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+971507204715">+971 50 720 4715</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Al Ain, Abu Dhabi, UAE</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <ul class="top-bar-social">
+                        <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="https://wa.me/971507204715" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== STICKY NAVBAR ==================== -->
+    <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="products.html" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <li><a class="dropdown-item" href="products.html">📦 All Products</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="products-water-pumps.html">💧 Water Pumps</a></li>
+                            <li><a class="dropdown-item" href="products-drainage-system.html">🚰 Drainage System</a></li>
+                            <li><a class="dropdown-item" href="products-plumbing-system.html">🔧 Plumbing System</a></li>
+                            <li><a class="dropdown-item" href="products-water-heater.html">🔥 Water Heater</a></li>
+                            <li><a class="dropdown-item" href="products-valves.html">⚙️ Valves</a></li>
+                            <li><a class="dropdown-item" href="products-manhole-covers.html">🕳️ Manhole Covers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <a href="contact.html" class="btn btn-accent ms-lg-4">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE BANNER ==================== -->
+    <section class="page-banner">
+        <div class="page-banner-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="page-banner-title">Our Projects</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS INTRO ==================== -->
+    <section class="projects-intro section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <span class="section-subtitle">Our Portfolio</span>
+                    <h2 class="section-title">Completed Projects Across UAE</h2>
+                    <p class="section-description">
+                        We take pride in our diverse portfolio of successful projects, ranging from 
+                        residential buildings to large commercial and industrial complexes. Each project 
+                        showcases our commitment to quality and excellence in MEP solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECT STATISTICS ==================== -->
+    <section class="project-stats section-padding pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <div class="stat-card text-center">
+                        <div class="stat-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="stat-number counter" data-target="250">0</h3>
+                        <p class="stat-label">Projects Completed</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <div class="stat-card text-center">
+                        <div class="stat-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3 class="stat-number counter" data-target="50">0</h3>
+                        <p class="stat-label">Active Projects</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <div class="stat-card text-center">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="stat-number counter" data-target="180">0</h3>
+                        <p class="stat-label">Happy Clients</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card text-center">
+                        <div class="stat-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3 class="stat-number counter" data-target="7">0</h3>
+                        <p class="stat-label">Emirates Covered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS GALLERY ==================== -->
+    <section class="projects-gallery section-padding bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <span class="section-subtitle">Gallery</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                </div>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="project-filter text-center">
+                        <button class="filter-btn active" data-filter="all">All Projects</button>
+                        <button class="filter-btn" data-filter="residential">Residential</button>
+                        <button class="filter-btn" data-filter="commercial">Commercial</button>
+                        <button class="filter-btn" data-filter="industrial">Industrial</button>
+                        <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="row" id="projects-grid">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="commercial">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" 
+                                 alt="Al Ain Commercial Complex" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Commercial</span>
+                                    <h4 class="project-title">Al Ain Commercial Complex</h4>
+                                    <p class="project-desc">Complete PP-R piping system installation</p>
+                                    <a href="#" class="btn btn-accent btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="residential">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop" 
+                                 alt="Luxury Residential Tower" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Residential</span>
+                                    <h4 class="project-title">Luxury Residential Tower</h4>
+                                    <p class="project-desc">Water supply & drainage systems</p>
+                                    <a href="#" class="btn btn-accent btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="industrial">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop" 
+                                 alt="Industrial Manufacturing Plant" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Industrial</span>
+                                    <h4 class="project-title">Industrial Manufacturing Plant</h4>
+                                    <p class="project-desc">PP-RCT compressed air piping</p>
+                                    <a href="#" class="btn btn-accent btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="infrastructure">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop" 
+                                 alt="Abu Dhabi Infrastructure" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Infrastructure</span>
+                                    <h4 class="project-title">Abu Dhabi Infrastructure</h4>
+                                    <p class="project-desc">Underground drainage network</p>
+                                    <a href="#" class="btn btn-accent btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="commercial">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&h=400&fit=crop" 
+                                 alt="Shopping Mall MEP" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Commercial</span>
+                                    <h4 class="project-title">Shopping Mall MEP</h4>
+                                    <p class="project-desc">Complete MEP materials supply</p>
+                                    <a href="#" class="btn btn-accent btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="residential">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=400&fit=crop" 
+                                 alt="Villa Community Project" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Residential</span>
+                                    <h4 class="project-title">Villa Community Project</h4>
+                                    <p class="project-desc">Plumbing systems for 50+ villas</p>
+                                    <a href="#" class="btn btn-accent btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 7 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="industrial">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop" 
+                                 alt="Food Processing Factory" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Industrial</span>
+                                    <h4 class="project-title">Food Processing Factory</h4>
+                                    <p class="project-desc">Hygienic piping installation</p>
+                                    <a href="#" class="btn btn-accent btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 8 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="infrastructure">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" 
+                                 alt="Water Treatment Plant" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Infrastructure</span>
+                                    <h4 class="project-title">Water Treatment Plant</h4>
+                                    <p class="project-desc">Pumping systems & piping</p>
+                                    <a href="#" class="btn btn-accent btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 9 -->
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="commercial">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" 
+                                 alt="Office Building Complex" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <span class="project-category">Commercial</span>
+                                    <h4 class="project-title">Office Building Complex</h4>
+                                    <p class="project-desc">Full plumbing & HVAC piping</p>
+                                    <a href="#" class="btn btn-accent btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        Discuss Your Project <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="testimonials-section section-padding">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <span class="section-subtitle">Testimonials</span>
+                    <h2 class="section-title">What Our Clients Say</h2>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Aquasafe Trading provided excellent PP-R piping materials for our residential project. 
+                            Their team was professional and delivery was always on time."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h5 class="author-name">Ahmed Al Mansouri</h5>
+                                <span class="author-title">Project Manager, Al Ain Construction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The quality of POLYMUTAN products exceeded our expectations. Aquasafe has become 
+                            our go-to supplier for all MEP materials in Abu Dhabi."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h5 class="author-name">Mohammed Rashid</h5>
+                                <span class="author-title">MEP Contractor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Excellent service and competitive prices. The Grundfos pumps we purchased have been 
+                            running flawlessly. Highly recommended!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h5 class="author-name">Khalid Ibrahim</h5>
+                                <span class="author-title">Building Maintenance Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="cta-section">
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="cta-content">
+                        <h2 class="cta-title">Have a Project in Mind?</h2>
+                        <p class="cta-text">
+                            Let us help you with high-quality piping materials and expert guidance. 
+                            Contact us today to discuss your project requirements.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="contact.html" class="btn btn-accent btn-lg cta-btn">
+                        <i class="fas fa-paper-plane me-2"></i> Start Your Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer About -->
+                    <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                        <div class="footer-widget">
+                            <a class="footer-logo" href="index.html">
+                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                            </a>
+                            <p class="footer-about-text">
+                                Aquasafe Trading is the leading company supplying specialized MEP materials 
+                                in United Arab Emirates. We provide high-quality PP-R & PP-RCT piping systems 
+                                for water supply, cooling systems, and compressed air applications.
+                            </p>
+                            <div class="footer-social">
+                                <a href="https://facebook.com/#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://instagram.com/#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                                <a href="https://linkedin.com/#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://youtube.com/#" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                                <a href="https://wa.me/971507204715" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer Links -->
+                    <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                        <div class="footer-widget">
+                            <h4 class="footer-title">Quick Links</h4>
+                            <ul class="footer-links">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="products.html">Products</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer Services -->
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <div class="footer-widget">
+                            <h4 class="footer-title">Our Services</h4>
+                            <ul class="footer-links">
+                                <li><a href="services.html">Product Supply & Distribution</a></li>
+                                <li><a href="services.html">Delivery Services</a></li>
+                                <li><a href="services.html">Consultation & Selection</a></li>
+                                <li><a href="services.html">Custom Orders & Sourcing</a></li>
+                                <li><a href="services.html">Technical Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer Contact -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h4 class="footer-title">Contact Info</h4>
+                            <ul class="footer-contact">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Al Ain, Abu Dhabi, UAE</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone-alt"></i>
+                                    <a href="tel:+971507204715">+971 50 720 4715</a>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:aquasafe@gmail.com">aquasafe@gmail.com</a>
+                                </li>
+                                <li>
+                                    <i class="fab fa-whatsapp"></i>
+                                    <a href="https://wa.me/971507204715" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-6">
+                        <p class="copyright">
+                            &copy; 2026 Aquasafe Trading. All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-12 order-md-last order-lg-0">
+                        <p class="developer-credit">
+                            Designed & Developed by <a href="https://xenora.tech" target="_blank" rel="noopener noreferrer">XENORA Technologies</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <ul class="footer-bottom-links">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/loader.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
