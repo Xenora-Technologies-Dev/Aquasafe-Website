@@ -25,20 +25,22 @@
     --font-primary: 'Rajdhani', sans-serif;
     --font-secondary: 'Roboto', sans-serif;
     
-    /* Spacing */
-    --section-padding: 100px;
-    --section-padding-sm: 60px;
+    /* Spacing - Responsive */
+    --section-padding: clamp(40px, 8vw, 100px);
+    --section-padding-sm: clamp(30px, 5vw, 60px);
     
-    /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-normal: 0.3s ease;
-    --transition-slow: 0.5s ease;
+    /* Transitions - Enhanced for smooth animations */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
     /* Shadows */
     --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.15);
     --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.2);
     --shadow-accent: 0 5px 20px rgba(244, 121, 32, 0.3);
+    --shadow-glow: 0 0 30px rgba(244, 121, 32, 0.4);
     
     /* Border Radius */
     --radius-sm: 4px;
@@ -140,6 +142,19 @@ button {
     border: none;
     background: none;
     font-family: inherit;
+}
+
+.form-control,
+.form-select {
+    min-height: 44px;
+    font-size: 16px;
+}
+
+@media (max-width: 576px) {
+    .form-control,
+    .form-select {
+        font-size: 16px;
+    }
 }
 
 .text-accent {
@@ -302,7 +317,7 @@ body:not(.loading) .hero-section {
 .top-bar-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: clamp(10px, 3vw, 25px);
     margin: 0;
 }
 
@@ -368,6 +383,7 @@ body:not(.loading) .hero-section {
     padding: 10px 0;
     box-shadow: var(--shadow-md);
     background: rgba(255, 255, 255, 0.98);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
@@ -375,6 +391,70 @@ body:not(.loading) .hero-section {
     display: flex;
     align-items: center;
     gap: 10px;
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: all var(--transition-normal);
+    animation: brandPulseGlow 3s ease-in-out infinite;
+}
+
+.navbar-brand::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-blue) 100%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--transition-normal);
+}
+
+.navbar-brand::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-blue) 100%) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    animation: borderGlowPulse 2s ease-in-out infinite;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.08) translateY(-2px);
+    background: rgba(244, 121, 32, 0.05);
+    box-shadow: 0 8px 25px rgba(244, 121, 32, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.navbar-brand:hover::before {
+    opacity: 0.15;
+}
+
+.navbar-brand:hover::after {
+    opacity: 1;
+}
+
+@keyframes brandPulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(244, 121, 32, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(244, 121, 32, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+}
+
+@keyframes borderGlowPulse {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 .brand-logo {
@@ -382,6 +462,14 @@ body:not(.loading) .hero-section {
     width: auto;
     object-fit: contain;
     transition: var(--transition-normal);
+    filter: drop-shadow(0 2px 8px rgba(244, 121, 32, 0.2));
+    position: relative;
+    z-index: 1;
+}
+
+.navbar-brand:hover .brand-logo {
+    filter: drop-shadow(0 4px 15px rgba(244, 121, 32, 0.4));
+    transform: scale(1.05);
 }
 
 .brand-icon {
@@ -484,6 +572,18 @@ body:not(.loading) .hero-section {
     padding: 12px 30px;
     border-radius: var(--radius-sm);
     transition: var(--transition-normal);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 576px) {
+    .btn {
+        font-size: 0.85rem;
+        padding: 10px 20px;
+        letter-spacing: 0.5px;
+    }
 }
 
 .btn-accent {
@@ -573,16 +673,18 @@ body:not(.loading) .hero-section {
 
 .hero-title {
     color: var(--white);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(2rem, 6vw, 4.5rem);
     line-height: 1.1;
     margin-bottom: 25px;
+    font-weight: 700;
 }
 
 .hero-description {
-    font-size: 1.25rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.25rem);
     color: var(--gray-300);
     max-width: 600px;
     margin-bottom: 40px;
+    line-height: 1.6;
 }
 
 .hero-buttons {
@@ -650,6 +752,18 @@ body:not(.loading) .hero-section {
     padding: var(--section-padding) 0;
 }
 
+@media (max-width: 1199.98px) {
+    .section-padding {
+        padding: clamp(50px, 7vw, 80px) 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .section-padding {
+        padding: clamp(35px, 6vw, 50px) 0;
+    }
+}
+
 .section-subtitle {
     display: inline-block;
     font-family: var(--font-primary);
@@ -679,6 +793,9 @@ body:not(.loading) .hero-section {
 
 .section-title {
     margin-bottom: 20px;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .section-title.light {
@@ -686,10 +803,11 @@ body:not(.loading) .hero-section {
 }
 
 .section-description {
-    font-size: 1.125rem;
+    font-size: clamp(0.95rem, 2vw, 1.125rem);
     color: var(--gray-600);
     max-width: 700px;
     margin: 0 auto;
+    line-height: 1.6;
 }
 
 .section-description.light {
@@ -711,7 +829,7 @@ body:not(.loading) .hero-section {
 
 .service-card {
     background: var(--white);
-    padding: 40px 30px;
+    padding: clamp(20px, 4vw, 40px);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     text-align: center;
@@ -744,9 +862,9 @@ body:not(.loading) .hero-section {
 }
 
 .service-icon {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 25px;
+    width: clamp(60px, 15vw, 90px);
+    height: clamp(60px, 15vw, 90px);
+    margin: 0 auto 20px;
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
     border-radius: 50%;
     display: flex;
@@ -772,7 +890,8 @@ body:not(.loading) .hero-section {
 
 .service-title {
     margin-bottom: 15px;
-    font-size: 1.375rem;
+    font-size: clamp(1rem, 3vw, 1.375rem);
+    font-weight: 600;
 }
 
 .service-description {
@@ -818,7 +937,7 @@ body:not(.loading) .hero-section {
 
 .about-image img {
     width: 100%;
-    height: 500px;
+    height: clamp(300px, 60vw, 500px);
     object-fit: cover;
 }
 
@@ -836,7 +955,7 @@ body:not(.loading) .hero-section {
 .experience-number {
     display: block;
     font-family: var(--font-primary);
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 700;
     color: var(--white);
     line-height: 1;
@@ -863,7 +982,7 @@ body:not(.loading) .hero-section {
 }
 
 .about-content {
-    padding-left: 30px;
+    padding-left: clamp(0px, 3vw, 30px);
 }
 
 .about-text {
@@ -938,7 +1057,7 @@ body:not(.loading) .hero-section {
 
 .counter-number {
     font-family: var(--font-primary);
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 700;
     color: var(--white);
     line-height: 1;
@@ -951,11 +1070,11 @@ body:not(.loading) .hero-section {
 
 .counter-label {
     font-family: var(--font-primary);
-    font-size: 1.125rem;
+    font-size: clamp(0.85rem, 2vw, 1.125rem);
     font-weight: 600;
     color: var(--gray-300);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 /* ==================== PROJECTS SECTION ==================== */
@@ -979,7 +1098,7 @@ body:not(.loading) .hero-section {
 
 .project-image img {
     width: 100%;
-    height: 250px;
+    height: clamp(150px, 40vw, 250px);
     object-fit: cover;
     transition: var(--transition-slow);
 }
@@ -1007,15 +1126,15 @@ body:not(.loading) .hero-section {
 }
 
 .project-link {
-    width: 60px;
-    height: 60px;
+    width: clamp(45px, 10vw, 60px);
+    height: clamp(45px, 10vw, 60px);
     background: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--accent-orange);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     transform: scale(0);
     transition: var(--transition-normal);
 }
@@ -1073,7 +1192,7 @@ body:not(.loading) .hero-section {
 
 .testimonial-content {
     background: var(--white);
-    padding: 50px 40px;
+    padding: clamp(25px, 5vw, 50px) clamp(20px, 4vw, 40px);
     border-radius: var(--radius-lg);
     text-align: center;
     position: relative;
@@ -1090,11 +1209,11 @@ body:not(.loading) .hero-section {
 }
 
 .testimonial-text {
-    font-size: 1.25rem;
+    font-size: clamp(0.95rem, 2vw, 1.25rem);
     font-style: italic;
     color: var(--gray-700);
     line-height: 1.8;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     position: relative;
     z-index: 1;
 }
@@ -1108,11 +1227,12 @@ body:not(.loading) .hero-section {
 }
 
 .author-image {
-    width: 70px;
-    height: 70px;
+    width: clamp(50px, 12vw, 70px);
+    height: clamp(50px, 12vw, 70px);
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--accent-orange);
+    flex-shrink: 0;
 }
 
 .author-info {
@@ -1121,7 +1241,7 @@ body:not(.loading) .hero-section {
 
 .author-name {
     font-family: var(--font-primary);
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     font-weight: 700;
     color: var(--primary-dark);
     margin-bottom: 5px;
@@ -1268,7 +1388,7 @@ body:not(.loading) .hero-section {
 
 .contact-form-wrapper {
     background: var(--white);
-    padding: 50px;
+    padding: clamp(25px, 5vw, 50px);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
 }
@@ -1282,7 +1402,7 @@ body:not(.loading) .hero-section {
 
 .form-control,
 .form-select {
-    padding: 15px 20px;
+    padding: clamp(12px, 2vw, 15px) clamp(15px, 3vw, 20px);
     border: 2px solid var(--gray-200);
     border-radius: var(--radius-md);
     font-size: 1rem;
@@ -1330,10 +1450,15 @@ textarea.form-control {
 }
 
 .footer-logo {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 10px;
     margin-bottom: 25px;
+}
+
+.footer-logo::before,
+.footer-logo::after {
+    display: none !important;
 }
 
 .footer-logo .brand-logo {
@@ -1341,6 +1466,11 @@ textarea.form-control {
     width: auto;
     object-fit: contain;
     filter: brightness(0) invert(1);
+}
+
+.footer-logo .brand-logo::before,
+.footer-logo .brand-logo::after {
+    display: none !important;
 }
 
 .footer-logo .brand-icon {
@@ -1383,10 +1513,10 @@ textarea.form-control {
 
 .footer-title {
     font-family: var(--font-primary);
-    font-size: 1.375rem;
+    font-size: clamp(1rem, 2.5vw, 1.375rem);
     font-weight: 700;
     color: var(--white);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     position: relative;
     padding-bottom: 15px;
 }
@@ -1494,6 +1624,152 @@ textarea.form-control {
     color: var(--accent-orange);
 }
 
+/* ==================== MODERN FRAMED LOGO ==================== */
+/* Premium short logo with modern frame - responsive design */
+
+.logo-frame-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.logo-frame {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: transparent;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0 10px 40px rgba(244, 121, 32, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    animation: logoFrameHover 3s ease-in-out infinite;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-blue) 100%) 1;
+    pointer-events: none;
+}
+
+.logo-frame::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-blue));
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.logo-frame:hover::after {
+    opacity: 0.15;
+}
+
+.logo-frame:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 50px rgba(244, 121, 32, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.logo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 15px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-frame:hover img {
+    filter: drop-shadow(0 8px 20px rgba(244, 121, 32, 0.4));
+    transform: scale(1.1);
+}
+
+@keyframes logoFrameHover {
+    0%, 100% {
+        box-shadow: 0 10px 40px rgba(244, 121, 32, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 12px 45px rgba(244, 121, 32, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+}
+
+/* Logo frame gradient border animation */
+.logo-frame-border-glow {
+    position: absolute;
+    inset: -3px;
+    border-radius: 16px;
+    background: linear-gradient(45deg, var(--accent-orange), var(--accent-blue), var(--accent-orange));
+    background-size: 300% 300%;
+    opacity: 0;
+    z-index: -2;
+    animation: borderGlow 4s ease infinite;
+}
+
+@keyframes borderGlow {
+    0% {
+        opacity: 0;
+        background-position: 0% 50%;
+    }
+    50% {
+        opacity: 0.3;
+        background-position: 100% 50%;
+    }
+    100% {
+        opacity: 0;
+        background-position: 0% 50%;
+    }
+}
+
+/* Responsive sizing for different screen sizes */
+@media (max-width: 768px) {
+    .logo-frame {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .logo-frame img {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo-frame {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .logo-frame img {
+        padding: 10px;
+    }
+}
+
+/* Tablet size */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .logo-frame {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Large desktop size */
+@media (min-width: 1400px) {
+    .logo-frame {
+        width: 150px;
+        height: 150px;
+    }
+}
+
 /* ==================== BACK TO TOP ==================== */
 .back-to-top {
     position: fixed;
@@ -1585,6 +1861,14 @@ textarea.form-control {
     
     .top-bar-info {
         margin-bottom: 10px;
+    }
+    
+    .navbar-brand {
+        padding: 6px 10px;
+    }
+    
+    .brand-logo {
+        height: 42px;
     }
     
     .navbar-collapse {
@@ -1698,6 +1982,15 @@ textarea.form-control {
         align-items: center;
     }
     
+    .navbar-brand {
+        padding: 6px 10px;
+        border-radius: 10px;
+    }
+    
+    .brand-logo {
+        height: 40px;
+    }
+    
     .hero-title {
         font-size: 2.25rem;
     }
@@ -1794,6 +2087,42 @@ textarea.form-control {
         height: 45px;
         bottom: 20px;
         right: 20px;
+    }
+}
+
+/* Tablet specific responsive sizing (769px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-brand {
+        padding: 7px 11px;
+        border-radius: 11px;
+    }
+    
+    .brand-logo {
+        height: 45px;
+    }
+}
+
+/* Desktop specific responsive sizing (1025px and above) */
+@media (min-width: 1025px) {
+    .navbar-brand {
+        padding: 8px 12px;
+        border-radius: 12px;
+    }
+    
+    .brand-logo {
+        height: 50px;
+    }
+}
+
+/* Large desktop specific sizing (1400px and above) */
+@media (min-width: 1400px) {
+    .navbar-brand {
+        padding: 9px 13px;
+        border-radius: 13px;
+    }
+    
+    .brand-logo {
+        height: 55px;
     }
 }
 
@@ -1914,6 +2243,8 @@ textarea.form-control {
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: var(--transition-normal);
+    display: flex;
+    flex-direction: column;
     height: 100%;
 }
 
@@ -1925,7 +2256,7 @@ textarea.form-control {
 .product-image {
     position: relative;
     overflow: hidden;
-    height: 250px;
+    height: clamp(150px, 40vw, 250px);
 }
 
 .product-image img {
@@ -1958,7 +2289,10 @@ textarea.form-control {
 }
 
 .product-info {
-    padding: 25px;
+    padding: clamp(15px, 3vw, 25px);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-category {
@@ -2832,6 +3166,11 @@ textarea.form-control {
         margin-bottom: 30px;
     }
     
+    .footer-widget::before,
+    .footer-widget::after {
+        display: none !important;
+    }
+    
     .footer-bottom .row {
         text-align: center;
     }
@@ -3046,5 +3385,777 @@ textarea.form-control {
     body:not(.loading) * {
         opacity: inherit !important;
         visibility: inherit !important;
+    }
+}
+
+/* ==================== MODERN ANIMATIONS ==================== */
+/* 
+ * Professional, subtle animations for Aquasafe website
+ * Designed to match water/industrial business theme
+ */
+
+/* ===== Reveal Animations ===== */
+/* Fade In Up - Default reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade In Left */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade In Right */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale In */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger delay utilities */
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+.delay-5 { transition-delay: 0.5s !important; }
+
+/* ===== Enhanced Button Animations ===== */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-accent {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-accent::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--accent-orange) 100%);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-accent:hover::after {
+    opacity: 1;
+}
+
+/* Water Ripple Effect on Buttons */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: ripple-effect 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ===== Card Hover Effects ===== */
+/* Enhanced Service Card Animation */
+.service-card {
+    will-change: transform, box-shadow;
+}
+
+.service-card:hover {
+    transform: translateY(-12px) scale(1.02);
+}
+
+.service-card:hover .service-icon {
+    animation: pulse-glow 1s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(244, 121, 32, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(244, 121, 32, 0.2);
+    }
+}
+
+/* Project Card Enhanced Hover */
+.project-card {
+    will-change: transform, box-shadow;
+}
+
+.project-card:hover .project-overlay {
+    background: linear-gradient(135deg, rgba(10, 22, 40, 0.85) 0%, rgba(244, 121, 32, 0.75) 100%);
+}
+
+.project-card:hover .project-link {
+    transform: scale(1) rotate(0deg);
+    animation: bounce-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounce-in {
+    0% { transform: scale(0) rotate(-180deg); }
+    50% { transform: scale(1.2) rotate(10deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ===== Icon Animations ===== */
+/* Floating animation for icons */
+.icon-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Icon spin on hover */
+.icon-hover-spin:hover i {
+    animation: spin-once 0.5s ease-in-out;
+}
+
+@keyframes spin-once {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Icon pulse */
+.icon-pulse {
+    animation: icon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* ===== Water-Themed Animations ===== */
+/* Water Wave Effect */
+.water-wave {
+    position: relative;
+    overflow: hidden;
+}
+
+.water-wave::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--accent-blue), 
+        transparent);
+    animation: wave-flow 2s linear infinite;
+}
+
+@keyframes wave-flow {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
+
+/* Droplet animation */
+.droplet::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+    opacity: 0;
+    animation: droplet-fall 2s ease-in-out infinite;
+}
+
+@keyframes droplet-fall {
+    0% { top: -10px; opacity: 0; }
+    20% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* ===== Text Animations ===== */
+/* Gradient text animation */
+.text-gradient-animate {
+    background: linear-gradient(90deg, var(--accent-orange), var(--accent-blue), var(--accent-orange));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+/* Typing cursor effect */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ===== Navigation Enhancements ===== */
+/* Nav link underline animation */
+.navbar-nav .nav-link {
+    position: relative;
+}
+
+.navbar-nav .nav-link::after {
+    transform-origin: right center;
+    transform: scaleX(0);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    transform-origin: left center;
+    transform: scaleX(1);
+}
+
+/* ===== Loading & Progress Animations ===== */
+/* Shimmer loading effect */
+.shimmer {
+    background: linear-gradient(90deg, 
+        var(--gray-200) 25%, 
+        var(--gray-100) 50%, 
+        var(--gray-200) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+}
+
+/* ===== Counter Section Enhancements ===== */
+.counter-item {
+    will-change: transform;
+    transition: transform 0.3s ease;
+}
+
+.counter-item:hover {
+    transform: translateY(-5px);
+}
+
+.counter-item:hover .counter-icon {
+    animation: pulse-glow 1s ease-in-out infinite;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* ===== Footer Animations ===== */
+.footer-social a {
+    will-change: transform, background;
+}
+
+.footer-social a:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.footer-links a {
+    will-change: padding-left, color;
+}
+
+/* ===== Scroll Progress Indicator ===== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-orange), var(--accent-blue));
+    z-index: 9999;
+    transition: width 0.1s linear;
+}
+
+/* ===== Prefers Reduced Motion ===== */
+/* Respect user's motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ===== Performance Optimizations ===== */
+/* GPU acceleration for animated elements */
+.service-card,
+.project-card,
+.btn,
+.footer-social a,
+.counter-item,
+.navbar {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Disable animations on low-powered devices */
+@media (max-width: 768px) {
+    .icon-float,
+    .water-wave::after {
+        animation: none;
+    }
+}
+
+/* ==================== AQUASAFE BUSINESS THEMED ANIMATIONS ==================== */
+/* Water-themed animations specifically designed for piping & plumbing business */
+
+/* ===== Water Flow Effect - For Hero & Section Headers ===== */
+.water-flow-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.water-flow-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(26, 77, 124, 0.1) 25%,
+        rgba(26, 77, 124, 0.2) 50%,
+        rgba(26, 77, 124, 0.1) 75%,
+        transparent 100%);
+    animation: waterFlowHorizontal 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes waterFlowHorizontal {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
+}
+
+/* ===== Pipe Connection Animation - For Service Cards ===== */
+.pipe-connect {
+    position: relative;
+}
+
+.pipe-connect::before,
+.pipe-connect::after {
+    content: '';
+    position: absolute;
+    background: var(--accent-blue);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pipe-connect::before {
+    top: 50%;
+    left: -20px;
+    width: 20px;
+    height: 3px;
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: right center;
+}
+
+.pipe-connect::after {
+    top: 50%;
+    right: -20px;
+    width: 20px;
+    height: 3px;
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: left center;
+}
+
+.pipe-connect:hover::before,
+.pipe-connect:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(1);
+}
+
+/* ===== Water Droplet Effect - For Product Cards ===== */
+.droplet-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.droplet-effect::after {
+    content: '💧';
+    position: absolute;
+    top: -30px;
+    right: 20px;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: translateY(0);
+}
+
+.droplet-effect:hover::after {
+    opacity: 1;
+    animation: dropletBounce 1s ease-in-out;
+}
+
+@keyframes dropletBounce {
+    0% { transform: translateY(-20px); opacity: 0; }
+    30% { transform: translateY(10px); opacity: 1; }
+    50% { transform: translateY(0); }
+    70% { transform: translateY(5px); }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== Flowing Pipe Divider - Section Separator ===== */
+.pipe-divider {
+    position: relative;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-blue), var(--primary-color));
+    margin: 2rem 0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.pipe-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+    animation: pipeFlow 2s linear infinite;
+}
+
+@keyframes pipeFlow {
+    0% { left: -50%; }
+    100% { left: 100%; }
+}
+
+/* ===== Water Pressure Gauge Animation - For Counter Section ===== */
+.pressure-gauge {
+    position: relative;
+}
+
+.pressure-gauge .counter-icon {
+    position: relative;
+}
+
+.pressure-gauge .counter-icon::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border: 3px solid transparent;
+    border-top-color: var(--accent-orange);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pressure-gauge:hover .counter-icon::before {
+    opacity: 1;
+    animation: pressureSpin 1.5s linear infinite;
+}
+
+@keyframes pressureSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== Valve Turn Animation - For Interactive Elements ===== */
+.valve-turn {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.valve-turn:hover {
+    transform: rotate(90deg);
+}
+
+.valve-turn:hover i {
+    animation: valvePulse 0.5s ease;
+}
+
+@keyframes valvePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ===== Water Tank Fill Effect - For Progress/Stats ===== */
+.tank-fill {
+    position: relative;
+    background: linear-gradient(to top, var(--accent-blue) 0%, transparent 0%);
+    background-size: 100% 200%;
+    background-position: bottom;
+    transition: background-position 1s ease-out;
+}
+
+.tank-fill.filled {
+    background-position: top;
+}
+
+/* ===== Bubble Rise Animation - For Background Accents ===== */
+.bubble-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -20px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(26, 77, 124, 0.3));
+    border-radius: 50%;
+    opacity: 0;
+    animation: bubbleRise 4s ease-in infinite;
+}
+
+.bubble:nth-child(1) { left: 10%; width: 20px; height: 20px; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 30%; width: 15px; height: 15px; animation-delay: 1s; }
+.bubble:nth-child(3) { left: 50%; width: 25px; height: 25px; animation-delay: 2s; }
+.bubble:nth-child(4) { left: 70%; width: 18px; height: 18px; animation-delay: 0.5s; }
+.bubble:nth-child(5) { left: 90%; width: 12px; height: 12px; animation-delay: 1.5s; }
+
+@keyframes bubbleRise {
+    0% { transform: translateY(0) scale(0); opacity: 0; }
+    10% { opacity: 0.6; }
+    50% { opacity: 0.4; }
+    100% { transform: translateY(-500px) scale(1); opacity: 0; }
+}
+
+/* ===== Water Ripple Click Effect ===== */
+.water-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.water-ripple::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(26, 77, 124, 0.3) 0%, transparent 70%);
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.water-ripple:active::after {
+    animation: waterRippleExpand 0.6s ease-out;
+}
+
+@keyframes waterRippleExpand {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+/* ===== Pipe Joint Connector - Between Sections ===== */
+.pipe-joint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.pipe-joint::before,
+.pipe-joint::after {
+    content: '';
+    flex: 1;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-blue));
+}
+
+.pipe-joint::before {
+    background: linear-gradient(90deg, transparent, var(--primary-color));
+}
+
+.pipe-joint::after {
+    background: linear-gradient(90deg, var(--accent-blue), transparent);
+}
+
+.pipe-joint-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 0 1rem;
+    box-shadow: 0 4px 15px rgba(244, 121, 32, 0.4);
+    animation: jointPulse 2s ease-in-out infinite;
+}
+
+@keyframes jointPulse {
+    0%, 100% { box-shadow: 0 4px 15px rgba(244, 121, 32, 0.4); }
+    50% { box-shadow: 0 4px 25px rgba(244, 121, 32, 0.6), 0 0 40px rgba(244, 121, 32, 0.2); }
+}
+
+/* ===== Service Card Water Theme Enhancement ===== */
+.service-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to top, rgba(26, 77, 124, 0.05), transparent);
+    transition: height 0.5s ease;
+}
+
+.service-card:hover::before {
+    height: 100%;
+}
+
+/* ===== Product Card Water Overlay ===== */
+.project-card .project-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+        rgba(10, 22, 40, 0) 0%,
+        rgba(26, 77, 124, 0.1) 50%,
+        rgba(10, 22, 40, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.project-card:hover .project-image::before {
+    opacity: 1;
+    animation: waterShimmer 1.5s ease-in-out;
+}
+
+@keyframes waterShimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ===== Hero Section Water Animation ===== */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: heroWave 10s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes heroWave {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-20px); }
+}
+
+/* ===== Accessibility - Disable water animations for reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    .water-flow-bg::before,
+    .pipe-divider::before,
+    .bubble,
+    .hero-section::after,
+    .pipe-joint-icon,
+    .pressure-gauge .counter-icon::before {
+        animation: none;
+    }
+    
+    .droplet-effect:hover::after,
+    .project-card:hover .project-image::before {
+        animation: none;
+        opacity: 0;
     }
 }

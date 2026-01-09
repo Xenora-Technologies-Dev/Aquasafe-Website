@@ -1,10 +1,37 @@
 /**
  * Main JavaScript File
  * AquaSafe Industries Website
+ * Enhanced with modern animations and performance optimizations
  */
 
 (function() {
     'use strict';
+
+    // ==================== PERFORMANCE UTILITIES ====================
+    // Debounce function for scroll/resize events
+    function debounce(func, wait = 10) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Throttle function for high-frequency events
+    function throttle(func, limit = 100) {
+        let inThrottle;
+        return function(...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
 
     // ==================== DOM ELEMENTS ====================
     const navbar = document.getElementById('mainNavbar');
@@ -627,6 +654,143 @@
         });
     }
 
+    // ==================== MODERN REVEAL ANIMATIONS ====================
+    function initRevealAnimations() {
+        // Select all elements with reveal classes
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        
+        if (revealElements.length === 0) return;
+        
+        // Create Intersection Observer for reveal animations
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    // Optionally unobserve after revealing (for one-time animation)
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        // Observe all reveal elements
+        revealElements.forEach(el => revealObserver.observe(el));
+    }
+
+    // ==================== SCROLL PROGRESS INDICATOR ====================
+    function initScrollProgress() {
+        // Create scroll progress element if it doesn't exist
+        let progressBar = document.querySelector('.scroll-progress');
+        if (!progressBar) {
+            progressBar = document.createElement('div');
+            progressBar.className = 'scroll-progress';
+            document.body.prepend(progressBar);
+        }
+        
+        // Update progress on scroll (throttled for performance)
+        const updateProgress = throttle(() => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        }, 16); // ~60fps
+        
+        window.addEventListener('scroll', updateProgress, { passive: true });
+    }
+
+    // ==================== BUTTON RIPPLE EFFECT ====================
+    function initButtonRipple() {
+        const buttons = document.querySelectorAll('.btn');
+        
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Don't create ripple if button has disabled state
+                if (this.disabled) return;
+                
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Create ripple element
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                this.appendChild(ripple);
+                
+                // Remove ripple after animation
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    }
+
+    // ==================== SMOOTH SCROLL ANCHOR LINKS (Enhanced) ====================
+    function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        if (bsCollapse) {
+                            bsCollapse.hide();
+                        }
+                    }
+                }
+            });
+        });
+    }
+
+    // ==================== LAZY LOADING FOR IMAGES ====================
+    function initLazyLoading() {
+        // Check for native lazy loading support
+        if ('loading' in HTMLImageElement.prototype) {
+            // Use native lazy loading
+            const images = document.querySelectorAll('img[data-src]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+                img.loading = 'lazy';
+            });
+        } else {
+            // Fallback with Intersection Observer
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        imageObserver.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '50px 0px' });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    }
+
     // ==================== INITIALIZATION ====================
     function init() {
         createParticles();
@@ -634,13 +798,20 @@
         initDropdownHover();
         initMobileDropdown();
         initProductFilter();
+        initRevealAnimations();      // New: Reveal animations
+        initScrollProgress();         // New: Scroll progress bar
+        initButtonRipple();           // New: Button ripple effect
+        initSmoothScroll();           // New: Enhanced smooth scroll
+        initLazyLoading();            // New: Lazy loading
         handleNavbarScroll();
         handleBackToTop();
-        setCurrentPageActive(); // Set active nav based on current page
+        setCurrentPageActive();
         
         // Ensure content is visible
         document.body.style.opacity = '1';
         document.body.style.visibility = 'visible';
+        
+        console.log('Aquasafe website initialized successfully');
     }
     
     // ==================== SET ACTIVE NAV BASED ON CURRENT PAGE ====================

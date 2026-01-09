@@ -4,7 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Aquasafe Trading - Your Trusted Partner for Premium Piping Solutions. PP-R & PP-RCT piping systems for water supply, cooling systems, and compressed air applications in UAE.">
+    <meta name="keywords" content="PP-R pipes, PP-RCT pipes, plumbing solutions, water supply systems, UAE piping, Aquasafe Trading, Al Ain, Abu Dhabi">
+    <meta name="author" content="Aquasafe Trading">
+    <meta name="robots" content="index, follow">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0a1628">
+    <meta name="msapplication-TileColor" content="#0a1628">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.aquasafeuae.com/">
+    <meta property="og:title" content="Aquasafe Trading | Premium Piping Solutions in UAE">
+    <meta property="og:description" content="Your Trusted Partner for Premium PP-R & PP-RCT Piping Solutions in UAE.">
+    <meta property="og:image" content="assets/images/Logos/Aqusafe_logo.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aquasafe Trading | Premium Piping Solutions in UAE">
+    <meta name="twitter:description" content="Your Trusted Partner for Premium PP-R & PP-RCT Piping Solutions in UAE.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.aquasafeuae.com/">
+    
     <title>Aquasafe Trading | Premium Piping Solutions in UAE</title>
     
     <!-- Bootstrap 5 CSS -->
@@ -59,7 +81,7 @@
                         </li>
                         <li>
                             <i class="fas fa-phone-alt"></i>
-                            <a href="tel:+971507204715">+971 50 720 4715</a>
+                            <a href="tel:0097137349475">00971 37349475</a>
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
@@ -68,11 +90,12 @@
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <ul class="top-bar-social">
-                        <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <ul class="top-bar-social" role="list" aria-label="Social media links">
+                        <li><a href="#" aria-label="Visit our Facebook page" title="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                        <li><a href="#" aria-label="Visit our Twitter profile" title="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#" aria-label="Visit our LinkedIn page" title="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                        <li><a href="#" aria-label="Visit our Instagram profile" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://wa.me/971507204715" aria-label="Chat with us on WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -102,10 +125,10 @@
                         <a class="nav-link" href="services.html">Services</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="products.html" id="productsDropdown" role="button" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="products.html" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                             Products
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown" role="menu">
                             <li><a class="dropdown-item" href="products.html">📦 All Products</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="products-water-pumps.html">💧 Water Pumps</a></li>
@@ -129,9 +152,17 @@
     </nav>
 
     <!-- ==================== HERO SECTION ==================== -->
-    <section id="home" class="hero-section">
+    <section id="home" class="hero-section water-flow-bg">
         <div class="hero-overlay"></div>
         <div class="hero-particles" id="hero-particles"></div>
+        <!-- Water bubbles background -->
+        <div class="bubble-container">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
         <div class="container">
             <div class="row min-vh-100 align-items-center">
                 <div class="col-lg-8">
@@ -173,7 +204,7 @@
     <section id="services" class="services-section section-padding">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
+                <div class="col-lg-8 text-center reveal">
                     <span class="section-subtitle">Our Services</span>
                     <h2 class="section-title">Tailored Solutions, Unmatched Quality</h2>
                     <p class="section-description">
@@ -186,9 +217,9 @@
             
             <div class="row mt-5">
                 <!-- Service Card 1 -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="service-card">
-                        <div class="service-icon">
+                <div class="col-lg-3 col-md-6 mb-4 reveal delay-1">
+                    <div class="service-card pipe-connect water-ripple">
+                        <div class="service-icon valve-turn">
                             <i class="fas fa-truck-loading"></i>
                         </div>
                         <h4 class="service-title">Product Supply & Distribution</h4>
@@ -202,9 +233,9 @@
                 </div>
                 
                 <!-- Service Card 2 -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="service-card">
-                        <div class="service-icon">
+                <div class="col-lg-3 col-md-6 mb-4 reveal delay-2">
+                    <div class="service-card pipe-connect water-ripple">
+                        <div class="service-icon valve-turn">
                             <i class="fas fa-shipping-fast"></i>
                         </div>
                         <h4 class="service-title">Delivery Services</h4>
@@ -218,9 +249,9 @@
                 </div>
                 
                 <!-- Service Card 3 -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="service-card">
-                        <div class="service-icon">
+                <div class="col-lg-3 col-md-6 mb-4 reveal delay-3">
+                    <div class="service-card pipe-connect water-ripple">
+                        <div class="service-icon valve-turn">
                             <i class="fas fa-clipboard-check"></i>
                         </div>
                         <h4 class="service-title">Consultation & Selection</h4>
@@ -234,9 +265,9 @@
                 </div>
                 
                 <!-- Service Card 4 -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="service-card">
-                        <div class="service-icon">
+                <div class="col-lg-3 col-md-6 mb-4 reveal delay-4">
+                    <div class="service-card pipe-connect water-ripple">
+                        <div class="service-icon valve-turn">
                             <i class="fas fa-headset"></i>
                         </div>
                         <h4 class="service-title">Technical Support</h4>
@@ -256,7 +287,7 @@
     <section id="about" class="about-section section-padding bg-light">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="col-lg-6 mb-5 mb-lg-0 reveal-left">
                     <div class="about-image-wrapper">
                         <div class="about-image">
                             <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=700&fit=crop" 
@@ -269,7 +300,7 @@
                         <div class="about-pattern"></div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 reveal-right">
                     <div class="about-content">
                         <span class="section-subtitle">About Our Company</span>
                         <h2 class="section-title">Empowering Projects with Quality Piping Solutions</h2>
@@ -319,8 +350,8 @@
         <div class="counter-overlay"></div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <div class="counter-item">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 reveal-scale delay-1">
+                    <div class="counter-item pressure-gauge">
                         <div class="counter-icon">
                             <i class="fas fa-project-diagram"></i>
                         </div>
@@ -328,8 +359,8 @@
                         <div class="counter-label">Projects Completed</div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <div class="counter-item">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 reveal-scale delay-2">
+                    <div class="counter-item pressure-gauge">
                         <div class="counter-icon">
                             <i class="fas fa-users"></i>
                         </div>
@@ -337,8 +368,8 @@
                         <div class="counter-label">Happy Clients</div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <div class="counter-item">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 reveal-scale delay-3">
+                    <div class="counter-item pressure-gauge">
                         <div class="counter-icon">
                             <i class="fas fa-boxes"></i>
                         </div>
@@ -346,8 +377,8 @@
                         <div class="counter-label">Product Categories</div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="counter-item">
+                <div class="col-lg-3 col-md-6 reveal-scale delay-4">
+                    <div class="counter-item pressure-gauge">
                         <div class="counter-icon">
                             <i class="fas fa-handshake"></i>
                         </div>
@@ -359,11 +390,16 @@
         </div>
     </section>
 
+    <!-- Pipe Joint Divider -->
+    <div class="pipe-joint">
+        <span class="pipe-joint-icon"><i class="fas fa-tint"></i></span>
+    </div>
+
     <!-- ==================== PRODUCTS SECTION ==================== -->
-    <section id="products" class="projects-section section-padding">
+    <section id="products" class="projects-section section-padding water-flow-bg">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
+                <div class="col-lg-8 text-center reveal">
                     <span class="section-subtitle">Our Products</span>
                     <h2 class="section-title">Your Trusted Partner for Reliable Piping Systems</h2>
                     <p class="section-description">
@@ -375,8 +411,8 @@
             
             <div class="row mt-5">
                 <!-- Product 1 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
+                <div class="col-lg-4 col-md-6 mb-4 reveal delay-1">
+                    <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=300&fit=crop" 
                                  alt="PP-R Pipes" class="img-fluid">
@@ -392,8 +428,8 @@
                 </div>
                 
                 <!-- Product 2 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
+                <div class="col-lg-4 col-md-6 mb-4 reveal delay-2">
+                    <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop" 
                                  alt="PP-RCT Pipes" class="img-fluid">
@@ -409,8 +445,8 @@
                 </div>
                 
                 <!-- Product 3 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
+                <div class="col-lg-4 col-md-6 mb-4 reveal delay-3">
+                    <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=400&h=300&fit=crop" 
                                  alt="Building Drainage" class="img-fluid">
@@ -426,8 +462,8 @@
                 </div>
                 
                 <!-- Product 4 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
+                <div class="col-lg-4 col-md-6 mb-4 reveal delay-1">
+                    <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" 
                                  alt="Terrain Drainage" class="img-fluid">
@@ -443,8 +479,8 @@
                 </div>
                 
                 <!-- Product 5 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
+                <div class="col-lg-4 col-md-6 mb-4 reveal delay-2">
+                    <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop" 
                                  alt="Water Pump" class="img-fluid">
@@ -460,8 +496,8 @@
                 </div>
                 
                 <!-- Product 6 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
+                <div class="col-lg-4 col-md-6 mb-4 reveal delay-3">
+                    <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop" 
                                  alt="Manhole Cover" class="img-fluid">
@@ -658,7 +694,7 @@
                             </div>
                             <div class="contact-details">
                                 <h5>Call Us</h5>
-                                <p><a href="tel:+971507204715">+971 50 720 4715</a></p>
+                                <p><a href="tel:0097137349475"</p>
                             </div>
                         </div>
                         
@@ -746,6 +782,18 @@
     <footer class="footer">
         <div class="footer-main">
             <div class="container">
+                <!-- Modern Framed Short Logo -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <div class="logo-frame-wrapper">
+                            <div class="logo-frame">
+                                <div class="logo-frame-border-glow"></div>
+                                <img src="assets/images/Logos/Aquasafe_Short_Logo.png" alt="Aquasafe Trading Short Logo" class="short-logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="row">
                     <!-- Footer About -->
                     <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
@@ -808,8 +856,8 @@
                                 </li>
                                 <li>
                                     <i class="fas fa-phone-alt"></i>
-                                    <a href="tel:+971507204715">+971 50 720 4715</a>
-                                </li>
+                                    <a href="tel:0097137349475">00971 37349475</a>
+                        </li>
                                 <li>
                                     <i class="fas fa-envelope"></i>
                                     <a href="mailto:aquasafe@gmail.com">aquasafe@gmail.com</a>
