@@ -611,6 +611,28 @@
         }
     }
 
+    // ==================== MOBILE NESTED DROPDOWN ====================
+    function initMobileNestedDropdown() {
+        if (window.innerWidth < 992) {
+            const nestedDropdowns = document.querySelectorAll('.dropdown-menu .dropdown-submenu-item');
+            
+            nestedDropdowns.forEach(submenuItem => {
+                const nestedMenu = submenuItem.nextElementSibling;
+                
+                if (nestedMenu && nestedMenu.classList.contains('dropdown-menu')) {
+                    // Always set expanded state and show menu by default on mobile
+                    submenuItem.setAttribute('aria-expanded', 'true');
+                    nestedMenu.style.display = 'block';
+                    
+                    // Allow clicking to navigate directly
+                    submenuItem.addEventListener('click', function(e) {
+                        // Menu items are always expanded on mobile - allow direct navigation
+                    });
+                }
+            });
+        }
+    }
+
     // ==================== PRODUCT/PROJECT FILTER ====================
     function initProductFilter() {
         const filterBtns = document.querySelectorAll('.filter-btn');
@@ -797,6 +819,7 @@
         initScrollAnimations();
         initDropdownHover();
         initMobileDropdown();
+        initMobileNestedDropdown();
         initProductFilter();
         initRevealAnimations();      // New: Reveal animations
         initScrollProgress();         // New: Scroll progress bar
@@ -864,6 +887,7 @@
         window.resizeTimeout = setTimeout(() => {
             initDropdownHover();
             initMobileDropdown();
+            initMobileNestedDropdown();
         }, 250);
     });
 

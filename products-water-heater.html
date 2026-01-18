@@ -35,7 +35,7 @@
         body.loading > *:not(#page-loader) { opacity: 0 !important; visibility: hidden !important; }
     </style>
 </head>
-<body class="loading" style="background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%);">
+<body class="loading">
 
     <!-- ==================== PAGE LOADER ==================== -->
     <div id="page-loader">
@@ -112,16 +112,49 @@
                         <ul class="dropdown-menu" aria-labelledby="productsDropdown">
                             <li><a class="dropdown-item" href="products.html">📦 All Products</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="products-water-pumps.html">💧 Water Pumps</a></li>
-                            <li><a class="dropdown-item" href="products-drainage-system.html">🚰 Drainage System</a></li>
-                            <li><a class="dropdown-item" href="products-plumbing-system.html">🔧 Plumbing System</a></li>
-                            <li><a class="dropdown-item" href="products-water-heater.html">🔥 Water Heater</a></li>
-                            <li><a class="dropdown-item" href="products-valves.html">⚙️ Valves</a></li>
-                            <li><a class="dropdown-item" href="products-manhole-covers.html">🕳️ Manhole Covers</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-submenu-item dropdown-item" href="products-water-pumps.html" role="button" aria-expanded="false">💧 Water Pumps</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="brand-grundfos.html">🔹 Grundfos</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-submenu-item dropdown-item" href="products-drainage-system.html" role="button" aria-expanded="false">🚰 Drainage System</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="brand-hepworth.html">🔹 Hepworth</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-submenu-item dropdown-item" href="products-plumbing-system.html" role="button" aria-expanded="false">🔧 Plumbing System</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="brand-polymelt.html">🔹 Polymelt</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-submenu-item dropdown-item active" href="products-water-heater.html" role="button" aria-expanded="false">🔥 Water Heater</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="brand-ariston.html">🔹 Ariston</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-submenu-item dropdown-item" href="products-valves.html" role="button" aria-expanded="false">⚙️ Valves</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="brand-vybik.html">🔹 Vybik</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-submenu-item dropdown-item" href="products-manhole-covers.html" role="button" aria-expanded="false">🕳️ Manhole Covers</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="brand-kaj-india.html">🔹 Kaj India</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
@@ -347,6 +380,56 @@
         </div>
     </section>
 
+    <!-- ==================== FEATURED BRAND ==================== -->
+    <section class="featured-brand section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="https://via.placeholder.com/400x300?text=Ariston" alt="Ariston Water Heaters" class="img-fluid rounded-3 shadow-lg">
+                </div>
+                <div class="col-lg-7 ps-lg-5">
+                    <span class="badge bg-accent mb-3">Featured Brand</span>
+                    <h2 class="section-title">Ariston: Comfort & Sustainability</h2>
+                    <p class="lead">Ariston is an Italian leader in heating and hot water solutions, combining innovative technology with environmental responsibility for comfortable living.</p>
+                    <p>Our Ariston water heaters deliver energy-efficient, reliable performance with smart temperature control and sustainable design for modern homes and businesses.</p>
+                    <div class="brand-features mt-4">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="feature-icon me-3"><i class="fas fa-check"></i></div>
+                                    <div><strong>Energy Efficient</strong><br><span class="text-muted">Reduce energy consumption</span></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="feature-icon me-3"><i class="fas fa-check"></i></div>
+                                    <div><strong>Reliable Performance</strong><br><span class="text-muted">Proven quality and durability</span></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="feature-icon me-3"><i class="fas fa-check"></i></div>
+                                    <div><strong>Smart Technology</strong><br><span class="text-muted">Easy temperature control</span></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="feature-icon me-3"><i class="fas fa-check"></i></div>
+                                    <div><strong>Sustainable Design</strong><br><span class="text-muted">Eco-friendly solutions</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="brand-ariston.html" class="btn btn-accent btn-lg">
+                            <i class="fas fa-arrow-right me-2"></i>Explore Ariston
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== CTA SECTION ==================== -->
     <section class="product-cta">
         <div class="cta-overlay"></div>
@@ -411,6 +494,7 @@
                                 <li><a href="services.html">Services</a></li>
                                 <li><a href="products.html">Products</a></li>
                                 <li><a href="projects.html">Projects</a></li>
+                                <li><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>
