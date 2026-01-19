@@ -341,34 +341,42 @@
 
     // ==================== GSAP SCROLL ANIMATIONS ====================
     function initScrollAnimations() {
-        // Hero section animations
-        gsap.from('.hero-subtitle', {
-            opacity: 0,
-            y: 30,
-            duration: 1,
-            delay: 0.2
-        });
+        // Hero section animations (only animate if elements exist)
+        if (document.querySelector('.hero-subtitle')) {
+            gsap.from('.hero-subtitle', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                delay: 0.2
+            });
+        }
         
-        gsap.from('.hero-title', {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            delay: 0.4
-        });
+        if (document.querySelector('.hero-title')) {
+            gsap.from('.hero-title', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: 0.4
+            });
+        }
         
-        gsap.from('.hero-description', {
-            opacity: 0,
-            y: 30,
-            duration: 1,
-            delay: 0.6
-        });
+        if (document.querySelector('.hero-description')) {
+            gsap.from('.hero-description', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                delay: 0.6
+            });
+        }
         
-        gsap.from('.hero-buttons', {
-            opacity: 0,
-            y: 30,
-            duration: 1,
-            delay: 0.8
-        });
+        if (document.querySelector('.hero-buttons')) {
+            gsap.from('.hero-buttons', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                delay: 0.8
+            });
+        }
 
         // Section titles animation
         gsap.utils.toArray('.section-subtitle, .section-title, .section-description').forEach(el => {
@@ -399,28 +407,34 @@
             });
         });
 
-        // About section animation
-        gsap.from('.about-image-wrapper', {
-            scrollTrigger: {
-                trigger: '.about-section',
-                start: 'top 70%',
-                toggleActions: 'play none none none'
-            },
-            opacity: 0,
-            x: -50,
-            duration: 1
-        });
+        // About section animation (only animate if elements exist)
+        if (document.querySelector('.about-section')) {
+            if (document.querySelector('.about-image-wrapper')) {
+                gsap.from('.about-image-wrapper', {
+                    scrollTrigger: {
+                        trigger: '.about-section',
+                        start: 'top 70%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 0,
+                    x: -50,
+                    duration: 1
+                });
+            }
 
-        gsap.from('.about-content', {
-            scrollTrigger: {
-                trigger: '.about-section',
-                start: 'top 70%',
-                toggleActions: 'play none none none'
-            },
-            opacity: 0,
-            x: 50,
-            duration: 1
-        });
+            if (document.querySelector('.about-content')) {
+                gsap.from('.about-content', {
+                    scrollTrigger: {
+                        trigger: '.about-section',
+                        start: 'top 70%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 0,
+                    x: 50,
+                    duration: 1
+                });
+            }
+        }
 
         // Project cards animation
         gsap.utils.toArray('.project-card').forEach((card, index) => {
@@ -468,17 +482,19 @@
             });
         });
 
-        // Contact form animation
-        gsap.from('.contact-form-wrapper', {
-            scrollTrigger: {
-                trigger: '.contact-form-wrapper',
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            opacity: 0,
-            y: 50,
-            duration: 0.8
-        });
+        // Contact form animation (only animate if element exists)
+        if (document.querySelector('.contact-form-wrapper')) {
+            gsap.from('.contact-form-wrapper', {
+                scrollTrigger: {
+                    trigger: '.contact-form-wrapper',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8
+            });
+        }
 
         // Footer animation
         gsap.utils.toArray('.footer-widget').forEach((widget, index) => {
