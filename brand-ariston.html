@@ -28,10 +28,18 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/images/Logos/Aqusafe_logo.png" as="image">
+    
+    <!-- Critical CSS for preventing flash and layout shifts -->
     <style>
-        html, body { background: #0a3d4c !important; }
-        body.loading { background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%) !important; }
-        body.loading > *:not(#page-loader) { opacity: 0 !important; visibility: hidden !important; }
+        html { background: #0a3d4c; }
+        body { background: #0a3d4c; opacity: 1; visibility: visible; }
+        body.loading { background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%); overflow: hidden; }
+        body.loading > *:not(#page-loader) { opacity: 0; visibility: hidden; pointer-events: none; }
+        #page-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0a3d4c 0%, #156a78 100%); }
+        .top-bar { min-height: 44px; }
+        #mainNavbar { min-height: 70px; }
     </style>
 </head>
 <body class="loading">
@@ -75,7 +83,7 @@
                         <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                         <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="https://wa.me/971507204715" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="https://wa.me/971565044257" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -144,7 +152,7 @@
                             <li class="dropdown">
                                 <a class="dropdown-submenu-item dropdown-item" href="products-manhole-covers.html" role="button" aria-expanded="false">🕳️ Manhole Covers</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="brand-kaj-india.html">🔹 Allied Iron</a></li>
+                                    <li><a class="dropdown-item" href="brand-allied-iron.html">🔹 Allied Iron</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -190,10 +198,10 @@
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="product-detail-image text-center">
                         <div class="brand-logo-container mb-4">
-                            <img src="assets/images/Logos/Ariston-logo.png" alt="Ariston Logo" class="img-fluid brand-logo-img">
+                            <img src="assets/images/Logos/Ariston-logo.png" alt="Ariston Logo" class="img-fluid brand-logo-img" loading="lazy">
                         </div>
                         <div class="position-relative">
-                            <img src="https://via.placeholder.com/500x400?text=Ariston+Water+Heaters" alt="Ariston Water Heaters" class="img-fluid rounded-3 shadow-lg">
+                            <img src="https://via.placeholder.com/500x400?text=Ariston+Water+Heaters" alt="Ariston Water Heaters" class="img-fluid rounded-3 shadow-lg" loading="lazy">
                             <div class="product-badge"><i class="fas fa-award"></i><span>Italian Excellence</span></div>
                         </div>
                     </div>
@@ -272,6 +280,302 @@
         </div>
     </section>
 
+    <!-- PRODUCT GALLERY -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Ariston Product Gallery</h2>
+                    <p class="lead">Explore our comprehensive range of Ariston water heating solutions</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Product 1: Andris Water Heater -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/andris__Water_Heater.png" 
+                                 alt="Andris Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Andris Water Heater</h5>
+                            <span class="badge bg-primary">Compact</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Aures Multi Small -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/aures-multi-small_frontal_Water_Heater.png" 
+                                 alt="Aures Multi Small Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Aures Multi Small</h5>
+                            <span class="badge bg-primary">Residential</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: BLU R Medium -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/BLU_R_Medium_Electric_Storage_Water_Heaters.jpg" 
+                                 alt="BLU R Medium Electric Storage Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>BLU R Medium Storage</h5>
+                            <span class="badge bg-info">Electric</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: PRO1 R Medium -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/PRO1_R_Medium_Electric_Storage_Water_Heaters.jpg" 
+                                 alt="PRO1 R Medium Electric Storage Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>PRO1 R Medium Storage</h5>
+                            <span class="badge bg-info">Electric</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: Ari Top Big -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/ari_top_Big_Electric_Storgae_Water_Heater.png" 
+                                 alt="Ari Top Big Electric Storage Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Ari Top Big Storage</h5>
+                            <span class="badge bg-info">Electric</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6: ES Extra Commercial -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/es_extra_Commercial_Electric_Storage_Water_Heater.jpeg" 
+                                 alt="ES Extra Commercial Electric Storage Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>ES Extra Commercial</h5>
+                            <span class="badge bg-warning">Commercial</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7: Nuos Plus Heat Pump -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/ariston-nuos-plus_Heat_Pumps.png" 
+                                 alt="Ariston Nuos Plus Heat Pump" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Nuos Plus Heat Pump</h5>
+                            <span class="badge bg-success">Heat Pump</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8: Nuos Primo HC -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/ariston-nuos-primo-hc_Heat_Pumps.png" 
+                                 alt="Ariston Nuos Primo HC Heat Pump" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Nuos Primo HC</h5>
+                            <span class="badge bg-success">Heat Pump</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9: Nuos Evo A+ -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/nuos_evo_a_plus_Heat_Pumps.png" 
+                                 alt="Nuos Evo A Plus Heat Pump" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Nuos Evo A+</h5>
+                            <span class="badge bg-success">Heat Pump</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 10: Nuos Evo Split -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/nuos_evo_split_WH_Heat_Pumps.jpg" 
+                                 alt="Nuos Evo Split Heat Pump" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Nuos Evo Split WH</h5>
+                            <span class="badge bg-success">Heat Pump</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 11: AR 10PM Heat Pump -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/ar_10PM_Heat_Pumps_Water_Heater.png" 
+                                 alt="AR 10PM Heat Pump Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>AR 10PM Heat Pump</h5>
+                            <span class="badge bg-success">Heat Pump</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 12: AR 17PM Heat Pump -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/ar_17PM_Heat_Pumbs_Water_Heater.png" 
+                                 alt="AR 17PM Heat Pump Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>AR 17PM Heat Pump</h5>
+                            <span class="badge bg-success">Heat Pump</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 13: Kairos Thermo Direct Solar -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/ariston-kairos-thermo-direct_Solar_Water_Heater.png" 
+                                 alt="Kairos Thermo Direct Solar Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Kairos Thermo Direct</h5>
+                            <span class="badge bg-secondary">Solar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 14: Kairos Thermo HF Solar -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/ariston-kairos-thermo-hf_Solar_Water_Heater.png" 
+                                 alt="Kairos Thermo HF Solar Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Kairos Thermo HF</h5>
+                            <span class="badge bg-secondary">Solar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 15: Kairos Thermo CF 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/kairos_thermo_cf_2_Solar_Water_Heater.png" 
+                                 alt="Kairos Thermo CF 2 Solar Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Kairos Thermo CF 2</h5>
+                            <span class="badge bg-secondary">Solar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 16: Kairos Thermo CF GR -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/kairos_thermo_cf_gr_Solar_Water_Heater.jpeg" 
+                                 alt="Kairos Thermo CF GR Solar Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Kairos Thermo CF GR</h5>
+                            <span class="badge bg-secondary">Solar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 17: Kairos Thermo GR -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Ariston_Images/kairos_thermo_gr_Solar_Water_Heater.png" 
+                                 alt="Kairos Thermo GR Solar Water Heater" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Kairos Thermo GR</h5>
+                            <span class="badge bg-secondary">Solar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Button -->
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="lead mb-4">Need a specific product or consultation?</p>
+                    <a href="contact.html" class="btn btn-accent btn-lg">
+                        <i class="fas fa-envelope me-2"></i>Request Product Catalog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-section">
         <div class="cta-overlay"></div>
@@ -284,7 +588,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a href="https://wa.me/971507204715" class="btn btn-accent btn-lg cta-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/971565044257" class="btn btn-accent btn-lg cta-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp me-2"></i> Contact
                     </a>
                 </div>
@@ -307,7 +611,7 @@
                                 <a href="https://facebook.com/#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                                 <a href="https://instagram.com/#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                                 <a href="https://linkedin.com/#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://wa.me/971507204715" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/971565044257" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>

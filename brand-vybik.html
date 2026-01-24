@@ -11,10 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/images/Logos/Aqusafe_logo.png" as="image">
+    
+    <!-- Critical CSS for preventing flash and layout shifts -->
     <style>
-        html, body { background: #0a3d4c !important; }
-        body.loading { background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%) !important; }
-        body.loading > *:not(#page-loader) { opacity: 0 !important; visibility: hidden !important; }
+        html { background: #0a3d4c; }
+        body { background: #0a3d4c; opacity: 1; visibility: visible; }
+        body.loading { background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%); overflow: hidden; }
+        body.loading > *:not(#page-loader) { opacity: 0; visibility: hidden; pointer-events: none; }
+        #page-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0a3d4c 0%, #156a78 100%); }
+        .top-bar { min-height: 44px; }
+        #mainNavbar { min-height: 70px; }
     </style>
 </head>
 <body class="loading">
@@ -25,6 +34,9 @@
                 <div class="gear gear-2"><i class="fas fa-cog"></i></div>
             </div>
             <div class="loader-text">LOADING</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
         </div>
     </div>
 
@@ -53,7 +65,7 @@
                         <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                         <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="https://wa.me/971507204715" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="https://wa.me/971565044257" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -122,7 +134,7 @@
                             <li class="dropdown">
                                 <a class="dropdown-submenu-item dropdown-item" href="products-manhole-covers.html" role="button" aria-expanded="false">🕳️ Manhole Covers</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="brand-kaj-india.html">🔹 Allied Iron</a></li>
+                                    <li><a class="dropdown-item" href="brand-allied-iron.html">🔹 Allied Iron</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -167,7 +179,7 @@
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="product-detail-image">
                         <div class="position-relative">
-                            <img src="https://via.placeholder.com/500x600?text=Vybik+Valves" alt="Vybik Valves" class="img-fluid rounded-3 shadow-lg">
+                            <img src="https://via.placeholder.com/500x600?text=Vybik+Valves" alt="Vybik Valves" class="img-fluid rounded-3 shadow-lg" loading="lazy">
                             <div class="product-badge"><i class="fas fa-award"></i><span>Precision Engineering</span></div>
                         </div>
                     </div>
@@ -226,7 +238,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a href="https://wa.me/971507204715" class="btn btn-accent btn-lg cta-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/971565044257" class="btn btn-accent btn-lg cta-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp me-2"></i> Contact
                     </a>
                 </div>

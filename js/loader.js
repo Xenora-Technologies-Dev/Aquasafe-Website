@@ -1,38 +1,39 @@
 /**
  * Page Loader & Transition Script
- * Premium ThemeForest-style loading animation and page transitions
+ * Optimized for production - prevents flicker and ensures stable loading
  */
 
 (function() {
     'use strict';
     
+    // Cache DOM elements
     const loader = document.getElementById('page-loader');
     const progressBar = document.querySelector('.loader-progress-bar');
     const loaderText = document.querySelector('.loader-text');
     
-    // Body should already have 'loading' class from HTML
-    // This is a fallback to ensure it's set
-    if (!document.body.classList.contains('loading')) {
-        document.body.classList.add('loading');
-    }
-    
-    // Counter for loading percentage
+    // State management
+    let isHiding = false;
     let progress = 0;
-    let loadingTexts = ['LOADING', 'INITIALIZING', 'ALMOST READY'];
+    let progressInterval = null;
+    let textInterval = null;
+    
+    // Ensure body has loading class immediately
+    document.body.classList.add('loading');
+    
+    // Loading text animation
+    const loadingTexts = ['LOADING', 'INITIALIZING', 'ALMOST READY'];
     let textIndex = 0;
     
-    // Animate loading text
-    const textInterval = setInterval(() => {
-        if (loaderText) {
+    textInterval = setInterval(() => {
+        if (loaderText && !isHiding) {
             textIndex = (textIndex + 1) % loadingTexts.length;
             loaderText.textContent = loadingTexts[textIndex];
         }
     }, 800);
     
-    // Simulate loading progress with easing
-    const progressInterval = setInterval(() => {
-        if (progress < 85) {
-            // Faster at start, slower as it progresses
+    // Smooth progress animation
+    progressInterval = setInterval(() => {
+        if (progress < 85 && !isHiding) {
             const increment = Math.max(1, (85 - progress) / 10);
             progress += increment;
             if (progressBar) {
@@ -41,39 +42,20 @@
         }
     }, 80);
     
-    // Hide loader when page is fully loaded
-    window.addEventListener('load', function() {
-        console.log('Page load event fired');
-        hideLoader();
-    });
-    
-    // Also hide on DOMContentLoaded as backup
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOM Content Loaded');
-        // Only hide if page is still loading after 1 second
-        setTimeout(() => {
-            if (document.body.classList.contains('loading')) {
-                hideLoader();
-            }
-        }, 1000);
-    });
-    
-    // Fallback: hide loader after max time
-    setTimeout(() => {
-        if (loader && !loader.classList.contains('hidden')) {
-            console.log('Fallback timeout triggered');
-            hideLoader();
-        }
-    }, 5000);
-    
-    // Function to hide loader
+    /**
+     * Hide the loader and show page content
+     */
     function hideLoader() {
+        if (isHiding) return;
+        isHiding = true;
+        
+        // Clear intervals
         clearInterval(progressInterval);
         clearInterval(textInterval);
         
-        // Complete the progress bar smoothly
+        // Complete progress bar
         if (progressBar) {
-            progressBar.style.transition = 'width 0.4s ease-out';
+            progressBar.style.transition = 'width 0.3s ease-out';
             progressBar.style.width = '100%';
         }
         
@@ -81,101 +63,77 @@
             loaderText.textContent = 'WELCOME';
         }
         
-        // Hide loader after showing WELCOME
+        // Hide loader after brief pause
         setTimeout(() => {
             if (loader) {
-                // Use display:none which cannot be overridden
-                loader.style.display = 'none';
-                loader.classList.add('hidden');
+                loader.classList.add('fade-out');
                 
-                // Remove loading class and force content to show
-                document.body.classList.remove('loading');
-                document.body.style.background = '';
-                
-                // Force show all main content elements
-                const mainElements = [
-                    '.top-bar', '.navbar', '.hero-section', '.services-section', 
-                    '.counter-section', '.footer', 'main', 'section'
-                ];
-                
-                mainElements.forEach(selector => {
-                    const elements = document.querySelectorAll(selector);
-                    elements.forEach(el => {
-                        el.style.opacity = '1';
-                        el.style.visibility = 'visible';
-                    });
-                });
-                
-                // Force reflow
-                void document.body.offsetHeight;
-                
-                // Trigger entrance animations
-                initPageAnimations();
+                // After fade animation completes
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    loader.classList.add('hidden');
+                    
+                    // Remove loading class and show content
+                    document.body.classList.remove('loading');
+                    document.body.style.overflow = '';
+                    
+                    // Dispatch event for main.js
+                    window.dispatchEvent(new CustomEvent('loaderComplete'));
+                    
+                    // Force repaint
+                    void document.body.offsetHeight;
+                }, 400);
             }
-        }, 600);
+        }, 400);
     }
     
-    // Initialize page animations after loader
-    function initPageAnimations() {
-        // Dispatch custom event for main.js to listen to
-        window.dispatchEvent(new CustomEvent('loaderComplete'));
-        
-        // Animate page content entrance
-        const mainContent = document.querySelector('.top-bar');
-        if (mainContent) {
-            mainContent.style.opacity = '1';
-            mainContent.style.transform = 'translateY(0)';
-        }
-        
-        // Ensure all content is visible
-        document.body.style.opacity = '1';
-        document.body.style.visibility = 'visible';
-    }
+    // Primary trigger: window.load
+    window.addEventListener('load', function() {
+        // Small delay to ensure styles are applied
+        setTimeout(hideLoader, 100);
+    });
     
-    // Emergency fallback to show content if anything goes wrong
+    // Secondary trigger: DOMContentLoaded (with delay)
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            if (!isHiding && document.body.classList.contains('loading')) {
+                hideLoader();
+            }
+        }, 1500);
+    });
+    
+    // Failsafe: maximum loading time
     setTimeout(() => {
-        if (document.body.classList.contains('loading')) {
-            console.warn('Emergency fallback: forcing content to show');
-            document.body.classList.remove('loading');
-            if (loader) {
-                loader.style.display = 'none';
-            }
-            // Force show all content
-            const allElements = document.querySelectorAll('*:not(#page-loader):not(.loader-content):not(.loader-spinner):not(.gear)');
-            allElements.forEach(el => {
-                el.style.opacity = '1';
-                el.style.visibility = 'visible';
-            });
+        if (!isHiding) {
+            console.warn('Loader failsafe triggered');
+            hideLoader();
         }
-    }, 7000); // 7 second emergency fallback
+    }, 5000);
     
-    // Page transition for internal links
+    // Page transitions for internal navigation
     document.addEventListener('DOMContentLoaded', function() {
         const internalLinks = document.querySelectorAll('a[href$=".html"]:not([target="_blank"])');
         
         internalLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
+                const currentPage = window.location.pathname.split('/').pop();
                 
-                // Skip if it's the current page
-                if (href === window.location.pathname.split('/').pop()) {
-                    e.preventDefault();
-                    return;
-                }
-                
-                // Skip external links
-                if (href.startsWith('http') || href.startsWith('//')) {
+                // Skip if same page or external
+                if (href === currentPage || href.startsWith('http') || href.startsWith('//')) {
                     return;
                 }
                 
                 e.preventDefault();
                 
-                // Show the loader again before navigating
+                // Show loader for page transition
                 if (loader) {
+                    isHiding = false;
                     loader.style.display = 'flex';
+                    loader.classList.remove('fade-out', 'hidden');
                     loader.style.opacity = '1';
                     loader.style.visibility = 'visible';
-                    // Reset progress bar
+                    
                     if (progressBar) {
                         progressBar.style.transition = 'none';
                         progressBar.style.width = '0%';
@@ -185,13 +143,11 @@
                     }
                 }
                 
-                // Add page transition class
-                document.body.classList.add('page-transition-out');
                 document.body.classList.add('loading');
                 
                 setTimeout(() => {
                     window.location.href = href;
-                }, 300);
+                }, 200);
             });
         });
     });

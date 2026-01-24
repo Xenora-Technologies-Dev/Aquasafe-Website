@@ -26,11 +26,18 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Critical CSS for preventing flash - must be before body -->
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/images/Logos/Aqusafe_logo.png" as="image">
+    
+    <!-- Critical CSS for preventing flash and layout shifts -->
     <style>
-        html, body { background: #0a3d4c !important; }
-        body.loading { background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%) !important; }
-        body.loading > *:not(#page-loader) { opacity: 0 !important; visibility: hidden !important; }
+        html { background: #0a3d4c; }
+        body { background: #0a3d4c; opacity: 1; visibility: visible; }
+        body.loading { background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%); overflow: hidden; }
+        body.loading > *:not(#page-loader) { opacity: 0; visibility: hidden; pointer-events: none; }
+        #page-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0a3d4c 0%, #156a78 100%); }
+        .top-bar { min-height: 44px; }
+        #mainNavbar { min-height: 70px; }
     </style>
 </head>
 <body class="loading">
@@ -74,7 +81,7 @@
                         <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                         <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="https://wa.me/971507204715" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="https://wa.me/971565044257" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -143,7 +150,7 @@
                             <li class="dropdown">
                                 <a class="dropdown-submenu-item dropdown-item" href="products-manhole-covers.html" role="button" aria-expanded="false">🕳️ Manhole Covers</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="brand-kaj-india.html">🔹 Allied Iron</a></li>
+                                    <li><a class="dropdown-item" href="brand-allied-iron.html">🔹 Allied Iron</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -428,7 +435,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a href="https://wa.me/971507204715" class="btn btn-accent btn-lg cta-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/971565044257" class="btn btn-accent btn-lg cta-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp me-2"></i> Contact on WhatsApp
                     </a>
                 </div>
@@ -469,7 +476,7 @@
                                 <a href="https://instagram.com/#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                                 <a href="https://linkedin.com/#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="https://youtube.com/#" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                                <a href="https://wa.me/971507204715" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/971565044257" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -523,7 +530,7 @@
                                 </li>
                                 <li>
                                     <i class="fab fa-whatsapp"></i>
-                                    <a href="https://wa.me/971507204715" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+                                    <a href="https://wa.me/971565044257" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                                 </li>
                             </ul>
                         </div>

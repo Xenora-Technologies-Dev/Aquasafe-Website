@@ -51,14 +51,44 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Critical CSS for preventing white flash - must be before body -->
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/images/Logos/Aqusafe_logo.png" as="image">
+    <link rel="preload" href="css/style.css" as="style">
+    
+    <!-- Critical CSS for preventing white flash and layout shifts -->
     <style>
-        html, body { background: #0a3d4c !important; }
-        body.loading { 
-            background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%) !important; 
-            overflow: hidden !important;
+        /* Prevent FOUC and ensure stable loading */
+        html { background: #0a3d4c; }
+        body { 
+            background: #0a3d4c;
+            opacity: 1;
+            visibility: visible;
         }
-        body.loading > *:not(#page-loader) { opacity: 0 !important; visibility: hidden !important; }
+        body.loading { 
+            background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%);
+            overflow: hidden;
+        }
+        body.loading > *:not(#page-loader) { 
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        /* Ensure loader is always visible during loading */
+        #page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a3d4c 0%, #156a78 100%);
+        }
+        /* Reserve space for header to prevent CLS */
+        .top-bar { min-height: 44px; }
+        #mainNavbar { min-height: 70px; }
     </style>
 </head>
 <body class="loading">
@@ -103,7 +133,7 @@
                         <li><a href="#" aria-label="Visit our Twitter profile" title="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
                         <li><a href="#" aria-label="Visit our LinkedIn page" title="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
                         <li><a href="#" aria-label="Visit our Instagram profile" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="https://wa.me/971507204715" aria-label="Chat with us on WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                        <li><a href="https://wa.me/971565044257" aria-label="Chat with us on WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -172,7 +202,7 @@
                             <li class="dropdown">
                                 <a class="dropdown-submenu-item dropdown-item" href="products-manhole-covers.html" role="button" aria-expanded="false">🕳️ Manhole Covers</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="brand-kaj-india.html">🔹 Allied Iron</a></li>
+                                    <li><a class="dropdown-item" href="brand-allied-iron.html">🔹 Allied Iron</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -332,7 +362,7 @@
                     <div class="about-image-wrapper">
                         <div class="about-image">
                             <img src="assets/images/Index_About.png" 
-                                 alt="Aquasafe Piping Solutions" class="img-fluid">
+                                 alt="Aquasafe Piping Solutions" class="img-fluid" loading="lazy">
                         </div>
 
                         <div class="about-pattern"></div>
@@ -402,7 +432,7 @@
                 <div class="col-lg-3 col-md-4 col-6 mb-4">
                     <div class="brand-showcase-item">
                         <a href="brand-hepworth.html" class="brand-link">
-                            <img src="assets/images/Logos/HEPWORTH-Logo.png" alt="Hepworth" class="img-fluid">
+                            <img src="assets/images/Logos/HEPWORTH-Logo.png" alt="Hepworth" class="img-fluid" loading="lazy">
                             <div class="brand-overlay">
                                 <span class="brand-category">Drainage Systems</span>
                             </div>
@@ -413,7 +443,7 @@
                 <div class="col-lg-3 col-md-4 col-6 mb-4">
                     <div class="brand-showcase-item">
                         <a href="brand-polymelt.html" class="brand-link">
-                            <img src="assets/images/Logos/Polymelt_Logo.png" alt="Polymelt" class="img-fluid">
+                            <img src="assets/images/Logos/Polymelt_Logo.png" alt="Polymelt" class="img-fluid" loading="lazy">
                             <div class="brand-overlay">
                                 <span class="brand-category">Plumbing Systems</span>
                             </div>
@@ -424,7 +454,7 @@
                 <div class="col-lg-3 col-md-4 col-6 mb-4">
                     <div class="brand-showcase-item">
                         <a href="brand-grundfos.html" class="brand-link">
-                            <img src="assets/images/Logos/Grundfos_Logo.png" alt="Grundfos" class="img-fluid">
+                            <img src="assets/images/Logos/Grundfos_Logo.png" alt="Grundfos" class="img-fluid" loading="lazy">
                             <div class="brand-overlay">
                                 <span class="brand-category">Water Pumps</span>
                             </div>
@@ -435,9 +465,20 @@
                 <div class="col-lg-3 col-md-4 col-6 mb-4">
                     <div class="brand-showcase-item">
                         <a href="brand-ariston.html" class="brand-link">
-                            <img src="assets/images/Logos/Ariston-logo.png" alt="Ariston" class="img-fluid">
+                            <img src="assets/images/Logos/Ariston-logo.png" alt="Ariston" class="img-fluid" loading="lazy">
                             <div class="brand-overlay">
                                 <span class="brand-category">Water Heaters</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="brand-showcase-item">
+                        <a href="brand-allied-iron.html" class="brand-link">
+                            <img src="assets/images/Logos/Allied_Iron_Logo.webp" alt="Allied Iron" class="img-fluid" style="max-height: 80px; object-fit: contain;" loading="lazy">
+                            <div class="brand-overlay">
+                                <span class="brand-category">Manhole Covers</span>
                             </div>
                         </a>
                     </div>
@@ -510,9 +551,9 @@
                     <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=300&fit=crop" 
-                                 alt="PP-R Pipes" class="img-fluid">
+                                 alt="PP-R Pipes" class="img-fluid" loading="lazy">
                             <div class="project-overlay">
-                                <a href="https://wa.me/971507204715" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/971565044257" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
@@ -527,9 +568,9 @@
                     <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop" 
-                                 alt="PP-RCT Pipes" class="img-fluid">
+                                 alt="PP-RCT Pipes" class="img-fluid" loading="lazy">
                             <div class="project-overlay">
-                                <a href="https://wa.me/971507204715" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/971565044257" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
@@ -544,9 +585,9 @@
                     <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=400&h=300&fit=crop" 
-                                 alt="Building Drainage" class="img-fluid">
+                                 alt="Building Drainage" class="img-fluid" loading="lazy">
                             <div class="project-overlay">
-                                <a href="https://wa.me/971507204715" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/971565044257" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
@@ -561,9 +602,9 @@
                     <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" 
-                                 alt="Terrain Drainage" class="img-fluid">
+                                 alt="Terrain Drainage" class="img-fluid" loading="lazy">
                             <div class="project-overlay">
-                                <a href="https://wa.me/971507204715" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/971565044257" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
@@ -578,9 +619,9 @@
                     <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop" 
-                                 alt="Water Pump" class="img-fluid">
+                                 alt="Water Pump" class="img-fluid" loading="lazy">
                             <div class="project-overlay">
-                                <a href="https://wa.me/971507204715" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/971565044257" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
@@ -595,9 +636,9 @@
                     <div class="project-card droplet-effect">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop" 
-                                 alt="Manhole Cover" class="img-fluid">
+                                 alt="Manhole Cover" class="img-fluid" loading="lazy">
                             <div class="project-overlay">
-                                <a href="https://wa.me/971507204715" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/971565044257" class="project-link" target="_blank" rel="noopener noreferrer" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
@@ -751,7 +792,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="blog-card">
                         <div class="blog-card-image">
-                            <img src="assets/images/Selection_Chart.png" alt="Working Pressure Chart" class="img-fluid">
+                            <img src="assets/images/Selection_Chart.png" alt="Working Pressure Chart" class="img-fluid" loading="lazy">
                             <span class="blog-category-badge">Pipe Selection</span>
                         </div>
                         <div class="blog-card-content">
@@ -795,7 +836,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a href="https://wa.me/971507204715" class="btn btn-accent btn-lg cta-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/971565044257" class="btn btn-accent btn-lg cta-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp me-2"></i> Contact on WhatsApp
                     </a>
                 </div>
@@ -836,7 +877,7 @@
                             </div>
                             <div class="contact-details">
                                 <h5>Call Us</h5>
-                                <p><a href="tel:0097137349475"</p>
+                                <p><a href="tel:0097137349475">00971 37349475</a></p>
                             </div>
                         </div>
                         
@@ -856,7 +897,7 @@
                             </div>
                             <div class="contact-details">
                                 <h5>WhatsApp</h5>
-                                <p><a href="https://wa.me/971507204715" target="_blank" rel="noopener noreferrer">+971 50 720 4715</a></p>
+                                <p><a href="https://wa.me/971565044257" target="_blank" rel="noopener noreferrer">+971 56 504 4257</a></p>
                             </div>
                         </div>
                     </div>
@@ -953,7 +994,7 @@
                                 <a href="https://instagram.com/#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                                 <a href="https://linkedin.com/#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="https://youtube.com/#" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                                <a href="https://wa.me/971507204715" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/971565044257" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1007,7 +1048,7 @@
                                 </li>
                                 <li>
                                     <i class="fab fa-whatsapp"></i>
-                                    <a href="https://wa.me/971507204715" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+                                    <a href="https://wa.me/971565044257" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                                 </li>
                             </ul>
                         </div>

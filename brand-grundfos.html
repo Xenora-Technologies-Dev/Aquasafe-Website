@@ -28,11 +28,18 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Critical CSS for preventing flash -->
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/images/Logos/Aqusafe_logo.png" as="image">
+    
+    <!-- Critical CSS for preventing flash and layout shifts -->
     <style>
-        html, body { background: #0a3d4c !important; }
-        body.loading { background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%) !important; }
-        body.loading > *:not(#page-loader) { opacity: 0 !important; visibility: hidden !important; }
+        html { background: #0a3d4c; }
+        body { background: #0a3d4c; opacity: 1; visibility: visible; }
+        body.loading { background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%); overflow: hidden; }
+        body.loading > *:not(#page-loader) { opacity: 0; visibility: hidden; pointer-events: none; }
+        #page-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0a3d4c 0%, #156a78 100%); }
+        .top-bar { min-height: 44px; }
+        #mainNavbar { min-height: 70px; }
     </style>
 </head>
 <body class="loading">
@@ -76,7 +83,7 @@
                         <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                         <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="https://wa.me/971507204715" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="https://wa.me/971565044257" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -145,7 +152,7 @@
                             <li class="dropdown">
                                 <a class="dropdown-submenu-item dropdown-item" href="products-manhole-covers.html" role="button" aria-expanded="false">🕳️ Manhole Covers</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="brand-kaj-india.html">🔹 Kaj India</a></li>
+                                    <li><a class="dropdown-item" href="brand-allied-iron.html">🔹 Allied Iron</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -190,12 +197,11 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="product-detail-image text-center">
-                        <div class="brand-logo-container mb-4">
-                            <img src="assets/images/Logos/Grundfos_Logo.png" alt="Grundfos Logo" class="img-fluid brand-logo-img">
-                        </div>
-                        <div class="position-relative">
-                            <img src="https://via.placeholder.com/500x400?text=Grundfos+Water+Pumps" alt="Grundfos Water Pumps" class="img-fluid rounded-3 shadow-lg">
+                    <div class="product-detail-image">
+                        <div class="position-relative text-center">
+                            <div class="brand-logo-container d-flex align-items-center justify-content-center p-3" style="background-color: #f8f9fa; border-radius: .5rem;">
+                                <img src="assets/images/Logos/Grundfos_Logo.png" alt="Grundfos Logo" class="img-fluid" style="max-height: 250px; object-fit: contain;" loading="lazy">
+                            </div>
                             <div class="product-badge">
                                 <i class="fas fa-award"></i>
                                 <span>Global Leader</span>
@@ -491,6 +497,94 @@
         </div>
     </section>
 
+    <!-- ==================== PRODUCT GALLERY SECTION ==================== -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Grundfos Product Gallery</h2>
+                    <p class="lead">Explore our comprehensive range of Grundfos water pumps</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Product 1: SCALA2 Booster Pump -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Grundfos_Images/SCALA2_Booster_Pump.jpeg" 
+                                 alt="Grundfos SCALA2 Booster Pump" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>SCALA2 Booster Pump</h5>
+                            <span class="badge bg-primary">Booster System</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Multi Stage Centrifugal Water Pumps -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Grundfos_Images/Multi_Stage_Centrifugal_Water_Pumps.jpeg" 
+                                 alt="Grundfos Multi Stage Centrifugal Water Pumps" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Multi Stage Centrifugal Pumps</h5>
+                            <span class="badge bg-success">Industrial</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Jet Pumps -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Grundfos_Images/Jet_Pumps.jpeg" 
+                                 alt="Grundfos Jet Pumps" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Jet Pumps</h5>
+                            <span class="badge bg-info">Water Supply</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Manual High Pressure Water Pump -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-gallery-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/images/Grundfos_Images/grundfos-manual-high-pressure-water-pump.webp" 
+                                 alt="Grundfos Manual High Pressure Water Pump" 
+                                 class="img-fluid product-gallery-img" 
+                                 loading="lazy">
+                        </div>
+                        <div class="product-gallery-info">
+                            <h5>Manual High Pressure Pump</h5>
+                            <span class="badge bg-warning">High Pressure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Button -->
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="lead mb-4">Need a specific pump or consultation?</p>
+                    <a href="contact.html" class="btn btn-accent btn-lg">
+                        <i class="fas fa-envelope me-2"></i>Request Product Catalog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== KEY ADVANTAGES ==================== -->
     <section class="section-padding bg-light">
         <div class="container">
@@ -578,7 +672,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a href="https://wa.me/971507204715" class="btn btn-accent btn-lg cta-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/971565044257" class="btn btn-accent btn-lg cta-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp me-2"></i> Contact on WhatsApp
                     </a>
                 </div>
@@ -615,7 +709,7 @@
                                 <a href="https://instagram.com/#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                                 <a href="https://linkedin.com/#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="https://youtube.com/#" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                                <a href="https://wa.me/971507204715" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/971565044257" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -664,7 +758,7 @@
                                 </li>
                                 <li>
                                     <i class="fab fa-whatsapp"></i>
-                                    <a href="https://wa.me/971507204715" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+                                    <a href="https://wa.me/971565044257" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                                 </li>
                             </ul>
                         </div>
