@@ -109,11 +109,21 @@ body:not(.loading) > *:not(#page-loader) {
     transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
 }
 
+p {
+    margin-bottom: 1rem; /* 16px */
+    line-height: 1.7;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     font-weight: 700;
     line-height: 1.3;
     color: var(--primary-dark);
+    margin-bottom: 0.75rem; /* Consistent spacing below headings */
 }
 
 h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
@@ -174,6 +184,75 @@ button {
 
 .text-accent {
     color: var(--accent-orange) !important;
+}
+
+.section-title {
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    margin-bottom: 0.5rem;
+    margin-top: -0.5rem; /* Pulls subtitle closer to title */
+    color: var(--gray-600);
+}
+
+.section-title + .lead,
+.section-title + p,
+.section-title + .section-description {
+    margin-top: 1rem; /* Increased from 0.5rem for better breathing room */
+}
+
+.lead + p {
+    margin-top: 1rem;
+}
+
+
+h2.section-title {
+    margin-bottom: 1rem;
+}
+
+h3.section-subtitle {
+    margin-bottom: 0.5rem;
+}
+
+.page-banner-title + nav {
+    margin-top: 1rem;
+}
+
+.cta-title + .cta-text {
+    margin-top: 0.5rem;
+}
+
+.product-feature-title + .product-feature-text {
+    margin-top: 1rem;
+}
+
+.product-feature-text + .product-feature-list {
+    margin-top: 1.5rem;
+}
+
+.product-feature-list li {
+    display: flex;
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 0.75rem; /* 12px space between icon and text */
+    margin-bottom: 0.5rem;
+}
+
+.product-feature-list li i {
+    margin-top: 4px; /* Fine-tunes icon vertical alignment with text */
+    flex-shrink: 0; /* Prevents icon from shrinking */
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 0.75rem; /* 12px space between icon and text */
+    margin-bottom: 0.5rem;
+}
+
+.footer-contact li i {
+    margin-top: 4px; /* Fine-tunes icon vertical alignment with text */
+    flex-shrink: 0; /* Prevents icon from shrinking */
 }
 
 /* ==================== PAGE LOADER ==================== */
@@ -376,14 +455,17 @@ body:not(.loading) .hero-section {
 
 .top-bar-info li {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 0.75rem; /* 12px space between icon and text */
+    margin-bottom: 0.5rem;
     color: var(--gray-300);
     font-size: clamp(0.75rem, 1.5vw, 0.875rem);
     white-space: nowrap;
 }
 
 .top-bar-info li i {
+    margin-top: 4px; /* Fine-tunes icon vertical alignment with text */
+    flex-shrink: 0; /* Prevents icon from shrinking */
     color: var(--accent-orange);
     font-size: clamp(0.65rem, 1.2vw, 0.75rem);
     flex-shrink: 0;
@@ -1082,6 +1164,170 @@ body:not(.loading) .hero-section {
     font-size: 0.9rem;
 }
 
+/* Large Certification Cards */
+.certification-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+}
+
+.certification-card:hover {
+    border-color: var(--accent-teal);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.certification-icon-lg {
+    font-size: 3.5rem;
+    color: var(--accent-teal);
+    margin-bottom: 1rem;
+}
+
+.certification-name-lg {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+/* ==================== PRODUCT CATEGORY CARDS ==================== */
+.product-category-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.product-category-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.product-category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.product-category-card:hover .product-category-image img {
+    transform: scale(1.1);
+}
+
+.product-category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.brand-logo-overlay {
+    max-height: 50px;
+    max-width: 120px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.product-category-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-category-brand {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-teal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.product-category-title {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 0.75rem;
+}
+
+.product-category-desc {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.product-category-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.product-category-features span {
+    font-size: 0.8rem;
+    color: var(--gray-700);
+    background: var(--gray-100);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.product-category-features span i {
+    color: var(--accent-teal);
+    margin-right: 0.25rem;
+}
+
+.product-category-buttons {
+    margin-top: auto;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.product-category-buttons .btn {
+    flex: 1;
+}
+
+.product-category-buttons .btn-outline-accent {
+    flex: 0;
+    padding: 0.5rem 0.75rem;
+}
+
+/* Brand Partner Logos */
+.brand-partner-logo {
+    max-height: 80px;
+    max-width: 150px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all var(--transition-normal);
+}
+
+.brand-logo-link:hover .brand-partner-logo {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
 /* Timeline Animation for History Section */
 .brand-timeline {
     position: relative;
@@ -1588,7 +1834,7 @@ body:not(.loading) .hero-section {
 
 .hero-description {
     font-size: clamp(0.95rem, 2.5vw, 1.25rem);
-    color: var(--gray-300);
+    color: rgba(255, 255, 255, 0.9);
     max-width: 600px;
     margin-bottom: 40px;
     line-height: 1.6;
@@ -5533,6 +5779,24 @@ textarea.form-control {
     .project-card:hover .project-image::before {
         animation: none;
         opacity: 0;
+    }
+}
+
+/* ==================== WHATSAPP GLOW EFFECT ==================== */
+.whatsapp-glow {
+    animation: whatsapp-pulse 2s infinite;
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
 }
 
