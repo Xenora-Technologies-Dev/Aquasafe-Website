@@ -1,0 +1,983 @@
+/* ============================================================
+   AQUA BOT v3 – Chatbot Styles
+   AQUASAFE Building Material LLC
+   ============================================================ */
+
+:root {
+    --aq-primary: #0a3d4c;
+    --aq-secondary: #0d6e8a;
+    --aq-accent: #14b8d4;
+    --aq-light: #e0f7fa;
+    --aq-lighter: #f0fbfd;
+    --aq-gradient: linear-gradient(135deg, #0a3d4c 0%, #0d6e8a 50%, #14b8d4 100%);
+    --aq-gradient-btn: linear-gradient(135deg, #0d6e8a, #14b8d4);
+    --aq-shadow: 0 8px 32px rgba(10, 61, 76, 0.25);
+    --aq-shadow-sm: 0 2px 12px rgba(10, 61, 76, 0.15);
+    --aq-radius: 16px;
+    --aq-font: 'Roboto', 'Segoe UI', system-ui, sans-serif;
+    --aq-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   FLOATING TOGGLE – Construction Bot Mascot
+   ======================================== */
+.aquabot-toggle {
+    position: fixed;
+    bottom: 120px;
+    right: 40px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--aq-gradient);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--aq-shadow);
+    transition: var(--aq-transition);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    padding: 0;
+    overflow: visible;
+}
+
+.aquabot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 40px rgba(10, 61, 76, 0.4);
+}
+
+.aquabot-toggle:active {
+    transform: scale(0.95);
+}
+
+/* --- Bot Face (default state) --- */
+.aquabot-bot-face {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hard hat */
+.aquabot-hat {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 14px;
+    background: #ffc107;
+    border-radius: 17px 17px 2px 2px;
+    z-index: 2;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.aquabot-hat::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: -3px;
+    right: -3px;
+    height: 5px;
+    background: #ffab00;
+    border-radius: 2px;
+}
+
+/* Face / head background */
+.aquabot-head {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 26px;
+    background: #fff;
+    border-radius: 8px 8px 12px 12px;
+    z-index: 1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Eyes */
+.aquabot-eyes {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 3;
+}
+
+.aquabot-eye {
+    width: 7px;
+    height: 7px;
+    background: var(--aq-primary);
+    border-radius: 50%;
+    position: relative;
+    animation: aqBlink 3.5s ease-in-out infinite;
+}
+
+.aquabot-eye::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 2.5px;
+    height: 2.5px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+@keyframes aqBlink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95%           { transform: scaleY(0.1); }
+}
+
+/* Mouth / Smile */
+.aquabot-mouth {
+    position: absolute;
+    top: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 5px;
+    border: 2px solid var(--aq-primary);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    z-index: 3;
+}
+
+/* Small wrench icon on hat */
+.aquabot-wrench {
+    position: absolute;
+    top: -3px;
+    right: 2px;
+    font-size: 10px;
+    z-index: 4;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+    line-height: 1;
+}
+
+/* --- Close X (when active) --- */
+.aquabot-close-x {
+    display: none;
+    width: 22px;
+    height: 22px;
+}
+
+.aquabot-toggle.active .aquabot-bot-face { display: none; }
+.aquabot-toggle.active .aquabot-close-x  { display: block; }
+
+/* Pulse ring */
+.aquabot-toggle::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--aq-accent);
+    opacity: 0;
+    animation: aqPulse 2.5s ease-in-out infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.aquabot-toggle.active::before {
+    animation: none;
+    opacity: 0;
+}
+
+@keyframes aqPulse {
+    0%   { transform: scale(1);   opacity: 0.45; }
+    100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* ========================================
+   TOOLTIP
+   ======================================== */
+.aquabot-tooltip {
+    position: fixed;
+    bottom: 140px;
+    right: 114px;
+    background: #fff;
+    color: var(--aq-primary);
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-family: var(--aq-font);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: var(--aq-shadow-sm);
+    z-index: 9997;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+    border: 1px solid var(--aq-light);
+}
+
+.aquabot-tooltip.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.aquabot-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid #fff;
+}
+
+.aquabot-toggle.active ~ .aquabot-tooltip {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* ========================================
+   CHAT WINDOW
+   IMPORTANT: hidden by default, appears ONLY on toggle click
+   ======================================== */
+.aquabot-window {
+    position: fixed;
+    bottom: 195px;
+    right: 30px;
+    width: 370px;
+    max-height: 520px;
+    background: #fff;
+    border-radius: var(--aq-radius);
+    box-shadow: var(--aq-shadow);
+    z-index: 9999;
+    display: none;              /* Hard hidden by default */
+    flex-direction: column;
+    overflow: hidden;
+    font-family: var(--aq-font);
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.aquabot-window.open {
+    display: flex;              /* Only show when .open class added */
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.aquabot-header {
+    background: var(--aq-gradient);
+    color: #fff;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.aquabot-header-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Mini bot face in header */
+.aquabot-header-avatar .mini-hat {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26px;
+    height: 10px;
+    background: #ffc107;
+    border-radius: 13px 13px 2px 2px;
+}
+
+.aquabot-header-avatar .mini-hat::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    height: 3px;
+    background: #ffab00;
+    border-radius: 2px;
+}
+
+.aquabot-header-avatar .mini-head {
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 20px;
+    background: #fff;
+    border-radius: 6px 6px 10px 10px;
+}
+
+.aquabot-header-avatar .mini-eyes {
+    position: absolute;
+    top: 17px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.aquabot-header-avatar .mini-eye {
+    width: 5px;
+    height: 5px;
+    background: var(--aq-primary);
+    border-radius: 50%;
+    animation: aqBlink 3.5s ease-in-out infinite;
+}
+
+.aquabot-header-avatar .mini-smile {
+    position: absolute;
+    top: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 4px;
+    border: 1.5px solid var(--aq-primary);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.aquabot-header-info { flex: 1; min-width: 0; }
+
+.aquabot-header-name {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+}
+
+.aquabot-header-company {
+    font-size: 11px;
+    opacity: 0.85;
+    letter-spacing: 0.2px;
+    line-height: 1.3;
+}
+
+.aquabot-header-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    opacity: 0.85;
+    margin-top: 2px;
+}
+
+.aquabot-header-status::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: #4cff8b;
+    border-radius: 50%;
+    display: inline-block;
+    animation: aqOnline 2s ease-in-out infinite;
+}
+
+@keyframes aqOnline {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.4; }
+}
+
+.aquabot-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: var(--aq-transition);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1;
+}
+
+.aquabot-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================
+   MESSAGES AREA
+   ======================================== */
+.aquabot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--aq-lighter);
+    scroll-behavior: smooth;
+    min-height: 0;
+}
+
+.aquabot-messages::-webkit-scrollbar { width: 5px; }
+.aquabot-messages::-webkit-scrollbar-track { background: transparent; }
+.aquabot-messages::-webkit-scrollbar-thumb {
+    background: rgba(10, 61, 76, 0.2);
+    border-radius: 10px;
+}
+
+/* ========================================
+   MESSAGE BUBBLE
+   ======================================== */
+.aquabot-msg {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: aqFadeIn 0.4s ease forwards;
+}
+
+@keyframes aqFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.aquabot-msg-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--aq-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.aquabot-msg-avatar .av-hat {
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 7px;
+    background: #ffc107;
+    border-radius: 10px 10px 1px 1px;
+}
+
+.aquabot-msg-avatar .av-head {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 14px;
+    background: #fff;
+    border-radius: 4px 4px 8px 8px;
+}
+
+.aquabot-msg-avatar .av-eyes {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+}
+
+.aquabot-msg-avatar .av-dot {
+    width: 3px;
+    height: 3px;
+    background: var(--aq-primary);
+    border-radius: 50%;
+}
+
+.aquabot-msg-bubble {
+    background: #fff;
+    border-radius: 4px 14px 14px 14px;
+    padding: 12px 15px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #1a1a2e;
+    box-shadow: 0 1px 4px rgba(10, 61, 76, 0.08);
+    max-width: 85%;
+    word-wrap: break-word;
+}
+
+.aquabot-msg-bubble strong { color: var(--aq-primary); }
+
+.aquabot-msg-bubble a {
+    color: var(--aq-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.aquabot-msg-bubble a:hover {
+    color: var(--aq-accent);
+    text-decoration: underline;
+}
+
+.aquabot-msg-bubble .aq-contact-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 4px 0;
+    font-size: 13px;
+}
+
+/* User message */
+.aquabot-msg.user { flex-direction: row-reverse; }
+.aquabot-msg.user .aquabot-msg-avatar { display: none; }
+.aquabot-msg.user .aquabot-msg-bubble {
+    background: var(--aq-gradient-btn);
+    color: #fff;
+    border-radius: 14px 4px 14px 14px;
+}
+.aquabot-msg.user .aquabot-msg-bubble a { color: #e0f7fa; }
+
+/* ========================================
+   TYPING INDICATOR
+   ======================================== */
+.aquabot-typing {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    opacity: 0;
+    animation: aqFadeIn 0.3s ease forwards;
+}
+
+.aquabot-typing-dots {
+    background: #fff;
+    border-radius: 4px 14px 14px 14px;
+    padding: 14px 20px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(10, 61, 76, 0.08);
+}
+
+.aquabot-typing-dots span {
+    width: 7px;
+    height: 7px;
+    background: var(--aq-secondary);
+    border-radius: 50%;
+    display: inline-block;
+    animation: aqDots 1.4s infinite;
+}
+
+.aquabot-typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.aquabot-typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes aqDots {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40%           { transform: scale(1);   opacity: 1; }
+}
+
+/* ========================================
+   ACTION BUTTONS
+   ======================================== */
+.aquabot-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 8px;
+    opacity: 0;
+    animation: aqFadeIn 0.4s ease 0.1s forwards;
+}
+
+.aquabot-action-btn {
+    background: #fff;
+    border: 1.5px solid var(--aq-accent);
+    color: var(--aq-primary);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--aq-transition);
+    font-family: var(--aq-font);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.3;
+}
+
+.aquabot-action-btn:hover {
+    background: var(--aq-gradient-btn);
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(13, 110, 138, 0.3);
+}
+
+.aquabot-action-btn:active { transform: translateY(0); }
+
+.aquabot-action-btn:disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    cursor: default;
+}
+
+.aquabot-action-btn.link {
+    border-color: var(--aq-secondary);
+    background: var(--aq-light);
+}
+
+.aquabot-action-btn.link:hover {
+    background: var(--aq-secondary);
+    color: #fff;
+    border-color: var(--aq-secondary);
+}
+
+.aquabot-action-btn.whatsapp {
+    border-color: #25d366;
+    color: #128C7E;
+}
+
+.aquabot-action-btn.whatsapp:hover {
+    background: #25d366;
+    color: #fff;
+    border-color: #25d366;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.aquabot-action-btn.email {
+    border-color: var(--aq-secondary);
+}
+
+.aquabot-action-btn.email:hover {
+    background: var(--aq-secondary);
+    color: #fff;
+    border-color: var(--aq-secondary);
+}
+
+/* ========================================
+   LEAVE CONVERSATION DIALOG
+   ======================================== */
+.aquabot-leave-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 61, 76, 0.55);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    animation: aqFadeIn 0.25s ease forwards;
+}
+
+.aquabot-leave-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 22px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(10, 61, 76, 0.25);
+    max-width: 280px;
+    width: 90%;
+}
+
+.aquabot-leave-box p {
+    font-family: var(--aq-font);
+    font-size: 14px;
+    color: var(--aq-primary);
+    font-weight: 500;
+    margin: 0 0 6px 0;
+    line-height: 1.5;
+}
+
+.aquabot-leave-box .aq-leave-sub {
+    font-size: 12px;
+    color: #7a8a96;
+    margin: 0 0 18px 0;
+    font-weight: 400;
+}
+
+.aquabot-leave-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.aquabot-leave-btns button {
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-family: var(--aq-font);
+    transition: var(--aq-transition);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.aq-leave-yes {
+    background: #ef4444;
+    color: #fff;
+}
+
+.aq-leave-yes:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.aq-leave-no {
+    background: var(--aq-light);
+    color: var(--aq-primary);
+}
+
+.aq-leave-no:hover {
+    background: var(--aq-accent);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* ========================================
+   TAGLINE & FOOTER
+   ======================================== */
+.aquabot-tagline {
+    font-size: 11px;
+    color: #7a8a96;
+    text-align: center;
+    padding: 6px 12px;
+    margin-top: 4px;
+    font-style: italic;
+    opacity: 0;
+    animation: aqFadeIn 0.4s ease 0.2s forwards;
+}
+
+.aquabot-footer {
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 10.5px;
+    color: #97a7b3;
+    background: #fff;
+    border-top: 1px solid #eef3f6;
+    flex-shrink: 0;
+    letter-spacing: 0.2px;
+}
+
+.aquabot-back-btn {
+    background: none;
+    border: none;
+    color: var(--aq-secondary);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 0;
+    margin-top: 4px;
+    font-family: var(--aq-font);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: var(--aq-transition);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.aquabot-back-btn:hover { color: var(--aq-accent); }
+
+/* ========================================
+   FIX: Stack WhatsApp & Back-to-top
+   so they don't overlap chatbot
+   ======================================== */
+.whatsapp-float {
+    bottom: 40px !important;
+    right: 40px !important;
+    z-index: 1000 !important;
+}
+
+.back-to-top {
+    bottom: 40px !important;
+    right: 115px !important;
+    z-index: 999 !important;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .aquabot-toggle {
+        bottom: 92px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+    }
+
+    .aquabot-tooltip {
+        bottom: 108px;
+        right: 84px;
+        font-size: 12px;
+        padding: 8px 13px;
+    }
+
+    .aquabot-window {
+        right: 16px;
+        bottom: 158px;
+        width: calc(100vw - 32px);
+        max-width: 370px;
+        max-height: 460px;
+    }
+
+    .whatsapp-float {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .back-to-top {
+        bottom: 20px !important;
+        right: 82px !important;
+        width: 45px !important;
+        height: 45px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .aquabot-toggle {
+        bottom: 84px;
+        right: 16px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .aquabot-bot-face {
+        width: 34px;
+        height: 34px;
+    }
+
+    .aquabot-hat {
+        width: 28px;
+        height: 12px;
+        top: -3px;
+    }
+
+    .aquabot-head {
+        width: 26px;
+        height: 22px;
+        top: 7px;
+    }
+
+    .aquabot-eyes {
+        top: 13px;
+        gap: 6px;
+    }
+
+    .aquabot-eye {
+        width: 6px;
+        height: 6px;
+    }
+
+    .aquabot-mouth {
+        top: 23px;
+        width: 8px;
+        height: 4px;
+    }
+
+    .aquabot-tooltip {
+        bottom: 99px;
+        right: 76px;
+        font-size: 12px;
+    }
+
+    .aquabot-window {
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        max-height: 85vh;
+        border-radius: var(--aq-radius) var(--aq-radius) 0 0;
+    }
+
+    .aquabot-header { padding: 14px 16px; }
+    .aquabot-messages { padding: 12px; }
+
+    .aquabot-action-btn {
+        padding: 7px 12px;
+        font-size: 12px;
+    }
+
+    .aquabot-msg-bubble {
+        font-size: 13px;
+        padding: 10px 13px;
+    }
+
+    .whatsapp-float {
+        bottom: 18px !important;
+        right: 16px !important;
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    .back-to-top {
+        bottom: 18px !important;
+        right: 76px !important;
+        width: 42px !important;
+        height: 42px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .aquabot-window { max-height: 80vh; }
+    .aquabot-msg-bubble { max-width: 92%; }
+}
+
+@media (max-height: 500px) {
+    .aquabot-window {
+        max-height: 75vh;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        border-radius: var(--aq-radius) var(--aq-radius) 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aquabot-toggle::before { animation: none; }
+    .aquabot-eye { animation: none; }
+    .aquabot-msg { animation: none; opacity: 1; transform: none; }
+    .aquabot-actions { animation: none; opacity: 1; }
+    .aquabot-tagline { animation: none; opacity: 1; }
+    .aquabot-typing-dots span { animation: none; opacity: 1; transform: none; }
+    .aquabot-window { transition: none; }
+}
+
+@media print {
+    .aquabot-toggle,
+    .aquabot-tooltip,
+    .aquabot-window {
+        display: none !important;
+    }
+}

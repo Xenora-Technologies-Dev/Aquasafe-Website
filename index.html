@@ -54,6 +54,7 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="assets/images/Logos/Aqusafe_logo.png" as="image">
     <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" as="style">
     
     <!-- Critical CSS for preventing white flash and layout shifts -->
     <style>
@@ -90,8 +91,13 @@
         .top-bar { min-height: 44px; }
         #mainNavbar { min-height: 70px; }
     </style>
+    
+    <!-- Aqua Bot Chatbot -->
+    <link rel="stylesheet" href="assets/chatbot/chatbot.css">
 </head>
 <body class="loading">
+    <!-- Skip to content for keyboard users -->
+    <a href="#home" class="skip-to-content">Skip to main content</a>
 
     <!-- ==================== PAGE LOADER ==================== -->
     <div id="page-loader">
@@ -141,7 +147,7 @@
     </div>
 
     <!-- ==================== STICKY NAVBAR ==================== -->
-    <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar" aria-label="Main navigation">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
@@ -223,6 +229,7 @@
     </nav>
 
     <!-- ==================== HERO SECTION ==================== -->
+    <main id="main-content">
     <section id="home" class="hero-section water-flow-bg">
         <div class="hero-overlay"></div>
         <div class="hero-particles" id="hero-particles"></div>
@@ -289,35 +296,40 @@
                         <h2 class="section-title">Leading MEP Solutions Provider in UAE</h2>
                         
                         <p class="about-text">
-                            <strong>AQUASAFE Building Material LLC</strong> is a leading UAE-based supplier specializing in high-quality MEP solutions for the construction industry. We provide durable, efficient, and reliable products that meet the highest industry standards, supporting both residential and commercial projects.
+                            <strong>AQUASAFE Building Material LLC</strong> is a leading UAE-based supplier specializing in 
+                            high-quality MEP solutions for the construction industry. We provide durable, 
+                            efficient, and reliable products that meet the highest industry standards, 
+                            supporting both residential and commercial projects.
                         </p>
                         
                         <h5 class="mt-4 mb-3">Our Product Portfolio Includes:</h5>
                         <div class="about-features">
                             <div class="about-feature">
                                 <i class="fas fa-check-circle"></i>
-                                <span>PPR Pipes & Fittings – corrosion-resistant piping solutions for hot and cold water supply</span>
+                                <span><strong>PPR Pipes & Fittings</strong> – Corrosion-resistant piping solutions</span>
                             </div>
                             <div class="about-feature">
                                 <i class="fas fa-check-circle"></i>
-                                <span>Drainage Piping Systems – efficient systems for wastewater and stormwater management</span>
+                                <span><strong>Drainage Piping Systems</strong> – Efficient wastewater management</span>
                             </div>
                             <div class="about-feature">
                                 <i class="fas fa-check-circle"></i>
-                                <span>Water Pumps – reliable pumps for various water supply and circulation needs</span>
+                                <span><strong>Water Pumps</strong> – Reliable pumps for water circulation</span>
                             </div>
                             <div class="about-feature">
                                 <i class="fas fa-check-circle"></i>
-                                <span>Valves – high-quality valves for flow and pressure control in piping systems</span>
+                                <span><strong>Valves</strong> – High-quality flow and pressure control</span>
                             </div>
                             <div class="about-feature">
                                 <i class="fas fa-check-circle"></i>
-                                <span>Manhole Covers – durable and safe covers suitable for infrastructure and drainage access points</span>
+                                <span><strong>Manhole Covers</strong> – Durable infrastructure access solutions</span>
                             </div>
                         </div>
                         
                         <p class="about-text mt-3">
-                            Committed to excellence, innovation, and customer satisfaction, <strong>AQUASAFE Building Material LLC</strong> strives to be a trusted partner, delivering complete, reliable, and sustainable MEP solutions to the UAE construction industry.
+                            Committed to excellence, innovation, and customer satisfaction, 
+                            <strong>AQUASAFE Building Material LLC</strong> strives to be a trusted partner, 
+                            delivering complete, reliable, and sustainable MEP solutions to the UAE construction industry.
                         </p>
                         
                         <a href="#contact" class="btn btn-accent btn-lg mt-4">
@@ -817,7 +829,8 @@
     </section>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
+    </main>
+    <footer class="footer" role="contentinfo">
         <div class="footer-main">
             <div class="container">
                 <!-- Modern Framed Short Logo -->
@@ -942,15 +955,23 @@
         <i class="fas fa-chevron-up"></i>
     </a>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/971565044257" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
     <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
     
     <!-- GSAP Animation Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" defer></script>
     
     <!-- Custom JavaScript -->
     <script src="js/loader.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
+    
+    <!-- Aqua Bot Chatbot -->
+    <script src="assets/chatbot/chatbot.js" defer></script>
 </body>
 </html>

@@ -114,6 +114,29 @@
 
     window.addEventListener('scroll', handleNavbarScroll);
 
+    // ==================== MOBILE NAVBAR STICKY FIX ====================
+    function ensureMobileNavbarSticky() {
+        if (window.innerWidth <= 991) {
+            // Force navbar to stay at top on mobile
+            navbar.style.position = 'sticky';
+            navbar.style.top = '0';
+            navbar.style.zIndex = '1030';
+            navbar.style.width = '100%';
+            navbar.style.background = 'var(--white)';
+            
+            // Additional mobile Safari fix
+            if (navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome')) {
+                navbar.style.position = '-webkit-sticky';
+                navbar.style.position = 'sticky';
+                navbar.style.transform = 'translateZ(0)'; // Force hardware acceleration
+            }
+        }
+    }
+
+    // Run on load and resize
+    ensureMobileNavbarSticky();
+    window.addEventListener('resize', ensureMobileNavbarSticky);
+
     // ==================== BACK TO TOP BUTTON ====================
     function handleBackToTop() {
         if (window.scrollY > 500) {
@@ -546,39 +569,190 @@
         }
     }
 
-    // ==================== CONTACT FORM HANDLING ====================
+    // ==================== CONTACT FORM VALIDATION & HANDLING ====================
+    
+    // Toast notification helper
+    function showToast(message, type) {
+        // Remove existing toasts
+        var existingToast = document.querySelector('.form-toast');
+        if (existingToast) existingToast.remove();
+        
+        var toast = document.createElement('div');
+        toast.className = 'form-toast ' + type;
+        toast.setAttribute('role', 'alert');
+        toast.setAttribute('aria-live', 'assertive');
+        toast.innerHTML = '<i class="fas fa-' + (type === 'success' ? 'check-circle' : 'exclamation-circle') + ' me-2"></i>' + message;
+        document.body.appendChild(toast);
+        
+        // Trigger animation
+        requestAnimationFrame(function() {
+            toast.classList.add('show');
+        });
+        
+        // Auto remove
+        setTimeout(function() {
+            toast.classList.remove('show');
+            setTimeout(function() { toast.remove(); }, 300);
+        }, 5000);
+    }
+    
+    // Validation helpers
+    function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    
+    function validatePhone(phone) {
+        if (!phone) return true; // Phone is optional
+        return /^[\d\s\+\-\(\)]{7,20}$/.test(phone);
+    }
+    
+    function setFieldError(field, message) {
+        field.classList.add('is-invalid');
+        field.classList.remove('is-valid');
+        var feedback = field.parentElement.querySelector('.invalid-feedback');
+        if (!feedback) {
+            feedback = document.createElement('div');
+            feedback.className = 'invalid-feedback';
+            field.parentElement.appendChild(feedback);
+        }
+        feedback.textContent = message;
+    }
+    
+    function setFieldValid(field) {
+        field.classList.remove('is-invalid');
+        field.classList.add('is-valid');
+        var feedback = field.parentElement.querySelector('.invalid-feedback');
+        if (feedback) feedback.textContent = '';
+    }
+    
+    function validateForm(form) {
+        var isValid = true;
+        var nameField = form.querySelector('#name');
+        var emailField = form.querySelector('#email');
+        var phoneField = form.querySelector('#phone');
+        var subjectField = form.querySelector('#subject');
+        var messageField = form.querySelector('#message');
+        
+        // Name validation
+        if (nameField && !nameField.value.trim()) {
+            setFieldError(nameField, 'Please enter your full name.');
+            isValid = false;
+        } else if (nameField && nameField.value.trim().length < 2) {
+            setFieldError(nameField, 'Name must be at least 2 characters.');
+            isValid = false;
+        } else if (nameField) {
+            setFieldValid(nameField);
+        }
+        
+        // Email validation
+        if (emailField && !emailField.value.trim()) {
+            setFieldError(emailField, 'Please enter your email address.');
+            isValid = false;
+        } else if (emailField && !validateEmail(emailField.value.trim())) {
+            setFieldError(emailField, 'Please enter a valid email address.');
+            isValid = false;
+        } else if (emailField) {
+            setFieldValid(emailField);
+        }
+        
+        // Phone validation (optional but must be numeric if provided)
+        if (phoneField && phoneField.value.trim() && !validatePhone(phoneField.value.trim())) {
+            setFieldError(phoneField, 'Please enter a valid phone number.');
+            isValid = false;
+        } else if (phoneField && phoneField.value.trim()) {
+            setFieldValid(phoneField);
+        }
+        
+        // Subject validation
+        if (subjectField && !subjectField.value) {
+            setFieldError(subjectField, 'Please select a subject.');
+            isValid = false;
+        } else if (subjectField) {
+            setFieldValid(subjectField);
+        }
+        
+        // Message validation
+        if (messageField && !messageField.value.trim()) {
+            setFieldError(messageField, 'Please enter your message.');
+            isValid = false;
+        } else if (messageField && messageField.value.trim().length < 10) {
+            setFieldError(messageField, 'Message must be at least 10 characters.');
+            isValid = false;
+        } else if (messageField) {
+            setFieldValid(messageField);
+        }
+        
+        return isValid;
+    }
+    
+    // Real-time validation on blur
     if (contactForm) {
+        var formFields = contactForm.querySelectorAll('.form-control, .form-select');
+        formFields.forEach(function(field) {
+            field.addEventListener('blur', function() {
+                // Only validate if user has interacted
+                if (this.value || this.classList.contains('is-invalid')) {
+                    validateForm(contactForm);
+                }
+            });
+            
+            // Clear error on input
+            field.addEventListener('input', function() {
+                if (this.classList.contains('is-invalid')) {
+                    this.classList.remove('is-invalid');
+                    var feedback = this.parentElement.querySelector('.invalid-feedback');
+                    if (feedback) feedback.textContent = '';
+                }
+            });
+        });
+        
+        // Form submission
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const btnText = submitBtn.querySelector('.btn-text');
-            const btnLoading = submitBtn.querySelector('.btn-loading');
-            const formMessage = document.getElementById('form-message');
+            if (!validateForm(this)) {
+                showToast('Please fix the errors in the form before submitting.', 'error');
+                // Focus first invalid field
+                var firstInvalid = this.querySelector('.is-invalid');
+                if (firstInvalid) firstInvalid.focus();
+                return;
+            }
+            
+            var submitBtn = this.querySelector('button[type="submit"]');
+            var btnText = submitBtn.querySelector('.btn-text');
+            var btnLoading = submitBtn.querySelector('.btn-loading');
+            var formMessage = document.getElementById('form-message');
             
             // Show loading state
             btnText.classList.add('d-none');
             btnLoading.classList.remove('d-none');
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual AJAX call)
-            setTimeout(() => {
+            // Simulate form submission (replace with actual AJAX call in production)
+            setTimeout(function() {
                 // Reset button state
                 btnText.classList.remove('d-none');
                 btnLoading.classList.add('d-none');
                 submitBtn.disabled = false;
                 
                 // Show success message
-                formMessage.className = 'form-message success';
-                formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
-                formMessage.style.display = 'block';
+                if (formMessage) {
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
+                    formMessage.style.display = 'block';
+                }
                 
-                // Reset form
+                showToast('Message sent successfully! We will respond shortly.', 'success');
+                
+                // Reset form and validation states
                 contactForm.reset();
+                formFields.forEach(function(f) {
+                    f.classList.remove('is-valid', 'is-invalid');
+                });
                 
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
+                // Hide inline message after 5 seconds
+                setTimeout(function() {
+                    if (formMessage) formMessage.style.display = 'none';
                 }, 5000);
             }, 2000);
         });

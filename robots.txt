@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.aquasafeuae.com/sitemap.xml
+
+# Disallow admin or private paths
+Disallow: /assets/Brochures/
