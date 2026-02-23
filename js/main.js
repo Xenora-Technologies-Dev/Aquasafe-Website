@@ -112,7 +112,9 @@
         }
     }
 
-    window.addEventListener('scroll', handleNavbarScroll);
+    // Throttle scroll event to prevent excessive reflows/repaints
+    const throttledNavbarScroll = throttle(handleNavbarScroll, 100);
+    window.addEventListener('scroll', throttledNavbarScroll, { passive: true });
 
     // ==================== MOBILE NAVBAR STICKY FIX ====================
     function ensureMobileNavbarSticky() {
@@ -135,7 +137,9 @@
 
     // Run on load and resize
     ensureMobileNavbarSticky();
-    window.addEventListener('resize', ensureMobileNavbarSticky);
+    // Throttle resize event to prevent excessive reflows
+    const throttledResize = throttle(ensureMobileNavbarSticky, 150);
+    window.addEventListener('resize', throttledResize);
 
     // ==================== BACK TO TOP BUTTON ====================
     function handleBackToTop() {
@@ -146,7 +150,9 @@
         }
     }
 
-    window.addEventListener('scroll', handleBackToTop);
+    // Throttle scroll event to prevent excessive reflows/repaints
+    const throttledBackToTop = throttle(handleBackToTop, 100);
+    window.addEventListener('scroll', throttledBackToTop, { passive: true });
 
     if (backToTop) {
         backToTop.addEventListener('click', function(e) {
@@ -1080,5 +1086,97 @@
             initMobileNestedDropdown();
         }, 250);
     });
+
+    // ==================== WHATSAPP POPUP TOGGLE & CLOSE ====================
+    (function() {
+        var popup = document.getElementById('whatsappPopup');
+        var btn = document.querySelector('.whatsapp-float');
+        if (!popup || !btn) return;
+
+        // Guarantee closed on load
+        popup.classList.remove('active');
+
+        function hideChatbot() {
+            var toggle = document.querySelector('.aquabot-toggle');
+            var tooltip = document.querySelector('.aquabot-tooltip');
+            var wrapper = document.querySelector('.whatsapp-float-wrapper');
+            if (toggle) toggle.style.display = 'none';
+            if (tooltip) tooltip.style.display = 'none';
+            if (wrapper) wrapper.style.zIndex = '10000';
+        }
+
+        function showChatbot() {
+            var toggle = document.querySelector('.aquabot-toggle');
+            var tooltip = document.querySelector('.aquabot-tooltip');
+            var wrapper = document.querySelector('.whatsapp-float-wrapper');
+            if (toggle) toggle.style.display = '';
+            if (tooltip) tooltip.style.display = '';
+            if (wrapper) wrapper.style.zIndex = '';
+        }
+
+        function openPopup() {
+            popup.classList.add('active');
+            hideChatbot();
+        }
+
+        function closePopup() {
+            popup.classList.remove('active');
+            showChatbot();
+        }
+
+        function togglePopup(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (popup.classList.contains('active')) {
+                closePopup();
+            } else {
+                openPopup();
+            }
+        }
+
+        // Toggle on button click
+        btn.addEventListener('click', togglePopup);
+
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+            var wrapper = document.querySelector('.whatsapp-float-wrapper');
+            if (wrapper && !wrapper.contains(e.target)) {
+                if (popup.classList.contains('active')) closePopup();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closePopup();
+        });
+
+        // Close WhatsApp popup when chatbot opens (chatbot is dynamically added)
+        function hookChatbotToggle() {
+            var chatbotToggle = document.querySelector('.aquabot-toggle');
+            if (chatbotToggle && !chatbotToggle._waHooked) {
+                chatbotToggle._waHooked = true;
+                chatbotToggle.addEventListener('click', function() {
+                    closePopup();
+                });
+            }
+        }
+        hookChatbotToggle();
+        setTimeout(hookChatbotToggle, 1000);
+        setTimeout(hookChatbotToggle, 3000);
+
+        // Close button in header
+        var header = popup.querySelector('.whatsapp-popup-header');
+        if (header) {
+            var closeBtn = document.createElement('span');
+            closeBtn.innerHTML = '&times;';
+            closeBtn.className = 'whatsapp-popup-close';
+            closeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closePopup();
+            });
+            header.appendChild(closeBtn);
+        }
+    })();
 
 })();

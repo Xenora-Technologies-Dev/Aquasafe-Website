@@ -20,27 +20,40 @@
     // Ensure body has loading class immediately
     document.body.classList.add('loading');
     
-    // Loading text animation
+    // Loading text animation - reduced frequency to prevent excessive repaints
     const loadingTexts = ['LOADING', 'INITIALIZING', 'ALMOST READY'];
     let textIndex = 0;
+    let lastTextUpdate = 0;
     
     textInterval = setInterval(() => {
         if (loaderText && !isHiding) {
             textIndex = (textIndex + 1) % loadingTexts.length;
             loaderText.textContent = loadingTexts[textIndex];
         }
-    }, 800);
+    }, 1200); // Increased from 800ms to reduce repaints
     
-    // Smooth progress animation
-    progressInterval = setInterval(() => {
+    // Smooth progress animation using requestAnimationFrame for better performance
+    let startTime = Date.now();
+    const progressDuration = 2000; // 2 second animation to 85%
+    
+    function animateProgress() {
         if (progress < 85 && !isHiding) {
-            const increment = Math.max(1, (85 - progress) / 10);
-            progress += increment;
+            const elapsed = Date.now() - startTime;
+            const percentage = Math.min((elapsed / progressDuration) * 85, 85);
+            progress = percentage;
+            
             if (progressBar) {
-                progressBar.style.width = Math.min(progress, 85) + '%';
+                progressBar.style.width = progress + '%';
+            }
+            
+            if (progress < 85) {
+                progressInterval = requestAnimationFrame(animateProgress);
             }
         }
-    }, 80);
+    }
+    
+    // Start progress animation
+    progressInterval = requestAnimationFrame(animateProgress);
     
     /**
      * Hide the loader and show page content
@@ -49,8 +62,12 @@
         if (isHiding) return;
         isHiding = true;
         
-        // Clear intervals
-        clearInterval(progressInterval);
+        // Clear intervals and animation frames
+        if (typeof progressInterval === 'number') {
+            cancelAnimationFrame(progressInterval);
+        } else {
+            clearInterval(progressInterval);
+        }
         clearInterval(textInterval);
         
         // Complete progress bar

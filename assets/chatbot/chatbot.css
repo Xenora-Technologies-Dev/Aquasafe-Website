@@ -23,10 +23,10 @@
    ======================================== */
 .aquabot-toggle {
     position: fixed;
-    bottom: 120px;
-    right: 40px;
-    width: 64px;
-    height: 64px;
+    bottom: 155px;
+    right: 35px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     background: var(--aq-gradient);
     border: 3px solid rgba(255, 255, 255, 0.3);
@@ -201,8 +201,8 @@
    ======================================== */
 .aquabot-tooltip {
     position: fixed;
-    bottom: 140px;
-    right: 114px;
+    bottom: 170px;
+    right: 100px;
     background: #fff;
     color: var(--aq-primary);
     padding: 10px 16px;
@@ -247,7 +247,7 @@
    ======================================== */
 .aquabot-window {
     position: fixed;
-    bottom: 195px;
+    bottom: 220px;
     right: 30px;
     width: 370px;
     max-height: 520px;
@@ -806,69 +806,51 @@
 .aquabot-back-btn:hover { color: var(--aq-accent); }
 
 /* ========================================
-   FIX: Stack WhatsApp & Back-to-top
-   so they don't overlap chatbot
-   ======================================== */
-.whatsapp-float {
-    bottom: 40px !important;
-    right: 40px !important;
-    z-index: 1000 !important;
-}
-
-.back-to-top {
-    bottom: 40px !important;
-    right: 115px !important;
-    z-index: 999 !important;
-}
-
-/* ============================================================
    RESPONSIVE
    ============================================================ */
 
 @media (max-width: 768px) {
     .aquabot-toggle {
-        bottom: 92px;
-        right: 20px;
-        width: 56px;
-        height: 56px;
+        bottom: 140px;
+        right: 24px;
+        width: 48px;
+        height: 48px;
     }
 
     .aquabot-tooltip {
-        bottom: 108px;
-        right: 84px;
+        bottom: 155px;
+        right: 80px;
         font-size: 12px;
         padding: 8px 13px;
     }
 
     .aquabot-window {
         right: 16px;
-        bottom: 158px;
+        bottom: 200px;
         width: calc(100vw - 32px);
         max-width: 370px;
         max-height: 460px;
     }
 
-    .whatsapp-float {
-        bottom: 20px !important;
-        right: 20px !important;
-        width: 50px !important;
-        height: 50px !important;
+    .whatsapp-float-wrapper {
+        bottom: 18px !important;
+        right: 24px !important;
     }
 
     .back-to-top {
-        bottom: 20px !important;
-        right: 82px !important;
-        width: 45px !important;
-        height: 45px !important;
+        bottom: 82px !important;
+        right: 28px !important;
+        width: 40px !important;
+        height: 40px !important;
     }
 }
 
 @media (max-width: 480px) {
     .aquabot-toggle {
-        bottom: 84px;
-        right: 16px;
-        width: 52px;
-        height: 52px;
+        bottom: 130px;
+        right: 20px;
+        width: 46px;
+        height: 46px;
     }
 
     .aquabot-bot-face {
@@ -933,18 +915,16 @@
         padding: 10px 13px;
     }
 
-    .whatsapp-float {
-        bottom: 18px !important;
-        right: 16px !important;
-        width: 48px !important;
-        height: 48px !important;
+    .whatsapp-float-wrapper {
+        bottom: 16px !important;
+        right: 20px !important;
     }
 
     .back-to-top {
-        bottom: 18px !important;
-        right: 76px !important;
-        width: 42px !important;
-        height: 42px !important;
+        bottom: 72px !important;
+        right: 24px !important;
+        width: 38px !important;
+        height: 38px !important;
     }
 }
 
