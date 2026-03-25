@@ -1599,7 +1599,8 @@ body:not(.loading) .hero-section {
     }
 
     .dropdown-menu .dropdown:hover > .dropdown-menu {
-        display: block !important;
+        /* On mobile, hover should not control display; JS handles it */
+        display: none;
     }
 
     .dropdown-menu .dropdown-submenu-item {
@@ -1617,7 +1618,7 @@ body:not(.loading) .hero-section {
         position: absolute;
         right: 15px;
         top: 50%;
-        transform: translateY(-50%) rotate(90deg);
+        transform: translateY(-50%) rotate(0deg);
         border: none;
     }
 
@@ -7606,8 +7607,8 @@ textarea.form-control {
     .dropdown-menu {
         animation: none !important;
     }
-    
-    .nav-item.dropdown:hover > .dropdown-menu {
+
+    .nav-item.dropdown:hover > .dropdown-menu:not(.show) {
         display: none;
     }
 }
