@@ -712,9 +712,24 @@ body:not(.loading) .hero-section {
     flex-shrink: 0;
 }
 
+.brand-logo-icon {
+    width: 52px;
+    height: 22px;
+    object-fit: contain;
+    margin-right: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
 @media (max-width: 576px) {
     .menu-icon {
         width: 18px;
+        height: 18px;
+        margin-right: 6px;
+    }
+    .brand-logo-icon {
+        width: 42px;
         height: 18px;
         margin-right: 6px;
     }
@@ -1269,10 +1284,12 @@ body:not(.loading) .hero-section {
 }
 
 .brand-logo-overlay {
-    max-height: 50px;
-    max-width: 120px;
+    max-height: 45px;
+    max-width: 110px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 14px;
+    border-radius: 6px;
 }
 
 .product-category-info {
@@ -1537,7 +1554,7 @@ body:not(.loading) .hero-section {
         background-color: rgba(42, 168, 164, 0.08);
         border-radius: 0;
         box-shadow: none;
-        display: block !important;
+        display: none;
         padding: 0;
         min-width: auto;
         border-left: 3px solid var(--accent-orange);
@@ -1984,16 +2001,12 @@ body:not(.loading) .hero-section {
     }
 }
 
-/* Responsive utilities for mobile */
+/* Responsive utilities for mobile — scoped to lg-only columns that have no sm/md prefix */
 @media (max-width: 576px) {
-    [class*="col-"] {
-        width: 100% !important;
+    .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4,
+    .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8,
+    .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
         margin-bottom: 15px;
-    }
-    
-    .row.no-stack [class*="col-"] {
-        width: auto;
-        margin-bottom: 0;
     }
 }
 
@@ -4905,14 +4918,10 @@ textarea.form-control {
 }
 
 @media (max-width: 575.98px) {
-    .hero-section {
-        padding: 100px 0 60px;
-    }
-    
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .hero-description {
         font-size: 0.95rem;
     }
@@ -7920,7 +7929,7 @@ textarea:focus-visible,
 
 .product-card-image img {
     width: 100%;
-    height: 220px;
+    height: clamp(170px, 30vw, 220px);
     object-fit: cover;
     transition: transform 0.4s ease;
 }
@@ -8079,4 +8088,157 @@ textarea:focus-visible,
     font-size: 0.85rem;
     font-weight: 600;
     z-index: 2;
+}
+
+/* ============================================================
+   RESPONSIVE FIXES & MOBILE IMPROVEMENTS
+   Consolidated overrides — cascade takes priority over earlier rules
+   ============================================================ */
+
+/* ── Hide top info bar on mobile: frees viewport for the hero ─────────── */
+@media (max-width: 767px) {
+    .top-bar {
+        display: none !important;
+    }
+}
+
+/* ── Top-bar info: prevent horizontal text overflow on phones ─────────── */
+@media (max-width: 576px) {
+    .top-bar-info li {
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        max-width: 100%;
+    }
+}
+
+/* ── Hero: correct viewport height (svh accounts for mobile browser UI) ── */
+@media (max-width: 991px) {
+    .hero-section {
+        min-height: 90vh;
+        min-height: 90svh;
+        padding: 80px 0 50px;
+    }
+    .hero-content {
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section {
+        min-height: 85vh;
+        min-height: 85svh;
+        padding: 60px 0 40px;
+        background-position: center center;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 80vh;
+        min-height: 80svh;
+        padding: 50px 0 30px;
+    }
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+}
+
+/* ── Navbar collapse: scrollable on mobile if content is very tall ─────── */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        max-height: 75vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* ── Brand showcase: 2-per-row on small phones (col-6 now works freely) ── */
+@media (max-width: 575px) {
+    .brand-showcase-item {
+        height: 140px;
+        padding: 1.2rem 0.8rem;
+    }
+    .brand-showcase-item img {
+        max-height: 55px;
+    }
+}
+
+/* ── Product cards: full width below md, 2-col on sm ─────────────────── */
+@media (max-width: 575px) {
+    .products-section .product-card {
+        margin-bottom: 16px;
+    }
+}
+
+/* ── About features: 2-column grid restored on tablet ────────────────── */
+@media (min-width: 768px) and (max-width: 991px) {
+    .about-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ── Dropdown submenu: flip to left side on narrower desktops ─────────── */
+@media (min-width: 992px) and (max-width: 1280px) {
+    .dropdown-menu .dropdown-menu {
+        left: auto;
+        right: 100%;
+        margin-left: 0;
+        margin-right: 5px;
+    }
+}
+
+/* ── Footer: prevent link text overflow on narrow columns ─────────────── */
+.footer-widget ul li,
+.footer-widget ul li a {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* ── Contact section: stack cleanly on tablet without col-md-* ───────── */
+@media (min-width: 768px) and (max-width: 991px) {
+    .contact-section .col-lg-4,
+    .contact-section .col-lg-8 {
+        width: 100%;
+    }
+}
+
+/* ── CTA section: center button on tablet/mobile ─────────────────────── */
+@media (max-width: 991px) {
+    .cta-section [class*="col-"] {
+        text-align: center !important;
+    }
+    .cta-section .btn {
+        margin-top: 20px;
+    }
+}
+
+/* ── Service cards: ensure consistent spacing on all screens ─────────── */
+@media (max-width: 575px) {
+    .service-card {
+        margin-bottom: 16px;
+    }
+}
+
+/* ── Prevent any stray horizontal overflow site-wide ─────────────────── */
+section, .container, .container-fluid, .row {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+/* ── Images: always responsive within their container ─────────────────── */
+img {
+    max-width: 100%;
+    height: auto;
 }
