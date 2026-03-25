@@ -119,19 +119,21 @@
     // ==================== MOBILE NAVBAR STICKY FIX ====================
     function ensureMobileNavbarSticky() {
         if (window.innerWidth <= 991) {
-            // Force navbar to stay at top on mobile
-            navbar.style.position = 'sticky';
+            // Force navbar to stay fixed at top on mobile
+            navbar.style.position = 'fixed';
             navbar.style.top = '0';
+            navbar.style.left = '0';
+            navbar.style.right = '0';
             navbar.style.zIndex = '1030';
             navbar.style.width = '100%';
             navbar.style.background = 'var(--white)';
-            
-            // Additional mobile Safari fix
-            if (navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome')) {
-                navbar.style.position = '-webkit-sticky';
-                navbar.style.position = 'sticky';
-                navbar.style.transform = 'translateZ(0)'; // Force hardware acceleration
-            }
+        } else {
+            // Desktop: use sticky
+            navbar.style.position = 'sticky';
+            navbar.style.top = '0';
+            navbar.style.left = '';
+            navbar.style.right = '';
+            navbar.style.width = '';
         }
     }
 
@@ -370,174 +372,205 @@
 
     // ==================== GSAP SCROLL ANIMATIONS ====================
     function initScrollAnimations() {
+        // Use gsap.fromTo() instead of gsap.from() to prevent elements getting stuck at opacity:0
+        // immediateRender:false ensures elements stay visible if ScrollTrigger never fires
+
         // Hero section animations (only animate if elements exist)
         if (document.querySelector('.hero-subtitle')) {
-            gsap.from('.hero-subtitle', {
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                delay: 0.2
-            });
+            gsap.fromTo('.hero-subtitle',
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 1, delay: 0.2 }
+            );
         }
-        
+
         if (document.querySelector('.hero-title')) {
-            gsap.from('.hero-title', {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                delay: 0.4
-            });
+            gsap.fromTo('.hero-title',
+                { opacity: 0, y: 50 },
+                { opacity: 1, y: 0, duration: 1, delay: 0.4 }
+            );
         }
-        
+
         if (document.querySelector('.hero-description')) {
-            gsap.from('.hero-description', {
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                delay: 0.6
-            });
+            gsap.fromTo('.hero-description',
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 1, delay: 0.6 }
+            );
         }
-        
+
         if (document.querySelector('.hero-buttons')) {
-            gsap.from('.hero-buttons', {
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                delay: 0.8
-            });
+            gsap.fromTo('.hero-buttons',
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 1, delay: 0.8 }
+            );
         }
 
         // Section titles animation
         gsap.utils.toArray('.section-subtitle, .section-title, .section-description').forEach(el => {
-            gsap.from(el, {
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 0.8
-            });
+            gsap.fromTo(el,
+                { opacity: 0, y: 30 },
+                {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    immediateRender: false
+                }
+            );
         });
 
         // Service cards animation
         gsap.utils.toArray('.service-card').forEach((card, index) => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                },
-                opacity: 0,
-                y: 50,
-                duration: 0.6,
-                delay: index * 0.1
-            });
+            gsap.fromTo(card,
+                { opacity: 0, y: 50 },
+                {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    immediateRender: false
+                }
+            );
         });
 
         // About section animation (only animate if elements exist)
         if (document.querySelector('.about-section')) {
             if (document.querySelector('.about-image-wrapper')) {
-                gsap.from('.about-image-wrapper', {
-                    scrollTrigger: {
-                        trigger: '.about-section',
-                        start: 'top 70%',
-                        toggleActions: 'play none none none'
-                    },
-                    opacity: 0,
-                    x: -50,
-                    duration: 1
-                });
+                gsap.fromTo('.about-image-wrapper',
+                    { opacity: 0, x: -50 },
+                    {
+                        scrollTrigger: {
+                            trigger: '.about-section',
+                            start: 'top 80%',
+                            toggleActions: 'play none none none'
+                        },
+                        opacity: 1,
+                        x: 0,
+                        duration: 1,
+                        immediateRender: false
+                    }
+                );
             }
 
             if (document.querySelector('.about-content')) {
-                gsap.from('.about-content', {
-                    scrollTrigger: {
-                        trigger: '.about-section',
-                        start: 'top 70%',
-                        toggleActions: 'play none none none'
-                    },
-                    opacity: 0,
-                    x: 50,
-                    duration: 1
-                });
+                gsap.fromTo('.about-content',
+                    { opacity: 0, x: 50 },
+                    {
+                        scrollTrigger: {
+                            trigger: '.about-section',
+                            start: 'top 80%',
+                            toggleActions: 'play none none none'
+                        },
+                        opacity: 1,
+                        x: 0,
+                        duration: 1,
+                        immediateRender: false
+                    }
+                );
             }
         }
 
         // Project cards animation
         gsap.utils.toArray('.project-card').forEach((card, index) => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                },
-                opacity: 0,
-                y: 50,
-                scale: 0.95,
-                duration: 0.6,
-                delay: (index % 3) * 0.1
-            });
+            gsap.fromTo(card,
+                { opacity: 0, y: 50, scale: 0.95 },
+                {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.6,
+                    delay: (index % 3) * 0.1,
+                    immediateRender: false
+                }
+            );
         });
 
         // Counter section animation
         gsap.utils.toArray('.counter-item').forEach((item, index) => {
-            gsap.from(item, {
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 0.6,
-                delay: index * 0.1
-            });
+            gsap.fromTo(item,
+                { opacity: 0, y: 30 },
+                {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    immediateRender: false
+                }
+            );
         });
 
         // Contact info animation
         gsap.utils.toArray('.contact-info-item').forEach((item, index) => {
-            gsap.from(item, {
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                },
-                opacity: 0,
-                x: -30,
-                duration: 0.6,
-                delay: index * 0.1
-            });
+            gsap.fromTo(item,
+                { opacity: 0, x: -30 },
+                {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    immediateRender: false
+                }
+            );
         });
 
         // Contact form animation (only animate if element exists)
         if (document.querySelector('.contact-form-wrapper')) {
-            gsap.from('.contact-form-wrapper', {
-                scrollTrigger: {
-                    trigger: '.contact-form-wrapper',
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
-                },
-                opacity: 0,
-                y: 50,
-                duration: 0.8
-            });
+            gsap.fromTo('.contact-form-wrapper',
+                { opacity: 0, y: 50 },
+                {
+                    scrollTrigger: {
+                        trigger: '.contact-form-wrapper',
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    immediateRender: false
+                }
+            );
         }
 
         // Footer animation
         gsap.utils.toArray('.footer-widget').forEach((widget, index) => {
-            gsap.from(widget, {
-                scrollTrigger: {
-                    trigger: widget,
-                    start: 'top 90%',
-                    toggleActions: 'play none none none'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 0.6,
-                delay: index * 0.1
-            });
+            gsap.fromTo(widget,
+                { opacity: 0, y: 30 },
+                {
+                    scrollTrigger: {
+                        trigger: widget,
+                        start: 'top 95%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    immediateRender: false
+                }
+            );
         });
     }
 
@@ -1025,13 +1058,41 @@
         handleNavbarScroll();
         handleBackToTop();
         setCurrentPageActive();
-        
+
         // Ensure content is visible
         document.body.style.opacity = '1';
         document.body.style.visibility = 'visible';
-        
+
         console.log('Aquasafe website initialized successfully');
     }
+
+    // ==================== ANIMATION FAILSAFE ====================
+    // If GSAP/ScrollTrigger doesn't render content within 3s, force all visible
+    setTimeout(function() {
+        var selectors = [
+            '.hero-subtitle', '.hero-title', '.hero-description', '.hero-buttons',
+            '.section-subtitle', '.section-title', '.section-description',
+            '.service-card', '.about-image-wrapper', '.about-content',
+            '.project-card', '.counter-item', '.contact-info-item',
+            '.contact-form-wrapper', '.footer-widget', '.contact-info-card',
+            '.stat-card', '.product-card'
+        ];
+        selectors.forEach(function(sel) {
+            document.querySelectorAll(sel).forEach(function(el) {
+                if (getComputedStyle(el).opacity === '0') {
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                    el.style.visibility = 'visible';
+                }
+            });
+        });
+        // Also force reveal elements visible
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+            if (!el.classList.contains('revealed') && !el.classList.contains('active')) {
+                el.classList.add('revealed');
+            }
+        });
+    }, 3000);
     
     // ==================== SET ACTIVE NAV BASED ON CURRENT PAGE ====================
     function setCurrentPageActive() {
