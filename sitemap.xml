@@ -98,8 +98,26 @@
   </url>
   <url>
     <loc>https://www.aquasafeuae.com/blog.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquasafeuae.com/blog-pressure-loss-ppr-piping-systems.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquasafeuae.com/blog-ppr-pipe-classes-pn10-pn16-pn20.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aquasafeuae.com/blog-select-pipe-pressure-chart.html</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>

@@ -47,6 +47,327 @@
         #page-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0a3d4c 0%, #156a78 100%); }
         .top-bar { min-height: 44px; }
         #mainNavbar { min-height: 70px; }
+
+        /* ============ BLOG LISTING PAGE STYLES ============ */
+        .blog-listing-section { background: #f0f7f6; }
+
+        /* Section header */
+        .blog-listing-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .blog-listing-header .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #0a3d4c, #2aa8a4);
+            color: #fff;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+        .blog-listing-header h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: #0a3d4c;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .blog-listing-header p {
+            font-size: 1.05rem;
+            color: #5a8a82;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── Featured Blog Card (Latest Post) ── */
+        .blog-featured-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(10,61,76,0.12);
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 380px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .blog-featured-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 55px rgba(10,61,76,0.18);
+        }
+        .blog-featured-image {
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .blog-featured-card:hover .blog-featured-image img { transform: scale(1.06); }
+        .featured-badge {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: linear-gradient(135deg, #0a3d4c, #2aa8a4);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .blog-featured-content {
+            padding: clamp(28px, 4vw, 48px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .blog-featured-content .cat-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .cat-badge {
+            background: rgba(42,168,164,0.12);
+            color: #2aa8a4;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .cat-badge.alt {
+            background: rgba(21,106,120,0.1);
+            color: #156a78;
+        }
+        .blog-featured-content h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+            color: #0a3d4c;
+            line-height: 1.3;
+            margin-bottom: 14px;
+        }
+        .blog-featured-content .excerpt {
+            font-size: 0.97rem;
+            color: #4a6670;
+            line-height: 1.75;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .blog-featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+        .blog-meta-item {
+            font-size: 0.83rem;
+            color: #7fb0a8;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: linear-gradient(135deg, #0a3d4c, #1d8a96);
+            color: #fff;
+            padding: 12px 26px;
+            border-radius: 8px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            box-shadow: 0 4px 14px rgba(10,61,76,0.2);
+        }
+        .btn-read-more:hover {
+            background: linear-gradient(135deg, #156a78, #2aa8a4);
+            color: #fff;
+            transform: translateX(4px);
+            box-shadow: 0 6px 20px rgba(42,168,164,0.35);
+        }
+        .btn-read-more i { transition: transform 0.3s ease; }
+        .btn-read-more:hover i { transform: translateX(4px); }
+
+        /* ── Standard Blog Cards ── */
+        .blog-card {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(10,61,76,0.08);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(10,61,76,0.05);
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(10,61,76,0.16);
+        }
+        .blog-card-image {
+            position: relative;
+            overflow: hidden;
+            height: 220px;
+        }
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+        .blog-card:hover .blog-card-image img { transform: scale(1.07); }
+        .blog-category-badge {
+            position: absolute;
+            top: 14px; left: 14px;
+            background: #2aa8a4;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.76rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .blog-card-content {
+            padding: 22px 22px 18px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .blog-card-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            color: #0a3d4c;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .blog-card-excerpt {
+            font-size: 0.92rem;
+            color: #4a6670;
+            line-height: 1.65;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 14px;
+            border-top: 1px solid #e1efed;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .blog-card-date {
+            font-size: 0.82rem;
+            color: #7fb0a8;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .blog-read-more {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            color: #2aa8a4;
+            font-size: 0.88rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .blog-read-more:hover { color: #0a3d4c; gap: 9px; }
+        .blog-read-more i { font-size: 0.75rem; }
+
+        /* ── Blog Sidebar ── */
+        .blog-sidebar { display: flex; flex-direction: column; gap: 22px; }
+        .blog-widget {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 18px rgba(10,61,76,0.08);
+        }
+        .widget-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #0a3d4c;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2aa8a4;
+        }
+        .blog-widget > p { font-size: 0.93rem; color: #4a6670; line-height: 1.65; margin: 0; }
+        .blog-categories { list-style: none; padding: 0; margin: 0; }
+        .blog-categories li a {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 9px 0; color: #4a6670;
+            border-bottom: 1px solid #f0f7f6;
+            text-decoration: none; font-size: 0.92rem;
+            transition: all 0.2s ease;
+        }
+        .blog-categories li a:hover { color: #2aa8a4; padding-left: 6px; }
+        .cat-count {
+            background: #f0f7f6; padding: 2px 9px;
+            border-radius: 20px; font-size: 0.78rem; color: #7fb0a8;
+        }
+        .blog-recent-posts { list-style: none; padding: 0; margin: 0; }
+        .blog-recent-posts li { padding: 11px 0; border-bottom: 1px solid #f0f7f6; display: flex; gap: 12px; }
+        .blog-recent-posts li:last-child { border-bottom: none; }
+        .recent-thumb {
+            width: 58px; height: 58px; border-radius: 8px;
+            object-fit: cover; flex-shrink: 0;
+        }
+        .recent-info { flex: 1; }
+        .recent-title {
+            color: #3a5e5a; font-size: 0.87rem; font-weight: 600;
+            display: block; margin-bottom: 4px;
+            text-decoration: none; transition: color 0.2s ease; line-height: 1.35;
+        }
+        .recent-title:hover { color: #2aa8a4; }
+        .post-date { font-size: 0.77rem; color: #a8ccc6; display: flex; align-items: center; gap: 4px; }
+        .blog-contact-widget { background: linear-gradient(135deg, #0a3d4c, #156a78); color: #fff; }
+        .blog-contact-widget .widget-title { color: #fff; border-bottom-color: rgba(255,255,255,0.25); }
+        .blog-contact-widget p { color: rgba(255,255,255,0.85); font-size: 0.93rem; margin-bottom: 16px; }
+        .btn-outline-wa {
+            border: 2px solid rgba(255,255,255,0.45);
+            color: #fff; background: transparent;
+            border-radius: 6px; padding: 9px 20px;
+            font-family: 'Rajdhani', sans-serif; font-weight: 600;
+            transition: all 0.3s ease; text-decoration: none;
+            display: block; text-align: center; font-size: 0.93rem; margin-top: 10px;
+        }
+        .btn-outline-wa:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+        /* Responsive featured card */
+        @media (max-width: 767px) {
+            .blog-featured-card { grid-template-columns: 1fr; }
+            .blog-featured-image { height: 240px; }
+        }
     </style>
     
     <!-- Aqua Bot Chatbot -->
@@ -205,165 +526,167 @@
         </div>
     </section>
 
-    <!-- ==================== BLOG SECTION ==================== -->
-    <section class="blog-section section-padding">
+    <!-- ==================== BLOG LISTING SECTION ==================== -->
+    <section class="blog-listing-section section-padding" id="main-content">
         <div class="container">
-            <div class="row">
+
+            <!-- Section Header -->
+            <div class="blog-listing-header">
+                <span class="section-tag"><i class="fas fa-pen-nib me-2"></i>Our Blog</span>
+                <h2>Insights &amp; Technical Guides</h2>
+                <p>Expert knowledge for MEP engineers, consultants, and building professionals across the UAE.</p>
+            </div>
+
+            <div class="row g-4 g-xl-5">
+
+                <!-- ===== ARTICLES COLUMN ===== -->
                 <div class="col-lg-8">
-                    <!-- Blog Post -->
-                    <article class="blog-post">
-                        <div class="blog-post-header">
-                            <h1 class="blog-post-title">How to Select the Right Pipe Using the Working Pressure Chart</h1>
-                            <div class="blog-post-meta">
-                                <span class="blog-date"><i class="fas fa-calendar-alt"></i> January 18, 2026</span>
-                                <span class="blog-category"><i class="fas fa-tag"></i> Pipe Selection</span>
+
+                    <!-- ── Featured Post ── -->
+                    <a href="blog-pressure-loss-ppr-piping-systems.html" class="blog-featured-card text-decoration-none" aria-label="Read: How to Calculate Pressure Loss in PPR Piping Systems">
+                        <div class="blog-featured-image">
+                            <img src="assets/images/Blog/Blog-1.jpeg"
+                                 alt="How to Calculate Pressure Loss in PPR Piping Systems"
+                                 loading="lazy">
+                            <span class="featured-badge"><i class="fas fa-bookmark"></i> Latest Article</span>
+                        </div>
+                        <div class="blog-featured-content">
+                            <div class="cat-badges">
+                                <span class="cat-badge">Technical Guide</span>
+                                <span class="cat-badge alt">Piping Systems</span>
+                            </div>
+                            <h2>How to Calculate Pressure Loss in PPR Piping Systems</h2>
+                            <p class="excerpt">
+                                Master the Hazen-Williams equation to accurately calculate pressure loss in PPR piping systems.
+                                A practical guide covering key factors, step-by-step calculations, and a worked example —
+                                essential for MEP engineers designing efficient plumbing installations.
+                            </p>
+                            <div class="blog-featured-meta">
+                                <span class="blog-meta-item"><i class="far fa-calendar-alt"></i> April 14, 2026</span>
+                                <span class="blog-meta-item"><i class="far fa-clock"></i> 6 min read</span>
+                                <span class="blog-meta-item"><i class="fas fa-tag"></i> Polymelt PPR</span>
+                            </div>
+                            <span class="btn-read-more">
+                                Read Full Article <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- ── Other Posts Grid ── -->
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <div class="blog-card-image">
+                                    <img src="assets/images/Blog/Blog-2.jpeg"
+                                         alt="How to Select the Right Pipe Using the Working Pressure Chart"
+                                         loading="lazy">
+                                    <span class="blog-category-badge">Pipe Selection</span>
+                                </div>
+                                <div class="blog-card-content">
+                                    <h3 class="blog-card-title">How to Select the Right Pipe Using the Working Pressure Chart</h3>
+                                    <p class="blog-card-excerpt">
+                                        Use the POLYMELT / POLYMUTAN working pressure chart to choose the correct pipe based on
+                                        temperature, pressure, and service life — with a 1.25 safety factor built in.
+                                    </p>
+                                    <div class="blog-card-footer">
+                                        <span class="blog-card-date"><i class="far fa-calendar-alt"></i> Jan 18, 2026</span>
+                                        <a href="blog-select-pipe-pressure-chart.html" class="blog-read-more">
+                                            Read More <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="blog-post-content">
-                            <p>
-                                Selecting the correct pipe is essential to ensure long service life, safety, and performance of your plumbing system. 
-                                The POLYMELT / POLYMUTAN working pressure chart helps you choose the most suitable pipe based on temperature, 
-                                pressure, and service life requirements, with all values calculated using a safety factor of 1.25.
-                            </p>
-
-                            <h3 class="blog-section-title">1. Identify the Operating Temperature</h3>
-                            <p>
-                                Start by determining the maximum water temperature in your system.<br>
-                                As temperature increases, the allowable working pressure of the pipe decreases.<br>
-                                Always select the pipe based on the highest operating temperature expected.
-                            </p>
-
-                            <h3 class="blog-section-title">2. Define the Required Service Life</h3>
-                            <p>
-                                The chart provides pressure ratings for different operating periods (1, 5, 10, 25, and 50 years).<br>
-                                For most residential and commercial installations, a 50-year operating life is recommended to ensure long-term reliability.
-                            </p>
-
-                            <h3 class="blog-section-title">3. Determine the System Working Pressure</h3>
-                            <p>
-                                Calculate the maximum working pressure of your system, including:
-                            </p>
-                            <ul class="blog-list">
-                                <li>Pump pressure</li>
-                                <li>Static water head</li>
-                                <li>Possible pressure fluctuations</li>
-                            </ul>
-                            <p>
-                                This value must always be lower than the maximum service pressure shown in the chart.
-                            </p>
-
-                            <h3 class="blog-section-title">4. Select the Pipe Type and SDR Class</h3>
-                            <p>
-                                Compare your system requirements with the chart values for:
-                            </p>
-                            <ul class="blog-list">
-                                <li><strong>POLYMUTAN SDR 6</strong> – highest pressure resistance (thicker wall)</li>
-                                <li><strong>POLYMUTAN SDR 11</strong></li>
-                                <li><strong>POLYMUTAN ML5 SDR 7.4</strong></li>
-                                <li><strong>UV ML5 SDR 7.4</strong> – suitable for applications exposed to UV radiation</li>
-                            </ul>
-                            <p>
-                                Choose a pipe whose rated pressure at the selected temperature and service life exceeds your system pressure.
-                            </p>
-
-                            <!-- Selection Chart Image -->
-                            <div class="blog-image-wrapper">
-                                <img src="assets/images/Selection_Chart.png" alt="Working Pressure Chart for Pipe Selection" class="blog-image img-fluid">
-                                <p class="image-caption">POLYMELT / POLYMUTAN Working Pressure Chart - Guide for selecting the right pipe</p>
-                            </div>
-
-                            <h3 class="blog-section-title">5. Final Verification</h3>
-                            <p>
-                                All values in the chart already account for:
-                            </p>
-                            <ul class="blog-list">
-                                <li>Long-term stress behavior</li>
-                                <li>Safety factor of 1.25</li>
-                                <li>Compliance with drinking water standards</li>
-                            </ul>
-                            <p>
-                                This ensures a safe and durable installation when selected correctly.
-                            </p>
-
-                            <h3 class="blog-section-title">Example</h3>
-                            <div class="blog-example-box">
-                                <p>
-                                    For a system operating at 60 °C, with a required service life of 50 years and a working pressure of 10 bar, 
-                                    the chart indicates that <strong>POLYMUTAN ML5 SDR 7.4</strong> or <strong>POLYMUTAN SDR 6</strong> are suitable 
-                                    choices, while lower-rated pipes may not meet the requirement.
-                                </p>
-                            </div>
-
-                            <h3 class="blog-section-title">Why This Matters</h3>
-                            <p>
-                                Correct pipe selection:
-                            </p>
-                            <ul class="blog-list">
-                                <li><i class="fas fa-check-circle text-success me-2"></i> Prevents premature failure</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> Ensures long-term performance</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> Reduces maintenance and replacement costs</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i> Guarantees safety under real operating conditions</li>
-                            </ul>
-
-                            <div class="blog-cta-box">
-                                <h4>Need Help Selecting the Right Pipe?</h4>
-                                <p>Our expert team at Aquasafe is ready to assist you with professional guidance and recommendations.</p>
-                                <a href="contact.html" class="btn btn-accent">Get Expert Advice</a>
-                            </div>
+                        <!-- Blog Card: PN Classes -->
+                        <div class="col-md-6">
+                            <a href="blog-ppr-pipe-classes-pn10-pn16-pn20.html" class="blog-card text-decoration-none" aria-label="Read: Understanding PPR Pipe Classes: PN10 vs PN16 vs PN20">
+                                <div class="blog-card-img">
+                                    <img src="assets/images/Blog/Blog-2.jpeg" alt="PPR Pipe Classes PN10 PN16 PN20" loading="lazy">
+                                    <span class="blog-card-badge">Pipe Selection</span>
+                                </div>
+                                <div class="blog-card-content">
+                                    <div class="blog-card-meta">
+                                        <span><i class="far fa-calendar-alt"></i> April 14, 2026</span>
+                                        <span><i class="far fa-clock"></i> 7 min read</span>
+                                    </div>
+                                    <h3 class="blog-card-title">Understanding PPR Pipe Classes: PN10 vs PN16 vs PN20 – Which One to Choose?</h3>
+                                    <p class="blog-card-excerpt">A practical guide explaining the difference between PN10, PN16, and PN20 PPR pipe classes and how to select the right pressure rating for your project.</p>
+                                    <span class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </a>
                         </div>
-                    </article>
-                </div>
 
-                <!-- Sidebar -->
+                    </div><!-- /row other posts -->
+
+                </div><!-- /col-lg-8 -->
+
+                <!-- ===== SIDEBAR ===== -->
                 <div class="col-lg-4">
-                    <div class="blog-sidebar">
-                        <!-- About Blog Box -->
+                    <aside class="blog-sidebar">
+
+                        <!-- About Widget -->
                         <div class="blog-widget">
-                            <h4 class="widget-title">About Aquasafe Blog</h4>
-                            <p>
-                                Stay updated with expert insights, technical guides, and industry best practices for piping solutions 
-                                and MEP systems. Our blog is your resource for making informed decisions about building materials and 
-                                construction solutions.
-                            </p>
+                            <h4 class="widget-title">About Our Blog</h4>
+                            <p>Expert insights, technical guides, and industry best practices for piping solutions and MEP systems in the UAE. Helping engineers and professionals make informed decisions.</p>
                         </div>
 
-                        <!-- Categories -->
+                        <!-- Categories Widget -->
                         <div class="blog-widget">
                             <h4 class="widget-title">Categories</h4>
                             <ul class="blog-categories">
-                                <li><a href="#">Pipe Selection</a></li>
-                                <li><a href="#">Installation Guide</a></li>
-                                <li><a href="#">Product Reviews</a></li>
-                                <li><a href="#">Industry News</a></li>
-                                <li><a href="#">Technical Support</a></li>
+                                <li><a href="blog.html">Technical Guides <span class="cat-count">3</span></a></li>
+                                <li><a href="blog.html">Pipe Selection <span class="cat-count">2</span></a></li>
+                                <li><a href="blog.html">Piping Systems <span class="cat-count">1</span></a></li>
+                                <li><a href="blog.html">MEP Design <span class="cat-count">1</span></a></li>
+                                <li><a href="blog.html">Product Guides <span class="cat-count">1</span></a></li>
                             </ul>
                         </div>
 
-                        <!-- Recent Posts -->
+                        <!-- Recent Posts Widget -->
                         <div class="blog-widget">
-                            <h4 class="widget-title">Recent Posts</h4>
+                            <h4 class="widget-title">Recent Articles</h4>
                             <ul class="blog-recent-posts">
                                 <li>
-                                    <a href="blog.html">How to Select the Right Pipe Using the Working Pressure Chart</a>
-                                    <span class="post-date">January 18, 2026</span>
+                                    <img src="assets/images/Blog/Blog-2.jpeg" alt="PPR Pipe Classes" class="recent-thumb">
+                                    <div class="recent-info">
+                                        <a href="blog-ppr-pipe-classes-pn10-pn16-pn20.html" class="recent-title">Understanding PPR Pipe Classes: PN10 vs PN16 vs PN20</a>
+                                        <span class="post-date"><i class="far fa-calendar-alt"></i> April 14, 2026</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="assets/images/Blog/Blog-1.jpeg" alt="Pressure Loss PPR" class="recent-thumb">
+                                    <div class="recent-info">
+                                        <a href="blog-pressure-loss-ppr-piping-systems.html" class="recent-title">How to Calculate Pressure Loss in PPR Piping Systems</a>
+                                        <span class="post-date"><i class="far fa-calendar-alt"></i> April 14, 2026</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="assets/images/Blog/Blog-2.jpeg" alt="Pipe Selection" class="recent-thumb">
+                                    <div class="recent-info">
+                                        <a href="blog-select-pipe-pressure-chart.html" class="recent-title">How to Select the Right Pipe Using the Working Pressure Chart</a>
+                                        <span class="post-date"><i class="far fa-calendar-alt"></i> January 18, 2026</span>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- Contact CTA -->
+                        <!-- Contact CTA Widget -->
                         <div class="blog-widget blog-contact-widget">
                             <h4 class="widget-title">Have Questions?</h4>
-                            <p>Get in touch with our expert team for personalized recommendations and technical support.</p>
+                            <p>Get in touch with our expert team for personalised recommendations and technical support on piping systems.</p>
                             <a href="contact.html" class="btn btn-accent w-100">Contact Us</a>
-                            <a href="https://wa.me/971565044257" class="btn btn-outline-accent w-100 mt-2" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                            <a href="https://wa.me/971565044257" class="btn-outline-wa" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp me-2"></i> WhatsApp Us
                             </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+                    </aside>
+                </div><!-- /col-lg-4 -->
+
+            </div><!-- /row -->
+        </div><!-- /container -->
     </section>
 
     <!-- ==================== CTA SECTION ==================== -->
