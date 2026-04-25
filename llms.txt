@@ -1,0 +1,47 @@
+# Aquasafe Trading
+
+> Aquasafe Trading is a leading MEP materials supplier based in Al Ain, Abu Dhabi, UAE. We supply PPR pipes and fittings, Grundfos water pumps, Hepworth uPVC drainage systems, Ariston water heaters, and Vybik brass ball valves to residential, commercial, and infrastructure projects across the UAE.
+
+- **Location**: Al Ain, Abu Dhabi, UAE
+- **Phone**: +971-37349475
+- **WhatsApp**: +971-558269366 / +971-565044257
+- **Email**: sales@aquasafeuae.com
+- **Website**: https://www.aquasafeuae.com
+
+## Core Pages
+
+- [Home](https://www.aquasafeuae.com/index.html): Company overview, featured products, key brands, and why choose Aquasafe Trading.
+- [About Us](https://www.aquasafeuae.com/about.html): Company background, mission, values and team.
+- [Services](https://www.aquasafeuae.com/services.html): MEP material supply & distribution, delivery, piping consultation, custom sourcing, and technical support.
+- [Products](https://www.aquasafeuae.com/products.html): Full product range overview — PPR pipes, water pumps, drainage, water heaters and valves.
+- [Projects](https://www.aquasafeuae.com/projects.html): Completed MEP material supply projects across UAE.
+- [Blog](https://www.aquasafeuae.com/blog.html): Technical guides on PPR pipe classes, pressure loss and pipe selection.
+- [Contact](https://www.aquasafeuae.com/contact.html): Office address, phone, WhatsApp, email and Google Maps location.
+
+## Product Pages
+
+- [PPR Plumbing System – Polymelt](https://www.aquasafeuae.com/products-plumbing-system.html): PN10/PN16/PN20 PPR and PP-RCT pipes and fittings conforming to DIN 8077/8078. Suitable for hot and cold water, HVAC and industrial applications.
+- [Water Pumps – Grundfos](https://www.aquasafeuae.com/products-water-pumps.html): Energy-efficient submersible, booster and circulation pumps for residential, commercial and industrial use.
+- [Drainage System – Hepworth](https://www.aquasafeuae.com/products-drainage-system.html): BSI Kitemark certified uPVC above-ground drainage and ABS waste pipes conforming to BS EN 1329 and BS 4514.
+- [Water Heaters – Ariston](https://www.aquasafeuae.com/products-water-heater.html): Electric storage, solar thermal and heat-pump water heaters for UAE residential and commercial applications.
+- [Valves & Fittings – Vybik](https://www.aquasafeuae.com/products-valves.html): Brass ball valves, manifold splitters and plumbing fittings for PPR piping systems.
+- [Manhole Covers](https://www.aquasafeuae.com/products-manhole-covers.html): Cast iron and ductile iron manhole covers for infrastructure projects.
+
+## Brand Pages
+
+- [Polymelt](https://www.aquasafeuae.com/brand-polymelt.html): ISO 9001 certified PP-R and PP-RCT pipe manufacturer.
+- [Grundfos](https://www.aquasafeuae.com/brand-grundfos.html): Global leader in energy-efficient pump solutions.
+- [Hepworth](https://www.aquasafeuae.com/brand-hepworth.html): BSI Kitemark certified uPVC and ABS pipe systems.
+- [Ariston](https://www.aquasafeuae.com/brand-ariston.html): Italian-engineered energy-efficient water heaters.
+- [Vybik](https://www.aquasafeuae.com/brand-vybik.html): High-quality brass ball valves and plumbing fittings.
+
+## Blog Articles
+
+- [PPR Pipe Classes: PN10, PN16 and PN20 Explained](https://www.aquasafeuae.com/blog-ppr-pipe-classes-pn10-pn16-pn20.html)
+- [Pressure Loss in PPR Piping Systems](https://www.aquasafeuae.com/blog-pressure-loss-ppr-piping-systems.html)
+- [How to Select a Pipe Using a Pressure Chart](https://www.aquasafeuae.com/blog-select-pipe-pressure-chart.html)
+
+## Technical Reference
+
+- [Sitemap](https://www.aquasafeuae.com/sitemap.xml)
+- [robots.txt](https://www.aquasafeuae.com/robots.txt)
