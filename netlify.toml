@@ -1,0 +1,13 @@
+# ---------------------------------------------------------------------------
+# Netlify configuration (root level)
+# ---------------------------------------------------------------------------
+
+[build]
+  # Install dependencies from the backend package.json before deploying
+  command   = "cd Aquasafe_Backend && npm install"
+  publish   = "."          # serve static files from the repo root
+
+[functions]
+  # Serverless functions are in the backend subdirectory
+  directory = "Aquasafe_Backend/netlify/functions"
+  node_bundler = "esbuild"

@@ -92,6 +92,86 @@
         #mainNavbar { min-height: 70px; }
     </style>
     
+    <!-- JSON-LD Structured Data: Organization + LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.aquasafeuae.com/#organization",
+          "name": "Aquasafe Trading",
+          "url": "https://www.aquasafeuae.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.aquasafeuae.com/assets/images/Logos/Aqusafe_logo.png",
+            "width": 300,
+            "height": 100
+          },
+          "description": "Aquasafe Trading is the leading MEP materials and PPR pipe supplier in UAE, specializing in PP-R and PP-RCT piping systems, Grundfos water pumps, Hepworth drainage, Ariston water heaters, and Vybik valves.",
+          "sameAs": [
+            "https://www.instagram.com/aqua_safe_trading",
+            "https://www.linkedin.com/company/aquasafeuae/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+971-37349475",
+            "contactType": "sales",
+            "areaServed": "AE",
+            "availableLanguage": ["English", "Arabic"]
+          }
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://www.aquasafeuae.com/#localbusiness",
+          "name": "Aquasafe Trading",
+          "image": "https://www.aquasafeuae.com/assets/images/Logos/Aqusafe_logo.png",
+          "url": "https://www.aquasafeuae.com",
+          "telephone": "+971-37349475",
+          "email": "sales@aquasafeuae.com",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Al Ain Industrial Area",
+            "addressLocality": "Al Ain",
+            "addressRegion": "Abu Dhabi",
+            "addressCountry": "AE"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 24.1518306,
+            "longitude": 55.8374296
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+              "opens": "08:00",
+              "closes": "17:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Friday",
+              "opens": "08:00",
+              "closes": "12:00"
+            }
+          ],
+          "description": "Leading MEP materials and piping solutions supplier in UAE. Authorized distributor of Grundfos pumps, Polymelt PPR pipes, Hepworth drainage, Ariston water heaters, and Vybik valves.",
+          "hasMap": "https://www.google.com/maps?q=24.1518306,55.8374296",
+          "areaServed": {
+            "@type": "State",
+            "name": "United Arab Emirates"
+          },
+          "knowsAbout": ["PPR Pipes", "MEP Materials", "Water Pumps", "Drainage Systems", "Water Heaters", "Valves"],
+          "sameAs": [
+            "https://www.instagram.com/aqua_safe_trading",
+            "https://www.linkedin.com/company/aquasafeuae/"
+          ]
+        }
+      ]
+    }
+    </script>
+
     <!-- Aqua Bot Chatbot -->
     <link rel="stylesheet" href="assets/chatbot/chatbot.css">
 </head>

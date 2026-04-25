@@ -1,7 +1,19 @@
 User-agent: *
 Allow: /
 
+# Disallow non-public asset directories
+Disallow: /assets/Brochures/
+Disallow: /assets/chatbot/
+
+# Sitemap
 Sitemap: https://www.aquasafeuae.com/sitemap.xml
 
-# Disallow admin or private paths
+# Google-specific crawler
+User-agent: Googlebot
+Allow: /
+Disallow: /assets/Brochures/
+
+# Bing crawler
+User-agent: Bingbot
+Allow: /
 Disallow: /assets/Brochures/
