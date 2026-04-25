@@ -8,9 +8,8 @@ Disallow: /assets/chatbot/
 # Sitemap
 Sitemap: https://www.aquasafeuae.com/sitemap.xml
 
-# LLMs reference
-# https://llmstxt.org
-LLMs: https://www.aquasafeuae.com/llms.txt
+# AI assistant guide: https://www.aquasafeuae.com/llms.txt
+# See also: https://llmstxt.org
 
 # Google-specific crawler
 User-agent: Googlebot

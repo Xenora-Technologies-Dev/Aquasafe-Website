@@ -43,6 +43,10 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preload" as="image" href="assets/images/Aquasafe_Homepage.png">
+    <!-- LCP image preload -->
+    <link rel="preload" as="image" href="assets/images/Index_About.png" fetchpriority="high">
+    <!-- llms.txt reference for AI discoverability -->
+    <link rel="llms.txt" href="/llms.txt" type="text/plain">
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -64,45 +68,14 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" as="style">
     
     <!-- Critical CSS for preventing white flash and layout shifts -->
-    <style>
-        /* Prevent FOUC and ensure stable loading */
-        html { background: #0a3d4c; }
-        body { 
-            background: #0a3d4c;
-            opacity: 1;
-            visibility: visible;
-        }
-        body.loading { 
-            background: linear-gradient(135deg, #0a3d4c 0%, #2aa8a4 100%);
-            overflow: hidden;
-        }
-        body.loading > *:not(#page-loader) { 
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        /* Ensure loader is always visible during loading */
-        #page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0a3d4c 0%, #156a78 100%);
-        }
-        /* Reserve space for header to prevent CLS */
-        .top-bar { min-height: 44px; }
-        #mainNavbar { min-height: 70px; }
-    </style>
+    <style>html{background:#0a3d4c}body{background:#0a3d4c;opacity:1;visibility:visible}body.loading{background:linear-gradient(135deg,#0a3d4c 0%,#2aa8a4 100%);overflow:hidden}body.loading>*:not(#page-loader){opacity:0;visibility:hidden;pointer-events:none}#page-loader{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a3d4c 0%,#156a78 100%)}.top-bar{min-height:44px}#mainNavbar{min-height:70px}</style>
     
     <!-- JSON-LD Structured Data: Organization + LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.aquasafeuae.com",
       "@graph": [
         {
           "@type": "Organization",
@@ -340,7 +313,7 @@
                                 Discover Products
                                 <i class="fas fa-arrow-right ms-2"></i>
                             </a>
-                            <a href="about.html" class="btn btn-outline-light btn-lg ms-3">
+                            <a href="about.html" class="btn btn-outline-light btn-lg ms-3" aria-label="Learn more about Aquasafe Trading">
                                 Learn More
                             </a>
                         </div>
@@ -366,7 +339,7 @@
                     <div class="about-image-wrapper">
                         <div class="about-image">
                             <img src="assets/images/Index_About.png" 
-                                 alt="Aquasafe Piping Solutions" class="img-fluid" loading="lazy">
+                                 alt="Aquasafe Piping Solutions" class="img-fluid" fetchpriority="high">
                         </div>
 
                         <div class="about-pattern"></div>
@@ -623,7 +596,7 @@
                         <p class="service-description">
                             Supply a variety of building materials including plumbing, drainage, and water solutions with specialized products.
                         </p>
-                        <a href="services.html" class="service-link">
+                        <a href="services.html" class="service-link" aria-label="Learn more about Product Supply & Distribution services">
                             Learn More <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -639,7 +612,7 @@
                         <p class="service-description">
                             On-time delivery of building materials to construction sites with flexible delivery options for different needs.
                         </p>
-                        <a href="services.html" class="service-link">
+                        <a href="services.html" class="service-link" aria-label="Learn more about Delivery Services">
                             Learn More <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -655,7 +628,7 @@
                         <p class="service-description">
                             Expert material consulting to help customers select the best materials based on project needs and budgets.
                         </p>
-                        <a href="services.html" class="service-link">
+                        <a href="services.html" class="service-link" aria-label="Learn more about Consultation & Selection services">
                             Learn More <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -671,7 +644,7 @@
                         <p class="service-description">
                             Comprehensive technical support and after-sales services to ensure optimal performance and satisfaction.
                         </p>
-                        <a href="services.html" class="service-link">
+                        <a href="services.html" class="service-link" aria-label="Learn more about Technical Support services">
                             Learn More <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -752,7 +725,7 @@
                             </p>
                             <div class="blog-card-footer">
                                 <span class="blog-card-date"><i class="fas fa-calendar-alt"></i> January 18, 2026</span>
-                                <a href="blog.html" class="blog-read-more">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="blog.html" class="blog-read-more" aria-label="Read more about How to Select the Right Pipe Using the Working Pressure Chart">Read More <i class="fas fa-arrow-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
