@@ -4655,7 +4655,6 @@ textarea.form-control {
         max-height: calc(100vh - 80px);
         overflow-y: auto;
         overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
         position: absolute;
         top: 100%;
         left: 0;
@@ -8107,7 +8106,7 @@ textarea:focus-visible,
 /* ── Prevent any stray horizontal overflow site-wide ─────────────────── */
 section {
     max-width: 100%;
-    overflow-x: clip;
+    overflow-x: hidden;
 }
 .row {
     max-width: 100%;
@@ -8155,4 +8154,47 @@ body:not(.loading) .product-card {
         transition: none !important;
         animation: none !important;
     }
+}
+
+/* ==================== CAPTCHA ==================== */
+#captchaCanvas {
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    background: #f8f9fa;
+    display: block;
+}
+
+#captchaRefresh {
+    background: none;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* ==================== DIRECTIONS BUTTON ==================== */
+.directions-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1a73e8;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.directions-btn:hover {
+    background: #1558b0;
+    color: #fff;
+}
+
+/* ==================== FAQ SECTION TITLE ==================== */
+.faq-section-title {
+    color: var(--primary-dark);
 }
