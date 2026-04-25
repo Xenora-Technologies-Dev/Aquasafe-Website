@@ -22,6 +22,13 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     <link rel="apple-touch-icon" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     <link rel="shortcut icon" type="image/png" href="assets/images/Logos/Aquasafe_Short_Logo.png">
+        <!-- DNS prefetch + preconnect for CDN performance -->
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" as="image" href="assets/images/Logos/Aqusafe_logo.png" fetchpriority="high">
+
         <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -148,7 +155,7 @@
     <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -423,7 +430,7 @@
                         <div class="why-icon">
                             <i class="fas fa-medal"></i>
                         </div>
-                        <h4 class="why-title">Quality Assured</h4>
+                        <h3 class="why-title">Quality Assured</h3>
                         <p class="why-text">All our products meet international quality standards and come with proper certifications.</p>
                     </div>
                 </div>
@@ -432,7 +439,7 @@
                         <div class="why-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <h4 class="why-title">Timely Delivery</h4>
+                        <h3 class="why-title">Timely Delivery</h3>
                         <p class="why-text">We understand project timelines and ensure on-time delivery every time.</p>
                     </div>
                 </div>
@@ -441,7 +448,7 @@
                         <div class="why-icon">
                             <i class="fas fa-hand-holding-usd"></i>
                         </div>
-                        <h4 class="why-title">Competitive Pricing</h4>
+                        <h3 class="why-title">Competitive Pricing</h3>
                         <p class="why-text">Get the best value with our competitive pricing and bulk order discounts.</p>
                     </div>
                 </div>
@@ -450,7 +457,7 @@
                         <div class="why-icon">
                             <i class="fas fa-user-tie"></i>
                         </div>
-                        <h4 class="why-title">Expert Team</h4>
+                        <h3 class="why-title">Expert Team</h3>
                         <p class="why-text">Our experienced professionals provide guidance at every step.</p>
                     </div>
                 </div>
@@ -459,7 +466,7 @@
                         <div class="why-icon">
                             <i class="fas fa-warehouse"></i>
                         </div>
-                        <h4 class="why-title">Large Inventory</h4>
+                        <h3 class="why-title">Large Inventory</h3>
                         <p class="why-text">Extensive stock availability ensures quick fulfillment of orders.</p>
                     </div>
                 </div>
@@ -468,7 +475,7 @@
                         <div class="why-icon">
                             <i class="fas fa-thumbs-up"></i>
                         </div>
-                        <h4 class="why-title">Customer Satisfaction</h4>
+                        <h3 class="why-title">Customer Satisfaction</h3>
                         <p class="why-text">Your satisfaction is our priority - we go the extra mile to serve you.</p>
                     </div>
                 </div>
@@ -601,7 +608,7 @@
                     <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
                             <a class="footer-logo" href="index.html">
-                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
                             </a>
                             <p class="footer-about-text">
                                 Aquasafe Trading is the leading company supplying specialized MEP materials 
@@ -620,7 +627,7 @@
                     <!-- Footer Links -->
                     <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Quick Links</h4>
+                            <h3 class="footer-title">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About Us</a></li>
@@ -636,7 +643,7 @@
                     <!-- Footer Services -->
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Our Services</h4>
+                            <h3 class="footer-title">Our Services</h3>
                             <ul class="footer-links">
                                 <li><a href="services.html">Product Supply & Distribution</a></li>
                                 <li><a href="services.html">Delivery Services</a></li>
@@ -650,7 +657,7 @@
                     <!-- Footer Contact -->
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Contact Info</h4>
+                            <h3 class="footer-title">Contact Info</h3>
                             <ul class="footer-contact">
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>

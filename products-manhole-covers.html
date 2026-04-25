@@ -21,6 +21,13 @@
     <link rel="apple-touch-icon" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     <link rel="shortcut icon" type="image/png" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     
+    <!-- DNS prefetch + preconnect for CDN performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" as="image" href="assets/images/Logos/Aqusafe_logo.png" fetchpriority="high">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -109,7 +116,7 @@
     <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -277,7 +284,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-circle"></i>
                         </div>
-                        <h4>Ductile Iron Covers</h4>
+                        <h3>Ductile Iron Covers</h3>
                         <p>High-strength ductile iron manhole covers for heavy traffic areas and highways.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Class D400, E600, F900</li>
@@ -291,7 +298,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-square"></i>
                         </div>
-                        <h4>Cast Iron Covers</h4>
+                        <h3>Cast Iron Covers</h3>
                         <p>Traditional cast iron covers for general purpose access applications.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Class A15, B125, C250</li>
@@ -305,7 +312,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-layer-group"></i>
                         </div>
-                        <h4>Composite Covers</h4>
+                        <h3>Composite Covers</h3>
                         <p>Lightweight composite manhole covers with excellent durability and no scrap value.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Anti-theft</li>
@@ -319,7 +326,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-lock"></i>
                         </div>
-                        <h4>Recessed Covers</h4>
+                        <h3>Recessed Covers</h3>
                         <p>Covers designed to be filled with paving material for aesthetic integration.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Infill type</li>
@@ -333,7 +340,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-vector-square"></i>
                         </div>
-                        <h4>Frames & Gratings</h4>
+                        <h3>Frames & Gratings</h3>
                         <p>Supporting frames and drainage gratings for complete access solutions.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Channel gratings</li>
@@ -347,7 +354,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <h4>Utility Covers</h4>
+                        <h3>Utility Covers</h3>
                         <p>Specialized covers for telecom, electrical, and water meter access.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Telecom boxes</li>
@@ -373,42 +380,42 @@
                 <div class="col-lg-2 col-md-4 col-6">
                     <div class="application-card">
                         <i class="fas fa-walking"></i>
-                        <h5>Class A15</h5>
+                        <h3>Class A15</h3>
                         <p>Pedestrian areas only (15 kN)</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6">
                     <div class="application-card">
                         <i class="fas fa-parking"></i>
-                        <h5>Class B125</h5>
+                        <h3>Class B125</h3>
                         <p>Footpaths & parking (125 kN)</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6">
                     <div class="application-card">
                         <i class="fas fa-road"></i>
-                        <h5>Class C250</h5>
+                        <h3>Class C250</h3>
                         <p>Kerbside channels (250 kN)</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6">
                     <div class="application-card">
                         <i class="fas fa-car"></i>
-                        <h5>Class D400</h5>
+                        <h3>Class D400</h3>
                         <p>Carriageways (400 kN)</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6">
                     <div class="application-card">
                         <i class="fas fa-truck"></i>
-                        <h5>Class E600</h5>
+                        <h3>Class E600</h3>
                         <p>Heavy vehicles (600 kN)</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6">
                     <div class="application-card">
                         <i class="fas fa-plane"></i>
-                        <h5>Class F900</h5>
+                        <h3>Class F900</h3>
                         <p>Airports (900 kN)</p>
                     </div>
                 </div>
@@ -506,7 +513,7 @@
                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                         <div class="footer-widget">
                             <a class="footer-logo" href="index.html">
-                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
                             </a>
                             <p class="footer-about">
                                 Your trusted partner for premium piping solutions in UAE. We supply high-quality PP-R pipes, fittings, water pumps, and MEP materials for residential and commercial projects.
@@ -522,7 +529,7 @@
                     <!-- Footer Links -->
                     <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Quick Links</h4>
+                            <h3 class="footer-title">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About Us</a></li>
@@ -538,7 +545,7 @@
                     <!-- Footer Services -->
                     <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Products</h4>
+                            <h3 class="footer-title">Products</h3>
                             <ul class="footer-links">
                                 <li><a href="products-water-pumps.html">Water Pumps</a></li>
                                 <li><a href="products-drainage-system.html">Drainage System</a></li>
@@ -553,7 +560,7 @@
                     <!-- Footer Contact -->
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Contact Info</h4>
+                            <h3 class="footer-title">Contact Info</h3>
                             <ul class="footer-contact">
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>

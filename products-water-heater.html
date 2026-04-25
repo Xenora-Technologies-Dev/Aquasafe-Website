@@ -24,6 +24,13 @@
     <link rel="apple-touch-icon" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     <link rel="shortcut icon" type="image/png" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     
+    <!-- DNS prefetch + preconnect for CDN performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" as="image" href="assets/images/Logos/Aqusafe_logo.png" fetchpriority="high">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -130,7 +137,7 @@
     <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -298,7 +305,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-database"></i>
                         </div>
-                        <h4>Storage Water Heaters</h4>
+                        <h3>Storage Water Heaters</h3>
                         <p>Traditional tank-type heaters that store and heat water for immediate use when needed.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> 30L to 500L capacity</li>
@@ -312,7 +319,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <h4>Instant Water Heaters</h4>
+                        <h3>Instant Water Heaters</h3>
                         <p>Tankless heaters that provide hot water on demand without storing heated water.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Compact design</li>
@@ -326,7 +333,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-sun"></i>
                         </div>
-                        <h4>Solar Water Heaters</h4>
+                        <h3>Solar Water Heaters</h3>
                         <p>Eco-friendly systems that use solar energy to heat water, reducing electricity costs.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Flat plate collectors</li>
@@ -340,7 +347,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-leaf"></i>
                         </div>
-                        <h4>Heat Pump Water Heaters</h4>
+                        <h3>Heat Pump Water Heaters</h3>
                         <p>High-efficiency units that use heat pump technology for maximum energy savings.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> 3x more efficient</li>
@@ -354,7 +361,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-industry"></i>
                         </div>
-                        <h4>Commercial Water Heaters</h4>
+                        <h3>Commercial Water Heaters</h3>
                         <p>High-capacity systems designed for hotels, hospitals, and large commercial facilities.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> High recovery rate</li>
@@ -368,7 +375,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-cog"></i>
                         </div>
-                        <h4>Accessories & Parts</h4>
+                        <h3>Accessories & Parts</h3>
                         <p>Complete range of accessories including expansion vessels, mixing valves, and more.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Thermostats</li>
@@ -394,28 +401,28 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="application-card">
                         <i class="fas fa-home"></i>
-                        <h5>Residential</h5>
+                        <h3>Residential</h3>
                         <p>Bathrooms, kitchens, and whole-house hot water supply.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="application-card">
                         <i class="fas fa-hotel"></i>
-                        <h5>Hotels & Resorts</h5>
+                        <h3>Hotels & Resorts</h3>
                         <p>Guest rooms, laundry, and kitchen facilities.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="application-card">
                         <i class="fas fa-hospital"></i>
-                        <h5>Healthcare</h5>
+                        <h3>Healthcare</h3>
                         <p>Hospitals, clinics, and healthcare facilities.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="application-card">
                         <i class="fas fa-dumbbell"></i>
-                        <h5>Sports Facilities</h5>
+                        <h3>Sports Facilities</h3>
                         <p>Gyms, swimming pools, and sports centers.</p>
                     </div>
                 </div>
@@ -631,7 +638,7 @@
                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                         <div class="footer-widget">
                             <a class="footer-logo" href="index.html">
-                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
                             </a>
                             <p class="footer-about">
                                 Your trusted partner for premium piping solutions in UAE. We supply high-quality PP-R pipes, fittings, water pumps, and MEP materials for residential and commercial projects.
@@ -647,7 +654,7 @@
                     <!-- Footer Links -->
                     <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Quick Links</h4>
+                            <h3 class="footer-title">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About Us</a></li>
@@ -663,7 +670,7 @@
                     <!-- Footer Services -->
                     <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Products</h4>
+                            <h3 class="footer-title">Products</h3>
                             <ul class="footer-links">
                                 <li><a href="products-water-pumps.html">Water Pumps</a></li>
                                 <li><a href="products-drainage-system.html">Drainage System</a></li>
@@ -678,7 +685,7 @@
                     <!-- Footer Contact -->
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Contact Info</h4>
+                            <h3 class="footer-title">Contact Info</h3>
                             <ul class="footer-contact">
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>

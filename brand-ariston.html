@@ -25,6 +25,13 @@
     <link rel="apple-touch-icon" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     <link rel="shortcut icon" type="image/png" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     
+    <!-- DNS prefetch + preconnect for CDN performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" as="image" href="assets/images/Logos/Aqusafe_logo.png" fetchpriority="high">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -124,7 +131,7 @@
     <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -262,7 +269,7 @@
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="advantage-item">
                         <div class="advantage-icon"><i class="fas fa-leaf"></i></div>
-                        <h5>Energy Efficient</h5>
+                        <h3>Energy Efficient</h3>
                         <p>Advanced technology minimizes energy consumption while delivering consistent hot water performance.</p>
                     </div>
                 </div>
@@ -270,7 +277,7 @@
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="advantage-item">
                         <div class="advantage-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h5>Reliable Performance</h5>
+                        <h3>Reliable Performance</h3>
                         <p>Built for durability with quality components ensuring consistent hot water supply for years.</p>
                     </div>
                 </div>
@@ -278,7 +285,7 @@
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="advantage-item">
                         <div class="advantage-icon"><i class="fas fa-thermometer"></i></div>
-                        <h5>Smart Temperature Control</h5>
+                        <h3>Smart Temperature Control</h3>
                         <p>Precise temperature regulation technology for optimal comfort and safety in every application.</p>
                     </div>
                 </div>
@@ -286,7 +293,7 @@
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="advantage-item">
                         <div class="advantage-icon"><i class="fas fa-wrench"></i></div>
-                        <h5>Easy Installation</h5>
+                        <h3>Easy Installation</h3>
                         <p>Compact designs and straightforward installation process reduce labor costs and time.</p>
                     </div>
                 </div>
@@ -294,7 +301,7 @@
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="advantage-item">
                         <div class="advantage-icon"><i class="fas fa-globe"></i></div>
-                        <h5>Global Support</h5>
+                        <h3>Global Support</h3>
                         <p>Comprehensive warranty and worldwide service network ensure product reliability and support.</p>
                     </div>
                 </div>
@@ -302,7 +309,7 @@
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="advantage-item">
                         <div class="advantage-icon"><i class="fas fa-check-circle"></i></div>
-                        <h5>Sustainable Design</h5>
+                        <h3>Sustainable Design</h3>
                         <p>Eco-friendly manufacturing and efficient operation support environmental responsibility goals.</p>
                     </div>
                 </div>
@@ -331,7 +338,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Andris Water Heater</h5>
+                            <h3>Andris Water Heater</h3>
                             <span class="badge bg-primary">Compact</span>
                         </div>
                     </div>
@@ -347,7 +354,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Aures Multi Small</h5>
+                            <h3>Aures Multi Small</h3>
                             <span class="badge bg-primary">Residential</span>
                         </div>
                     </div>
@@ -363,7 +370,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>BLU R Medium Storage</h5>
+                            <h3>BLU R Medium Storage</h3>
                             <span class="badge bg-info">Electric</span>
                         </div>
                     </div>
@@ -379,7 +386,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>PRO1 R Medium Storage</h5>
+                            <h3>PRO1 R Medium Storage</h3>
                             <span class="badge bg-info">Electric</span>
                         </div>
                     </div>
@@ -395,7 +402,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Ari Top Big Storage</h5>
+                            <h3>Ari Top Big Storage</h3>
                             <span class="badge bg-info">Electric</span>
                         </div>
                     </div>
@@ -411,7 +418,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>ES Extra Commercial</h5>
+                            <h3>ES Extra Commercial</h3>
                             <span class="badge bg-warning">Commercial</span>
                         </div>
                     </div>
@@ -427,7 +434,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Nuos Plus Heat Pump</h5>
+                            <h3>Nuos Plus Heat Pump</h3>
                             <span class="badge bg-success">Heat Pump</span>
                         </div>
                     </div>
@@ -443,7 +450,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Nuos Primo HC</h5>
+                            <h3>Nuos Primo HC</h3>
                             <span class="badge bg-success">Heat Pump</span>
                         </div>
                     </div>
@@ -459,7 +466,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Nuos Evo A+</h5>
+                            <h3>Nuos Evo A+</h3>
                             <span class="badge bg-success">Heat Pump</span>
                         </div>
                     </div>
@@ -475,7 +482,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Nuos Evo Split WH</h5>
+                            <h3>Nuos Evo Split WH</h3>
                             <span class="badge bg-success">Heat Pump</span>
                         </div>
                     </div>
@@ -491,7 +498,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>AR 10PM Heat Pump</h5>
+                            <h3>AR 10PM Heat Pump</h3>
                             <span class="badge bg-success">Heat Pump</span>
                         </div>
                     </div>
@@ -507,7 +514,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>AR 17PM Heat Pump</h5>
+                            <h3>AR 17PM Heat Pump</h3>
                             <span class="badge bg-success">Heat Pump</span>
                         </div>
                     </div>
@@ -523,7 +530,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Kairos Thermo Direct</h5>
+                            <h3>Kairos Thermo Direct</h3>
                             <span class="badge bg-secondary">Solar</span>
                         </div>
                     </div>
@@ -539,7 +546,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Kairos Thermo HF</h5>
+                            <h3>Kairos Thermo HF</h3>
                             <span class="badge bg-secondary">Solar</span>
                         </div>
                     </div>
@@ -555,7 +562,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Kairos Thermo CF 2</h5>
+                            <h3>Kairos Thermo CF 2</h3>
                             <span class="badge bg-secondary">Solar</span>
                         </div>
                     </div>
@@ -571,7 +578,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Kairos Thermo CF GR</h5>
+                            <h3>Kairos Thermo CF GR</h3>
                             <span class="badge bg-secondary">Solar</span>
                         </div>
                     </div>
@@ -587,7 +594,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Kairos Thermo GR</h5>
+                            <h3>Kairos Thermo GR</h3>
                             <span class="badge bg-secondary">Solar</span>
                         </div>
                     </div>
@@ -634,7 +641,7 @@
                     <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
                             <a class="footer-logo" href="index.html">
-                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
                             </a>
                             <p class="footer-about-text">Authorized distributor of Ariston water heaters in UAE.</p>
                             <div class="footer-social">
@@ -646,7 +653,7 @@
                     </div>
                     <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Quick Links</h4>
+                            <h3 class="footer-title">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="products.html">Products</a></li>
@@ -656,7 +663,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Services</h4>
+                            <h3 class="footer-title">Services</h3>
                             <ul class="footer-links">
                                 <li><a href="services.html">Supply & Distribution</a></li>
                                 <li><a href="services.html">Delivery Services</a></li>
@@ -666,7 +673,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Contact</h4>
+                            <h3 class="footer-title">Contact</h3>
                             <ul class="footer-contact">
                                 <li><i class="fas fa-map-marker-alt"></i><span>Al Ain, Abu Dhabi, UAE</span></li>
                                 <li><i class="fas fa-phone-alt"></i><a href="tel:0097137349475">00971 37349475</a></li>

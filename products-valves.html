@@ -24,6 +24,13 @@
     <link rel="apple-touch-icon" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     <link rel="shortcut icon" type="image/png" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     
+    <!-- DNS prefetch + preconnect for CDN performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" as="image" href="assets/images/Logos/Aqusafe_logo.png" fetchpriority="high">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -130,7 +137,7 @@
     <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -298,7 +305,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-door-open"></i>
                         </div>
-                        <h4>Gate Valves</h4>
+                        <h3>Gate Valves</h3>
                         <p>Linear motion valves used to start or stop fluid flow, ideal for on/off control applications.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Full bore design</li>
@@ -312,7 +319,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-circle"></i>
                         </div>
-                        <h4>Ball Valves</h4>
+                        <h3>Ball Valves</h3>
                         <p>Quarter-turn valves with excellent shut-off capabilities for quick operation.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Quick shut-off</li>
@@ -326,7 +333,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-check"></i>
                         </div>
-                        <h4>Check Valves</h4>
+                        <h3>Check Valves</h3>
                         <p>One-way valves that prevent backflow and protect equipment from reverse flow damage.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Swing type</li>
@@ -340,7 +347,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-compact-disc"></i>
                         </div>
-                        <h4>Butterfly Valves</h4>
+                        <h3>Butterfly Valves</h3>
                         <p>Compact valves for flow regulation and isolation in large diameter pipelines.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Wafer/Lug type</li>
@@ -354,7 +361,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-globe"></i>
                         </div>
-                        <h4>Globe Valves</h4>
+                        <h3>Globe Valves</h3>
                         <p>Linear motion valves designed for precise flow regulation and throttling applications.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Excellent throttling</li>
@@ -368,7 +375,7 @@
                         <div class="product-type-icon">
                             <i class="fas fa-tachometer-alt"></i>
                         </div>
-                        <h4>Pressure Relief Valves</h4>
+                        <h3>Pressure Relief Valves</h3>
                         <p>Safety valves designed to protect systems from overpressure conditions.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-arrow-right"></i> Automatic operation</li>
@@ -394,28 +401,28 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="application-card">
                         <i class="fas fa-cubes"></i>
-                        <h5>Brass</h5>
+                        <h3>Brass</h3>
                         <p>Ideal for potable water and general plumbing applications.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="application-card">
                         <i class="fas fa-shield-alt"></i>
-                        <h5>Stainless Steel</h5>
+                        <h3>Stainless Steel</h3>
                         <p>Corrosion resistant for demanding industrial environments.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="application-card">
                         <i class="fas fa-industry"></i>
-                        <h5>Cast Iron</h5>
+                        <h3>Cast Iron</h3>
                         <p>Heavy-duty applications in water and wastewater systems.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="application-card">
                         <i class="fas fa-atom"></i>
-                        <h5>PVC/CPVC</h5>
+                        <h3>PVC/CPVC</h3>
                         <p>Chemical resistant for corrosive media handling.</p>
                     </div>
                 </div>
@@ -628,7 +635,7 @@
                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                         <div class="footer-widget">
                             <a class="footer-logo" href="index.html">
-                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
                             </a>
                             <p class="footer-about">
                                 Your trusted partner for premium piping solutions in UAE. We supply high-quality PP-R pipes, fittings, water pumps, and MEP materials for residential and commercial projects.
@@ -644,7 +651,7 @@
                     <!-- Footer Links -->
                     <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Quick Links</h4>
+                            <h3 class="footer-title">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About Us</a></li>
@@ -660,7 +667,7 @@
                     <!-- Footer Services -->
                     <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Products</h4>
+                            <h3 class="footer-title">Products</h3>
                             <ul class="footer-links">
                                 <li><a href="products-water-pumps.html">Water Pumps</a></li>
                                 <li><a href="products-drainage-system.html">Drainage System</a></li>
@@ -675,7 +682,7 @@
                     <!-- Footer Contact -->
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Contact Info</h4>
+                            <h3 class="footer-title">Contact Info</h3>
                             <ul class="footer-contact">
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>

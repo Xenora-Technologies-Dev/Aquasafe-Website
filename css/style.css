@@ -1,4 +1,4 @@
-/* ==================== CSS VARIABLES ==================== */
+﻿/* ==================== CSS VARIABLES ==================== */
 :root {
     /* Colors - Aquasafe Teal Gradient Theme */
     --primary-dark: #0a3d4c;
@@ -1460,7 +1460,7 @@ body:not(.loading) .hero-section {
     margin-bottom: 0.5rem;
 }
 
-.timeline-content h4 {
+.timeline-content h3 {
     color: var(--text-dark);
     margin-bottom: 0.5rem;
 }
@@ -2860,7 +2860,7 @@ body:not(.loading) .hero-section {
     line-height: 1;
 }
 
-.contact-details h5 {
+.contact-details h3 {
     font-family: var(--font-primary);
     font-size: 1.25rem;
     font-weight: 700;
@@ -4475,7 +4475,7 @@ textarea.form-control {
     color: var(--accent-orange);
 }
 
-.product-type-card h4 {
+.product-type-card h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
     color: var(--primary-dark);
@@ -4528,7 +4528,7 @@ textarea.form-control {
     margin-bottom: 20px;
 }
 
-.application-card h5 {
+.application-card h3 {
     font-size: 1.1rem;
     margin-bottom: 10px;
     color: var(--primary-dark);
@@ -6636,7 +6636,7 @@ textarea.form-control {
     flex-direction: column;
 }
 
-.product-showcase-content h4 {
+.product-showcase-content h3 {
     font-family: var(--font-primary);
     font-size: 1.2rem;
     font-weight: 600;
@@ -6663,7 +6663,7 @@ textarea.form-control {
         padding: 20px;
     }
     
-    .product-showcase-content h4 {
+    .product-showcase-content h3 {
         font-size: 1.1rem;
     }
     
@@ -6681,7 +6681,7 @@ textarea.form-control {
         padding: 15px;
     }
     
-    .product-showcase-content h4 {
+    .product-showcase-content h3 {
         font-size: 1rem;
     }
     
@@ -7060,7 +7060,7 @@ textarea.form-control {
     transition-delay: 0.1s;
 }
 
-.product-overlay-content h5 {
+.product-overlay-content h3 {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 10px;
@@ -7091,7 +7091,7 @@ textarea.form-control {
     border-top-color: #2aa8a4;
 }
 
-.product-gallery-info h5 {
+.product-gallery-info h3 {
     font-size: 0.95rem;
     font-weight: 600;
     color: #0a3d4c;
@@ -7101,7 +7101,7 @@ textarea.form-control {
     transition: all 0.3s ease;
 }
 
-.product-gallery-card:hover .product-gallery-info h5 {
+.product-gallery-card:hover .product-gallery-info h3 {
     color: #2aa8a4;
     transform: translateY(-2px);
 }
@@ -7165,11 +7165,11 @@ textarea.form-control {
         max-height: 200px;
     }
     
-    .product-gallery-info h5 {
+    .product-gallery-info h3 {
         font-size: 0.95rem;
     }
     
-    .product-overlay-content h5 {
+    .product-overlay-content h3 {
         font-size: 1rem;
     }
     

@@ -23,6 +23,13 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     <link rel="apple-touch-icon" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     <link rel="shortcut icon" type="image/png" href="assets/images/Logos/Aquasafe_Short_Logo.png">
+        <!-- DNS prefetch + preconnect for CDN performance -->
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" as="image" href="assets/images/Logos/Aqusafe_logo.png" fetchpriority="high">
+
         <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -127,7 +134,7 @@
     <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -318,7 +325,7 @@
                             <div class="project-overlay">
                                 <div class="project-overlay-content">
                                     <span class="project-category">Commercial</span>
-                                    <h4 class="project-title">Al Ain Commercial Complex</h4>
+                                    <h3 class="project-title">Al Ain Commercial Complex</h3>
                                     <p class="project-desc">Complete PP-R piping system installation</p>
                                     <a href="#" class="btn btn-accent btn-sm">View Details</a>
                                 </div>
@@ -336,7 +343,7 @@
                             <div class="project-overlay">
                                 <div class="project-overlay-content">
                                     <span class="project-category">Residential</span>
-                                    <h4 class="project-title">Luxury Residential Tower</h4>
+                                    <h3 class="project-title">Luxury Residential Tower</h3>
                                     <p class="project-desc">Water supply & drainage systems</p>
                                     <a href="#" class="btn btn-accent btn-sm">View Details</a>
                                 </div>
@@ -354,7 +361,7 @@
                             <div class="project-overlay">
                                 <div class="project-overlay-content">
                                     <span class="project-category">Industrial</span>
-                                    <h4 class="project-title">Industrial Manufacturing Plant</h4>
+                                    <h3 class="project-title">Industrial Manufacturing Plant</h3>
                                     <p class="project-desc">PP-RCT compressed air piping</p>
                                     <a href="#" class="btn btn-accent btn-sm">View Details</a>
                                 </div>
@@ -372,7 +379,7 @@
                             <div class="project-overlay">
                                 <div class="project-overlay-content">
                                     <span class="project-category">Infrastructure</span>
-                                    <h4 class="project-title">Abu Dhabi Infrastructure</h4>
+                                    <h3 class="project-title">Abu Dhabi Infrastructure</h3>
                                     <p class="project-desc">Underground drainage network</p>
                                     <a href="#" class="btn btn-accent btn-sm">View Details</a>
                                 </div>
@@ -390,7 +397,7 @@
                             <div class="project-overlay">
                                 <div class="project-overlay-content">
                                     <span class="project-category">Commercial</span>
-                                    <h4 class="project-title">Shopping Mall MEP</h4>
+                                    <h3 class="project-title">Shopping Mall MEP</h3>
                                     <p class="project-desc">Complete MEP materials supply</p>
                                     <a href="#" class="btn btn-accent btn-sm">View Details</a>
                                 </div>
@@ -408,7 +415,7 @@
                             <div class="project-overlay">
                                 <div class="project-overlay-content">
                                     <span class="project-category">Residential</span>
-                                    <h4 class="project-title">Villa Community Project</h4>
+                                    <h3 class="project-title">Villa Community Project</h3>
                                     <p class="project-desc">Plumbing systems for 50+ villas</p>
                                     <a href="#" class="btn btn-accent btn-sm">View Details</a>
                                 </div>
@@ -426,7 +433,7 @@
                             <div class="project-overlay">
                                 <div class="project-overlay-content">
                                     <span class="project-category">Industrial</span>
-                                    <h4 class="project-title">Food Processing Factory</h4>
+                                    <h3 class="project-title">Food Processing Factory</h3>
                                     <p class="project-desc">Hygienic piping installation</p>
                                     <a href="#" class="btn btn-accent btn-sm">View Details</a>
                                 </div>
@@ -444,7 +451,7 @@
                             <div class="project-overlay">
                                 <div class="project-overlay-content">
                                     <span class="project-category">Infrastructure</span>
-                                    <h4 class="project-title">Water Treatment Plant</h4>
+                                    <h3 class="project-title">Water Treatment Plant</h3>
                                     <p class="project-desc">Pumping systems & piping</p>
                                     <a href="#" class="btn btn-accent btn-sm">View Details</a>
                                 </div>
@@ -462,7 +469,7 @@
                             <div class="project-overlay">
                                 <div class="project-overlay-content">
                                     <span class="project-category">Commercial</span>
-                                    <h4 class="project-title">Office Building Complex</h4>
+                                    <h3 class="project-title">Office Building Complex</h3>
                                     <p class="project-desc">Full plumbing & HVAC piping</p>
                                     <a href="#" class="btn btn-accent btn-sm">View Details</a>
                                 </div>
@@ -508,7 +515,7 @@
                         </p>
                         <div class="testimonial-author">
                             <div class="author-info">
-                                <h5 class="author-name">ENg.SAIF</h5>
+                                <p class="author-name">ENg.SAIF</p>
                                 <span class="author-title">MEP ENGINEER</span>
                             </div>
                         </div>
@@ -562,7 +569,7 @@
                     <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
                             <a class="footer-logo" href="index.html">
-                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
                             </a>
                             <p class="footer-about-text">
                                 Aquasafe Trading is the leading company supplying specialized MEP materials 
@@ -581,7 +588,7 @@
                     <!-- Footer Links -->
                     <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Quick Links</h4>
+                            <h3 class="footer-title">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About Us</a></li>
@@ -597,7 +604,7 @@
                     <!-- Footer Services -->
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Our Services</h4>
+                            <h3 class="footer-title">Our Services</h3>
                             <ul class="footer-links">
                                 <li><a href="services.html">Product Supply & Distribution</a></li>
                                 <li><a href="services.html">Delivery Services</a></li>
@@ -611,7 +618,7 @@
                     <!-- Footer Contact -->
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Contact Info</h4>
+                            <h3 class="footer-title">Contact Info</h3>
                             <ul class="footer-contact">
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>

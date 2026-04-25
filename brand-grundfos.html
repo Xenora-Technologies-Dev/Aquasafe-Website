@@ -25,6 +25,13 @@
     <link rel="apple-touch-icon" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     <link rel="shortcut icon" type="image/png" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     
+    <!-- DNS prefetch + preconnect for CDN performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" as="image" href="assets/images/Logos/Aqusafe_logo.png" fetchpriority="high">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -124,7 +131,7 @@
     <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -308,7 +315,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-history"></i>
                         </div>
-                        <h4>80+ Years of Experience</h4>
+                        <h3>80+ Years of Experience</h3>
                         <p>
                             Founded in 1945 in Denmark, Grundfos has spent over 8 decades perfecting pump technology and water solutions. The company's heritage is built on innovation, quality, and a deep understanding of water management needs.
                         </p>
@@ -320,7 +327,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-globe"></i>
                         </div>
-                        <h4>Global Presence</h4>
+                        <h3>Global Presence</h3>
                         <p>
                             Operating across 60+ countries with 20,000 dedicated employees, Grundfos has established itself as a truly global company with local expertise and support in every market.
                         </p>
@@ -332,7 +339,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-leaf"></i>
                         </div>
-                        <h4>Sustainability Commitment</h4>
+                        <h3>Sustainability Commitment</h3>
                         <p>
                             Grundfos is committed to addressing the world's most pressing sustainability challenges. The company focuses on reducing energy consumption, protecting water resources, and promoting responsible business practices.
                         </p>
@@ -344,7 +351,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-flask"></i>
                         </div>
-                        <h4>Innovation Leadership</h4>
+                        <h3>Innovation Leadership</h3>
                         <p>
                             Grundfos invests heavily in research and development to create next-generation pump technologies. Recent innovations like ALPHA GO represent breakthroughs in circulation pump efficiency and digital functionality.
                         </p>
@@ -356,7 +363,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-cogs"></i>
                         </div>
-                        <h4>Diverse Applications</h4>
+                        <h3>Diverse Applications</h3>
                         <p>
                             Grundfos pumps serve multiple sectors including heating, cooling, water supply, wastewater management, industrial processes, and agriculture across residential, commercial, and utility applications.
                         </p>
@@ -368,7 +375,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-certificate"></i>
                         </div>
-                        <h4>Quality & Reliability</h4>
+                        <h3>Quality & Reliability</h3>
                         <p>
                             Every Grundfos pump is engineered and manufactured to the highest standards, backed by comprehensive warranties and supported by a global network of certified service providers.
                         </p>
@@ -459,7 +466,7 @@
                         <div class="product-card-icon">
                             <i class="fas fa-tachometer-alt"></i>
                         </div>
-                        <h4 class="product-card-title">Booster Pumps & Systems</h4>
+                        <h3 class="product-card-title">Booster Pumps & Systems</h3>
                         <p class="product-card-text">
                             Grundfos booster pumps are designed for increasing water pressure in residential, commercial, and industrial applications, ensuring a constant and reliable water supply.
                         </p>
@@ -471,7 +478,7 @@
                         <div class="product-card-icon">
                             <i class="fas fa-exchange-alt"></i>
                         </div>
-                        <h4 class="product-card-title">Transfer Pumps & Systems</h4>
+                        <h3 class="product-card-title">Transfer Pumps & Systems</h3>
                         <p class="product-card-text">
                             Grundfos transfer pumps are ideal for moving water from one location to another, such as from a tank to a water treatment system or for general dewatering tasks.
                         </p>
@@ -483,7 +490,7 @@
                         <div class="product-card-icon">
                             <i class="fas fa-sync-alt"></i>
                         </div>
-                        <h4 class="product-card-title">Circulation Pumps & Systems</h4>
+                        <h3 class="product-card-title">Circulation Pumps & Systems</h3>
                         <p class="product-card-text">
                             Used in heating, ventilation, and air-conditioning (HVAC) systems, Grundfos circulation pumps ensure efficient distribution of hot and cold water in buildings.
                         </p>
@@ -495,7 +502,7 @@
                         <div class="product-card-icon">
                             <i class="fas fa-arrow-down"></i>
                         </div>
-                        <h4 class="product-card-title">Submersible Pumps</h4>
+                        <h3 class="product-card-title">Submersible Pumps</h3>
                         <p class="product-card-text">
                             Designed to be fully submerged in water, Grundfos submersible pumps are used for a variety of applications, including borehole water supply, irrigation, and groundwater extraction.
                         </p>
@@ -507,7 +514,7 @@
                         <div class="product-card-icon">
                             <i class="fas fa-sliders-h"></i>
                         </div>
-                        <h4 class="product-card-title">End Suction Pumps</h4>
+                        <h3 class="product-card-title">End Suction Pumps</h3>
                         <p class="product-card-text">
                             Versatile and reliable, Grundfos end-suction pumps are used for water supply, industrial pressure boosting, water transfer, HVAC, and irrigation.
                         </p>
@@ -519,7 +526,7 @@
                         <div class="product-card-icon">
                             <i class="fas fa-home"></i>
                         </div>
-                        <h4 class="product-card-title">Domestic Pumps</h4>
+                        <h3 class="product-card-title">Domestic Pumps</h3>
                         <p class="product-card-text">
                             Grundfos domestic pumps provide reliable and efficient water supply solutions for homes, including pressure boosting, wastewater removal, and hot water circulation.
                         </p>
@@ -531,7 +538,7 @@
                         <div class="product-card-icon">
                             <i class="fas fa-layer-group"></i>
                         </div>
-                        <h4 class="product-card-title">Vertical Multi Stage Pumps</h4>
+                        <h3 class="product-card-title">Vertical Multi Stage Pumps</h3>
                         <p class="product-card-text">
                             Grundfos vertical multistage pumps are compact and efficient, suitable for a wide range of applications from water treatment plants to pressure boosting in high-rise buildings.
                         </p>
@@ -557,7 +564,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <h4>Energy Efficiency</h4>
+                        <h3>Energy Efficiency</h3>
                         <p>
                             Grundfos pumps feature IE5 ultra-premium efficiency motors and intelligent controls that reduce energy consumption by up to 60% compared to traditional pumps, meeting ErP 2015 and beyond requirements.
                         </p>
@@ -569,7 +576,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-microchip"></i>
                         </div>
-                        <h4>Smart Technology</h4>
+                        <h3>Smart Technology</h3>
                         <p>
                             Built-in sensors and connectivity options enable remote monitoring, predictive maintenance, and integration with building management systems (BMS) via Modbus, BACnet, and GENIbus protocols.
                         </p>
@@ -581,7 +588,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h4>Corrosion Resistance</h4>
+                        <h3>Corrosion Resistance</h3>
                         <p>
                             Premium materials including AISI 304/316 stainless steel, composite materials, and specialized coatings ensure long-term durability in demanding environments with resistance to aggressive media.
                         </p>
@@ -593,7 +600,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-thermometer-half"></i>
                         </div>
-                        <h4>Wide Operating Range</h4>
+                        <h3>Wide Operating Range</h3>
                         <p>
                             Operating temperature range from -20°C to +120°C depending on model. Maximum working pressure up to 25 bar (362 psi) for industrial applications with flow rates from 0.5 to 2,500 m³/h.
                         </p>
@@ -605,7 +612,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-volume-mute"></i>
                         </div>
-                        <h4>Low Noise Operation</h4>
+                        <h3>Low Noise Operation</h3>
                         <p>
                             Advanced hydraulic design and vibration dampening technology ensure quiet operation below 45 dB(A) for residential applications, making them ideal for noise-sensitive environments.
                         </p>
@@ -617,7 +624,7 @@
                         <div class="feature-icon">
                             <i class="fas fa-tools"></i>
                         </div>
-                        <h4>Easy Maintenance</h4>
+                        <h3>Easy Maintenance</h3>
                         <p>
                             Modular design with cartridge seals, plug-and-pump motors, and standardized components allow for quick servicing. Self-priming capabilities and dry-run protection minimize maintenance needs.
                         </p>
@@ -648,7 +655,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>SCALA2 Booster Pump</h5>
+                            <h3>SCALA2 Booster Pump</h3>
                             <span class="badge bg-primary">Booster System</span>
                         </div>
                     </div>
@@ -664,7 +671,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Multi Stage Centrifugal Pumps</h5>
+                            <h3>Multi Stage Centrifugal Pumps</h3>
                             <span class="badge bg-success">Industrial</span>
                         </div>
                     </div>
@@ -680,7 +687,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Jet Pumps</h5>
+                            <h3>Jet Pumps</h3>
                             <span class="badge bg-info">Water Supply</span>
                         </div>
                     </div>
@@ -696,7 +703,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>Manual High Pressure Pump</h5>
+                            <h3>Manual High Pressure Pump</h3>
                             <span class="badge bg-warning">High Pressure</span>
                         </div>
                     </div>
@@ -712,7 +719,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>CM Series Pump</h5>
+                            <h3>CM Series Pump</h3>
                             <span class="badge bg-secondary">Horizontal</span>
                         </div>
                     </div>
@@ -728,7 +735,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>CR Series Pump</h5>
+                            <h3>CR Series Pump</h3>
                             <span class="badge bg-dark">Vertical</span>
                         </div>
                     </div>
@@ -744,7 +751,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>UPS Series Circulator Pump</h5>
+                            <h3>UPS Series Circulator Pump</h3>
                             <span class="badge bg-danger">Circulator</span>
                         </div>
                     </div>
@@ -760,7 +767,7 @@
                                  loading="lazy">
                         </div>
                         <div class="product-gallery-info">
-                            <h5>SCALA1 Booster Pump</h5>
+                            <h3>SCALA1 Booster Pump</h3>
                             <span class="badge bg-primary">Booster System</span>
                         </div>
                     </div>
@@ -794,7 +801,7 @@
                         <div class="advantage-icon">
                             <i class="fas fa-leaf"></i>
                         </div>
-                        <h5>Energy Efficiency</h5>
+                        <h3>Energy Efficiency</h3>
                         <p>Advanced technology reduces energy consumption and operating costs while meeting demanding environmental regulations.</p>
                     </div>
                 </div>
@@ -804,7 +811,7 @@
                         <div class="advantage-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h5>Reliability & Durability</h5>
+                        <h3>Reliability & Durability</h3>
                         <p>Built to withstand demanding conditions with minimal maintenance and exceptional service life across all applications.</p>
                     </div>
                 </div>
@@ -814,7 +821,7 @@
                         <div class="advantage-icon">
                             <i class="fas fa-microchip"></i>
                         </div>
-                        <h5>Smart Technology</h5>
+                        <h3>Smart Technology</h3>
                         <p>Digital controls, remote monitoring, and intelligent features optimize performance and enable predictive maintenance.</p>
                     </div>
                 </div>
@@ -824,7 +831,7 @@
                         <div class="advantage-icon">
                             <i class="fas fa-wrench"></i>
                         </div>
-                        <h5>Easy Installation</h5>
+                        <h3>Easy Installation</h3>
                         <p>Compact designs and intuitive interfaces make installation and commissioning fast and straightforward for professionals.</p>
                     </div>
                 </div>
@@ -834,7 +841,7 @@
                         <div class="advantage-icon">
                             <i class="fas fa-headset"></i>
                         </div>
-                        <h5>Expert Support</h5>
+                        <h3>Expert Support</h3>
                         <p>Comprehensive technical support, training, and a global network of authorized service partners ensure customer success.</p>
                     </div>
                 </div>
@@ -844,7 +851,7 @@
                         <div class="advantage-icon">
                             <i class="fas fa-globe"></i>
                         </div>
-                        <h5>Global Availability</h5>
+                        <h3>Global Availability</h3>
                         <p>Available worldwide with local expertise, ensuring rapid delivery, support, and spare parts availability in every region.</p>
                     </div>
                 </div>
@@ -893,7 +900,7 @@
                     <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
                             <a class="footer-logo" href="index.html">
-                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
                             </a>
                             <p class="footer-about-text">
                                 Authorized distributor of Grundfos water pumps in UAE. Providing authentic products and comprehensive technical support for all your pumping needs.
@@ -909,7 +916,7 @@
                     
                     <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Quick Links</h4>
+                            <h3 class="footer-title">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="products-water-pumps.html">Water Pumps</a></li>
@@ -922,7 +929,7 @@
                     
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Our Services</h4>
+                            <h3 class="footer-title">Our Services</h3>
                             <ul class="footer-links">
                                 <li><a href="services.html">Product Supply & Distribution</a></li>
                                 <li><a href="services.html">Delivery Services</a></li>
@@ -935,7 +942,7 @@
                     
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Contact Info</h4>
+                            <h3 class="footer-title">Contact Info</h3>
                             <ul class="footer-contact">
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>

@@ -24,6 +24,13 @@
     <link rel="apple-touch-icon" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     <link rel="shortcut icon" type="image/png" href="assets/images/Logos/Aquasafe_Short_Logo.png">
     
+    <!-- DNS prefetch + preconnect for CDN performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" as="image" href="assets/images/Logos/Aqusafe_logo.png" fetchpriority="high">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -138,7 +145,7 @@
     <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -342,7 +349,7 @@
                         <div class="spec-icon">
                             <i class="fas fa-water"></i>
                         </div>
-                        <h4 class="spec-title">Drainage Piping Systems</h4>
+                        <h3 class="spec-title">Drainage Piping Systems</h3>
                         <p class="spec-text">Complete drainage solutions with high-quality PVC and PP-R systems.</p>
                     </div>
                 </div>
@@ -351,7 +358,7 @@
                         <div class="spec-icon">
                             <i class="fas fa-tint"></i>
                         </div>
-                        <h4 class="spec-title">Water Pump Solutions</h4>
+                        <h3 class="spec-title">Water Pump Solutions</h3>
                         <p class="spec-text">Premium water pump systems from leading brands like Grundfos and Davey.</p>
                     </div>
                 </div>
@@ -360,7 +367,7 @@
                         <div class="spec-icon">
                             <i class="fas fa-building"></i>
                         </div>
-                        <h4 class="spec-title">Building Materials</h4>
+                        <h3 class="spec-title">Building Materials</h3>
                         <p class="spec-text">Comprehensive range of MEP materials for construction projects.</p>
                     </div>
                 </div>
@@ -369,7 +376,7 @@
                         <div class="spec-icon">
                             <i class="fas fa-industry"></i>
                         </div>
-                        <h4 class="spec-title">Industrial Products</h4>
+                        <h3 class="spec-title">Industrial Products</h3>
                         <p class="spec-text">Industrial-grade products including manhole covers and fittings.</p>
                     </div>
                 </div>
@@ -396,7 +403,7 @@
                         <div class="team-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h4 class="team-title">Dedication</h4>
+                        <h3 class="team-title">Dedication</h3>
                         <p class="team-text">
                             Dedicated sales team for Projects and wholesalers to assist end-users, 
                             developers, contractors and traders with personalized service.
@@ -408,7 +415,7 @@
                         <div class="team-icon">
                             <i class="fas fa-user-graduate"></i>
                         </div>
-                        <h4 class="team-title">Qualified</h4>
+                        <h3 class="team-title">Qualified</h3>
                         <p class="team-text">
                             Qualified technical team to assist consultants and designers with 
                             expert knowledge and professional guidance.
@@ -420,7 +427,7 @@
                         <div class="team-icon">
                             <i class="fas fa-headset"></i>
                         </div>
-                        <h4 class="team-title">Client Support</h4>
+                        <h3 class="team-title">Client Support</h3>
                         <p class="team-text">
                             Logistics teams to assist manufacturers as well as customers with 
                             timely delivery and comprehensive support.
@@ -476,7 +483,7 @@
                     <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
                             <a class="footer-logo" href="index.html">
-                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo">
+                                <img src="assets/images/Logos/Aqusafe_logo.png" alt="Aquasafe Trading Logo" class="brand-logo" width="163" height="54" fetchpriority="high">
                             </a>
                             <p class="footer-about-text">
                                 Aquasafe Trading is the leading company supplying specialized MEP materials 
@@ -495,7 +502,7 @@
                     <!-- Footer Links -->
                     <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Quick Links</h4>
+                            <h3 class="footer-title">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About Us</a></li>
@@ -511,7 +518,7 @@
                     <!-- Footer Services -->
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Our Services</h4>
+                            <h3 class="footer-title">Our Services</h3>
                             <ul class="footer-links">
                                 <li><a href="services.html">Product Supply & Distribution</a></li>
                                 <li><a href="services.html">Delivery Services</a></li>
@@ -525,7 +532,7 @@
                     <!-- Footer Contact -->
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
-                            <h4 class="footer-title">Contact Info</h4>
+                            <h3 class="footer-title">Contact Info</h3>
                             <ul class="footer-contact">
                                 <li>
                                     <i class="fas fa-map-marker-alt"></i>
