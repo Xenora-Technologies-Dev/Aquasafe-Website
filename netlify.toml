@@ -2,6 +2,11 @@
 # Netlify configuration (root level)
 # ---------------------------------------------------------------------------
 
+[[redirects]]
+  from = "/brand-ariston.html"
+  to = "/brand-rheem.html"
+  status = 301
+
 [build]
   # Install dependencies from the backend package.json before deploying
   command   = "cd Aquasafe_Backend && npm install"
@@ -51,6 +56,12 @@
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+
+# Chatbot knowledge base updates frequently – avoid long immutable cache
+[[headers]]
+  for = "/assets/chatbot/chatbot.js"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
 
 # ---------------------------------------------------------------------------
 # Compression

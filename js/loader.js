@@ -6,35 +6,29 @@
 (function() {
     'use strict';
     
-    // Cache DOM elements
     const loader = document.getElementById('page-loader');
     const progressBar = document.querySelector('.loader-progress-bar');
     const loaderText = document.querySelector('.loader-text');
     
-    // State management
     let isHiding = false;
     let progress = 0;
     let progressInterval = null;
     let textInterval = null;
     
-    // Ensure body has loading class immediately
     document.body.classList.add('loading');
     
-    // Loading text animation - reduced frequency to prevent excessive repaints
     const loadingTexts = ['LOADING', 'INITIALIZING', 'ALMOST READY'];
     let textIndex = 0;
-    let lastTextUpdate = 0;
     
     textInterval = setInterval(() => {
         if (loaderText && !isHiding) {
             textIndex = (textIndex + 1) % loadingTexts.length;
             loaderText.textContent = loadingTexts[textIndex];
         }
-    }, 1200); // Increased from 800ms to reduce repaints
+    }, 1200);
     
-    // Smooth progress animation using requestAnimationFrame for better performance
     let startTime = Date.now();
-    const progressDuration = 2000; // 2 second animation to 85%
+    const progressDuration = 2000;
     
     function animateProgress() {
         if (progress < 85 && !isHiding) {
@@ -52,25 +46,42 @@
         }
     }
     
-    // Start progress animation
     progressInterval = requestAnimationFrame(animateProgress);
     
+    function clearProgressAnimation() {
+        if (progressInterval !== null) {
+            cancelAnimationFrame(progressInterval);
+            progressInterval = null;
+        }
+        clearInterval(textInterval);
+    }
+    
     /**
-     * Hide the loader and show page content
+     * Immediately hide loader and restore page (used on back/forward navigation)
+     */
+    function forceHideLoader() {
+        isHiding = true;
+        clearProgressAnimation();
+        
+        if (loader) {
+            loader.style.display = 'none';
+            loader.classList.add('fade-out', 'hidden');
+            loader.style.opacity = '';
+            loader.style.visibility = '';
+        }
+        
+        document.body.classList.remove('loading');
+        document.body.style.overflow = '';
+    }
+    
+    /**
+     * Hide the loader with animation after initial page load
      */
     function hideLoader() {
         if (isHiding) return;
         isHiding = true;
+        clearProgressAnimation();
         
-        // Clear intervals and animation frames
-        if (typeof progressInterval === 'number') {
-            cancelAnimationFrame(progressInterval);
-        } else {
-            clearInterval(progressInterval);
-        }
-        clearInterval(textInterval);
-        
-        // Complete progress bar
         if (progressBar) {
             progressBar.style.transition = 'width 0.3s ease-out';
             progressBar.style.width = '100%';
@@ -80,37 +91,26 @@
             loaderText.textContent = 'WELCOME';
         }
         
-        // Hide loader after brief pause
         setTimeout(() => {
             if (loader) {
                 loader.classList.add('fade-out');
                 
-                // After fade animation completes
                 setTimeout(() => {
                     loader.style.display = 'none';
                     loader.classList.add('hidden');
-                    
-                    // Remove loading class and show content
                     document.body.classList.remove('loading');
                     document.body.style.overflow = '';
-                    
-                    // Dispatch event for main.js
                     window.dispatchEvent(new CustomEvent('loaderComplete'));
-                    
-                    // Force repaint
                     void document.body.offsetHeight;
                 }, 400);
             }
         }, 400);
     }
     
-    // Primary trigger: window.load
     window.addEventListener('load', function() {
-        // Small delay to ensure styles are applied
         setTimeout(hideLoader, 100);
     });
     
-    // Secondary trigger: DOMContentLoaded (with delay)
     document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             if (!isHiding && document.body.classList.contains('loading')) {
@@ -119,33 +119,48 @@
         }, 1500);
     });
     
-    // Failsafe: maximum loading time
     setTimeout(() => {
         if (!isHiding) {
-            console.warn('Loader failsafe triggered');
             hideLoader();
         }
     }, 5000);
     
-    // Page transitions for internal navigation
+    /* Fix: browser back/forward restores page from bfcache with loader still visible */
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            forceHideLoader();
+        }
+    });
+    
+    /* Fix: reset loader state before page enters bfcache (prevents stuck loader on back) */
+    window.addEventListener('pagehide', function() {
+        if (loader) {
+            loader.style.display = 'none';
+            loader.classList.add('hidden');
+        }
+        document.body.classList.remove('loading');
+        isHiding = true;
+    });
+    
+    /* Page transitions for internal navigation */
     document.addEventListener('DOMContentLoaded', function() {
         const internalLinks = document.querySelectorAll('a[href$=".html"]:not([target="_blank"])');
         
         internalLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                const currentPage = window.location.pathname.split('/').pop();
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
                 
-                // Skip if same page or external
-                if (href === currentPage || href.startsWith('http') || href.startsWith('//')) {
+                if (!href || href === currentPage || href.startsWith('http') || href.startsWith('//')) {
                     return;
                 }
                 
                 e.preventDefault();
                 
-                // Show loader for page transition
                 if (loader) {
                     isHiding = false;
+                    progress = 0;
+                    startTime = Date.now();
                     loader.style.display = 'flex';
                     loader.classList.remove('fade-out', 'hidden');
                     loader.style.opacity = '1';
@@ -158,6 +173,8 @@
                     if (loaderText) {
                         loaderText.textContent = 'LOADING';
                     }
+                    
+                    progressInterval = requestAnimationFrame(animateProgress);
                 }
                 
                 document.body.classList.add('loading');

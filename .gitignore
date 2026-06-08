@@ -1,0 +1,7 @@
+# Local Netlify folder
+.netlify
+
+# Environment variables — never commit secrets
+.env
+.env.local
+Aquasafe_Backend/.env

@@ -1,5 +1,5 @@
 /* ============================================================
-   AQUA BOT v3 – Intelligent Chatbot
+   AQUA BOT v5 – Intelligent Chatbot (Rheem partnership)
    AQUASAFE Building Material LLC
    Pure vanilla JS – no dependencies
    ============================================================ */
@@ -44,7 +44,7 @@
     var TOOLTIPS = [
         'Hello 👋 I\'m Aqua Bot!',
         'Need reliable MEP solutions?',
-        'Explore Grundfos, Polymelt & more!',
+        'Explore Grundfos, Rheem & more!',
         'Click to chat with me 💬'
     ];
 
@@ -72,7 +72,7 @@
         { label: '💧 Water Pumps',       action: 'prod_pumps' },
         { label: '🔵 Drainage Systems',  action: 'prod_drainage' },
         { label: '🟢 Plumbing Systems',  action: 'prod_plumbing' },
-        { label: '🔴 Water Heaters',     action: 'prod_heater' },
+        { label: '🔴 Water Heaters (Rheem)', action: 'prod_heater' },
         { label: '⚙️ Valves & Fittings', action: 'prod_valves' },
         { label: '🟤 Manhole Covers',    action: 'prod_manhole' },
         { label: '📋 View All Products', type: 'link', url: 'products.html' }
@@ -82,7 +82,7 @@
         { label: '🇩🇰 Grundfos – Water Pumps',       action: 'brand_grundfos' },
         { label: '🇶🇦 Hepworth – Drainage',           action: 'brand_hepworth' },
         { label: '🇩🇪 Polymelt – Plumbing',           action: 'brand_polymelt' },
-        { label: '🇮🇹 Ariston – Water Heaters',       action: 'brand_ariston' },
+        { label: '🇺🇸 Rheem – Water Heaters',         action: 'brand_rheem' },
         { label: '⚙️ Vybik – Valves',                 action: 'brand_vybik' },
         { label: '🏭 Allied Iron – Manhole Covers',   action: 'brand_allied' }
     ];
@@ -135,13 +135,18 @@
         },
 
         prod_heater: {
-            text: '<strong>Water Heaters – Ariston</strong> 🇮🇹<br><br>' +
-                'Italian innovation in water heating technology:<br><br>' +
-                '• Electric Storage Heaters (Andris, BLU R, PRO1 R)<br>• Heat Pumps (Nuos Plus, Nuos Evo A+)<br>• Solar Water Heaters (Kairos Thermo)<br>• Instant Heaters (Aures Multi)<br><br>' +
-                'Energy-efficient solutions for homes and commercial buildings.',
+            text: '<strong>Water Heaters – Rheem</strong> 🇺🇸<br><br>' +
+                'Aquasafe partners with <strong>Rheem</strong>, a global water heating leader since 1925.<br><br>' +
+                '<strong>Fury® 82V Electric Storage</strong> (30–120 gallon):<br>' +
+                '• Resistored heating elements & premium anode rod<br>' +
+                '• Exclusive Rheemglas tank lining<br>' +
+                '• R-Foam polyurethane insulation<br>' +
+                '• EverKleen™ self-cleaning technology<br>' +
+                '• 21 GPH recovery at 90°F rise<br><br>' +
+                'Models: 82V30, 82V40, 82V52, 82V66, 82V80, 82V120 — for villas, apartments, hotels & commercial buildings.',
             buttons: [
-                { label: '🔗 View Heaters', type: 'link', url: 'products-water-heater.html' },
-                { label: '🏷 Ariston Details', type: 'link', url: 'brand-ariston.html' },
+                { label: '🔗 View Water Heaters', type: 'link', url: 'products-water-heater.html' },
+                { label: '🏷 Rheem Brand Page', type: 'link', url: 'brand-rheem.html' },
                 { label: '💰 Get Quote', action: 'quotation' },
                 { label: '🔙 Products', action: 'products' }
             ]
@@ -218,13 +223,16 @@
             ]
         },
 
-        brand_ariston: {
-            text: '<strong>Ariston</strong> 🇮🇹 – Sustainable Comfort for Everyone<br><br>' +
-                'Italian excellence in water heating — compact to commercial scale.<br><br>' +
-                '<strong>Range:</strong> Andris, BLU R, PRO1 R, Ari Top, Nuos Heat Pumps, Kairos Solar, Aures Instant.<br><br>' +
-                'Energy-efficient, smart temp control, global support network.',
+        brand_rheem: {
+            text: '<strong>Rheem</strong> 🇺🇸 – Integrated Home Comfort<br><br>' +
+                'Global water heating leader since 1925 — tank, tankless, gas & heat-pump solutions.<br><br>' +
+                '<strong>Range:</strong> Fury® 82V Electric Storage (30–120 gal)<br>' +
+                '• Resistored elements & Rheemglas lining<br>' +
+                '• R-Foam insulation & EverKleen™ self-cleaning<br>' +
+                '• 21 GPH recovery · 150 PSI working pressure<br><br>' +
+                'Supplied by Aquasafe Trading across UAE.',
             buttons: [
-                { label: '🔗 Visit Ariston Page', type: 'link', url: 'brand-ariston.html' },
+                { label: '🔗 Visit Rheem Page', type: 'link', url: 'brand-rheem.html' },
                 { label: '🔴 Water Heaters', action: 'prod_heater' },
                 { label: '💰 Get Quote', action: 'quotation' },
                 { label: '🔙 All Brands', action: 'brands' }
@@ -352,7 +360,7 @@
         proj_commercial: {
             text: '<strong>Commercial & Industrial Projects</strong> 🏢<br><br>' +
                 'We supply efficient MEP systems for malls, offices, factories & infrastructure:<br><br>' +
-                '• High-capacity Grundfos pumps<br>• Industrial-grade Hepworth drainage<br>• Polymelt piping for HVAC<br>• Commercial Ariston water heaters',
+                '• High-capacity Grundfos pumps<br>• Industrial-grade Hepworth drainage<br>• Polymelt piping for HVAC<br>• Commercial Rheem water heaters',
             buttons: [
                 { label: '🔧 Explore Products', action: 'products' },
                 { label: '🤝 Project Partnership', action: 'svc_partner' },
@@ -364,7 +372,7 @@
         proj_residential: {
             text: '<strong>Residential Projects</strong> 🏠<br><br>' +
                 'Reliable systems for villas, apartments & housing developments:<br><br>' +
-                '• Polymelt PP-R piping for potable water<br>• Ariston domestic water heaters<br>• Grundfos home booster pumps<br>• Vybik valves & fittings',
+                '• Polymelt PP-R piping for potable water<br>• Rheem domestic water heaters<br>• Grundfos home booster pumps<br>• Vybik valves & fittings',
             buttons: [
                 { label: '🔧 Explore Products', action: 'products' },
                 { label: '🧑‍💼 Consultation', action: 'svc_consult' },
@@ -598,6 +606,11 @@
     }
 
     function handleAction(key, label) {
+        /* Legacy action alias – any old Ariston reference routes to Rheem */
+        if (key === 'brand_ariston') {
+            key = 'brand_rheem';
+        }
+
         var data = RESPONSES[key];
         if (!data) return;
 
