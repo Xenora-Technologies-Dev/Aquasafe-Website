@@ -1200,8 +1200,8 @@
         popup.classList.remove('active');
 
         function hideChatbot() {
-            var toggle = document.querySelector('.aquabot-toggle');
-            var tooltip = document.querySelector('.aquabot-tooltip');
+            var toggle = document.getElementById('chat-toggle');
+            var tooltip = document.getElementById('chat-tooltip');
             var wrapper = document.querySelector('.whatsapp-float-wrapper');
             if (toggle) toggle.style.display = 'none';
             if (tooltip) tooltip.style.display = 'none';
@@ -1209,8 +1209,8 @@
         }
 
         function showChatbot() {
-            var toggle = document.querySelector('.aquabot-toggle');
-            var tooltip = document.querySelector('.aquabot-tooltip');
+            var toggle = document.getElementById('chat-toggle');
+            var tooltip = document.getElementById('chat-tooltip');
             var wrapper = document.querySelector('.whatsapp-float-wrapper');
             if (toggle) toggle.style.display = '';
             if (tooltip) tooltip.style.display = '';
@@ -1253,15 +1253,17 @@
             if (e.key === 'Escape') closePopup();
         });
 
-        // Close WhatsApp popup when chatbot opens (chatbot is dynamically added)
+        // Close WhatsApp popup when chatbot opens (widget is injected by embed.js)
         function hookChatbotToggle() {
-            var chatbotToggle = document.querySelector('.aquabot-toggle');
-            if (chatbotToggle && !chatbotToggle._waHooked) {
-                chatbotToggle._waHooked = true;
-                chatbotToggle.addEventListener('click', function() {
-                    closePopup();
-                });
-            }
+            ['chat-toggle', 'chat-tooltip'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el && !el._waHooked) {
+                    el._waHooked = true;
+                    el.addEventListener('click', function() {
+                        closePopup();
+                    });
+                }
+            });
         }
         hookChatbotToggle();
         setTimeout(hookChatbotToggle, 1000);

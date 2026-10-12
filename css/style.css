@@ -6956,6 +6956,42 @@ textarea.form-control {
         bottom: 56px;
     }
 }
+
+/* Aquasafe AI chatbot — keep it above WhatsApp and back-to-top.
+   embed.js injects its own stylesheet, so these overrides use !important. */
+#chat-toggle {
+    bottom: 155px !important;
+    right: 30px !important;
+}
+
+#chat-tooltip {
+    bottom: 235px !important;
+    right: 30px !important;
+}
+
+@media (max-width: 767.98px) {
+    #chat-toggle {
+        bottom: 140px !important;
+        right: 18px !important;
+    }
+
+    #chat-tooltip {
+        bottom: 220px !important;
+        right: 18px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #chat-toggle {
+        bottom: 130px !important;
+        right: 16px !important;
+    }
+
+    #chat-tooltip {
+        bottom: 210px !important;
+        right: 16px !important;
+    }
+}
 /* ==================== Product Gallery Styles ==================== */
 .product-gallery-card {
     background: #fff;
@@ -7770,6 +7806,7 @@ textarea:focus-visible,
     .hero-scroll-indicator,
     .back-to-top,
     .whatsapp-float-wrapper,
+    #ryx-chat-container,
     #page-loader,
     .footer-social,
     .cta-section {
